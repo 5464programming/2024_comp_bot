@@ -8,6 +8,7 @@ import com.revrobotics.CANSparkLowLevel.MotorType;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkPIDController;
+import com.revrobotics.CANSparkBase.IdleMode;
 
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
@@ -45,6 +46,9 @@ public class SwerveModule {
         m_drivingSparkMax.restoreFactoryDefaults();
         m_turningSparkMax.restoreFactoryDefaults();
 
+        m_drivingSparkMax.setIdleMode(IdleMode.kCoast);
+        m_turningSparkMax.setIdleMode(IdleMode.kCoast);
+        
         // Setup encoders and PID controllers for the driving and turning SPARKS MAX.
         m_drivingEncoder = m_drivingSparkMax.getEncoder();
         m_turningEncoder = m_turningSparkMax.getEncoder();
@@ -209,6 +213,11 @@ public class SwerveModule {
 
     public SwerveModuleState getDesiredState() {
         return m_desiredState;
+    }
+
+    public void setBrakeMode(){
+        m_turningSparkMax.setIdleMode(IdleMode.kBrake); 
+        m_drivingSparkMax.setIdleMode(IdleMode.kBrake);       
     }
 
 }

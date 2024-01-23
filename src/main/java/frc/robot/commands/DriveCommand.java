@@ -33,9 +33,9 @@ public class DriveCommand extends EntechCommand {
         // double xRaw = joystick.getX();
         // double yRaw = joystick.getY();
         // double rotRaw = joystick.getZ();
-        double xRaw = driveController.getRawAxis(0)/2;
-        double yRaw = driveController.getRawAxis(1)/2;
-        double rotRaw = -driveController.getRawAxis(4)/2;
+        double xRaw = driveController.getRawAxis(0);
+        double yRaw = driveController.getRawAxis(1);
+        double rotRaw = -driveController.getRawAxis(4);
 
         double xConstrained = MathUtil.applyDeadband(MathUtil.clamp(xRaw, -MAX_SPEED_PERCENT, MAX_SPEED_PERCENT),
                 RobotConstants.Ports.CONTROLLER.JOYSTICK_AXIS_THRESHOLD);
@@ -64,10 +64,14 @@ public class DriveCommand extends EntechCommand {
     @Override
     public void initialize() {
         drive.drive(0, 0, 0, true, true);
+
+        drive.brakeMode();
+
     }
 
     @Override
     public boolean isFinished() {
+
         return false;
     }
 

@@ -1,5 +1,5 @@
 package frc.robot.subsystems;
 
-public class PneumaticsSubsystem {
+public class ArmSubsystem {
     
 }

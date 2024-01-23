@@ -6,6 +6,7 @@ import entech.util.EntechJoystick;
 import frc.robot.CommandFactory;
 import frc.robot.RobotConstants;
 import frc.robot.SubsystemManager;
+import frc.robot.commands.ShootCommand;
 //import frc.robot.commands.AmpRPMCommand;
 import frc.robot.commands.DriveCommand;
 import frc.robot.commands.GyroReset;
@@ -32,8 +33,9 @@ public final class OperatorInterface {
         driveController.button(1).whileTrue(new TwistCommand());
         driveController.button(2).onTrue(new GyroReset(subsystemManager.getDriveSubsystem()));
         driveController.button(3).onTrue(new XCommand());
-        //driveController.button(4).onTrue(new AmpRPMCommand());
-        //driveController.button(5).onTrue(new SpeakerRPMCommand());
+        driveController.button(4).whileTrue(new ShootCommand(subsystemManager.getShooterSubsystem(), "amp"));
+        driveController.button(5).whileTrue(new ShootCommand(subsystemManager.getShooterSubsystem(), "speaker"));
+
 
         // driveJoystick.WhilePressed(1, new TwistCommand()); // used for actual joystick
         // driveJoystick.WhenPressed(11, new GyroReset(subsystemManager.getDriveSubsystem()));

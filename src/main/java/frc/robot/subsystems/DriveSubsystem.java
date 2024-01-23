@@ -299,6 +299,13 @@ public class DriveSubsystem extends EntechSubsystem {
         }
     }
 
+    public void brakeMode(){
+        frontLeft.setBrakeMode();
+        frontRight.setBrakeMode();
+        rearLeft.setBrakeMode();
+        rearRight.setBrakeMode();
+    }
+
     // public void zeroEncoders(){
     //     frontLeft.zeroEncoder();
     // }
