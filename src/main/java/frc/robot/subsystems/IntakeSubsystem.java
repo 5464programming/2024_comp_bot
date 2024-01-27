@@ -3,7 +3,10 @@ package frc.robot.subsystems;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 
+import edu.wpi.first.wpilibj.DigitalInput;
+
 public class IntakeSubsystem {
-    CANSparkMax takeLeft = new CANSparkMax(0, MotorType.kBrushless);
-    CANSparkMax takeRight = new CANSparkMax(1, MotorType.kBrushless);
+    CANSparkMax intake = new CANSparkMax(0, MotorType.kBrushless);
+
+    DigitalInput detectnote = new DigitalInput(0);
 }
