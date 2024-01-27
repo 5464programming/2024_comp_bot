@@ -57,7 +57,6 @@ public class VisionSubsystem {
                 if(id == 1){
                     tag1x = targets.get(i).getYaw();
                     tag1y = targets.get(i).getPitch();
-
                 }
             }
             PhotonTrackedTarget bestTarget = bestResult.getBestTarget();
@@ -65,17 +64,12 @@ public class VisionSubsystem {
             bestY = bestTarget.getPitch();
         }
     }
-
     public void setPipelineIndex(int pipelineIndex){
         Camera.setPipelineIndex(pipelineIndex);
     }
-
     public void DisplayStats(){
         SmartDashboard.putBoolean("Camera Target Detection", cameraTargets);
         SmartDashboard.putNumber("Camera X", cameraX);
         SmartDashboard.putNumber("Camera Y", cameraY);
-
     }
-
-
 }
