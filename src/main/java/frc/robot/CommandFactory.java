@@ -18,9 +18,24 @@ public class CommandFactory {
 
     public Command getAutoCommand() {
         SequentialCommandGroup auto = new SequentialCommandGroup();
+        // reset the gyro
         auto.addCommands(new GyroReset(driveSubsystem));
+        // wait for two seconds
         auto.addCommands(new WaitCommand(2));
-        auto.addCommands(new PathPlannerAuto("Line"));
+        // aim and score
+
+        // 
+        auto.addCommands(new PathPlannerAuto("Line1Score"));
+        // wait for 1 year(second)
+      
+
+
+        // run the path named "line"
+        // auto.addCommands(new PathPlannerAuto("Line"));
+
+
+
+
         return auto;
     }
 }
