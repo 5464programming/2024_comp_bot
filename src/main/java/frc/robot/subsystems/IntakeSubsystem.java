@@ -7,17 +7,19 @@ import edu.wpi.first.wpilibj.DigitalInput;
 
 public class IntakeSubsystem {
     CANSparkMax intake = new CANSparkMax(0, MotorType.kBrushless);
-    DigitalInput detectnote = new DigitalInput(0);
+    DigitalInput searchnote = new DigitalInput(0);
 
     private static final boolean ENABLED = true;
 
+    private boolean notedected = false;
+
     public void IntakeRun() {
         if(ENABLED){
-            //TODO: command to move intake
+            notedected = searchnote.get();
+            intake.set(1);
+        if(notedected == true){
+            intake.disable();
         }
-    }
-
-    public void IntakeDetect(){
-            //TODO: command to detect notes in the intake
+        }
     }
 }

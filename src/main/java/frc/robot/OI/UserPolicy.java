@@ -4,6 +4,7 @@ public final class UserPolicy {
     public static boolean twistable = false;
     public static boolean xLocked = false;
     public static boolean shootr = false;
+    public static boolean intaking = false;
 
     private UserPolicy() {
     }
