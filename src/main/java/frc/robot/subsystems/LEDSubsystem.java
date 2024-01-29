@@ -4,6 +4,11 @@ import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj.AddressableLEDBuffer;
 
 public class LEDSubsystem {
+
+    public void SwitchColors() {
+        //TODO: create command to swap between red and blue
+    }
+
     AddressableLED ledstrip = new AddressableLED(0);
     AddressableLEDBuffer ledbuffer = new AddressableLEDBuffer(0);
 

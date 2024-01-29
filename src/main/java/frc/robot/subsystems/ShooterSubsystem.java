@@ -1,20 +1,14 @@
 package frc.robot.subsystems;
 
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkLowLevel.MotorType;
+
 public class ShooterSubsystem {
+    CANSparkMax shootLeft = new CANSparkMax(0, MotorType.kBrushless);
+    CANSparkMax shootRight = new CANSparkMax(1, MotorType.kBrushless);
 
-    private static final boolean ENABLED = true;
-
-    public void SpeakerRPM() {
-        if(ENABLED){
-
-        }
-    }
-
-    public void AmpRPM() {
-        if(ENABLED){
-            
-        }
-
+    public void Shoot() {
+        //TODO: make command to swap between shooter RPMS
     }
 
 }

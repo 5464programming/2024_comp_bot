@@ -20,7 +20,7 @@ public class ShootCommand extends EntechCommand {
     @Override
     public void execute(){
         if (UserPolicy.shootr) {
-            shoot.AmpRPM();
+            shoot.Shoot();
             return;
         }
     }

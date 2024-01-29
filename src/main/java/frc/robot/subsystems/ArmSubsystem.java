@@ -12,4 +12,12 @@ public class ArmSubsystem {
     DigitalInput limitRup = new DigitalInput(2);
     DigitalInput limitLdown = new DigitalInput(3);
     DigitalInput limitRdown = new DigitalInput(4);
+
+    private static final boolean ENABLED = true;
+
+    public void MoveArm() {
+        if(ENABLED){
+            //TODO: command to move arms, arms seperate, and an auto command based off the navx to balance the robot on the chains 
+        }
+    }
 }
