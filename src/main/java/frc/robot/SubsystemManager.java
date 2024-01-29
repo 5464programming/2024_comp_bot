@@ -7,6 +7,7 @@ package frc.robot;
 import frc.robot.subsystems.ArmSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
+import frc.robot.subsystems.LEDSubsystem;
 import frc.robot.subsystems.ShooterSubsystem;
 import frc.robot.subsystems.VisionSubsystem;
 
@@ -19,6 +20,7 @@ public class SubsystemManager {
     private final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
     private final ArmSubsystem armSubsystem = new ArmSubsystem();
     private final VisionSubsystem visionSubsystem = new VisionSubsystem();
+    private final LEDSubsystem ledSubsystem = new LEDSubsystem();
 
     public SubsystemManager() {
         driveSubsystem.initialize();
@@ -40,7 +42,11 @@ public class SubsystemManager {
         return armSubsystem;
     }
 
-    public VisionSubsystem gVisionSubsystem(){
+    public VisionSubsystem getVisionSubsystem(){
         return visionSubsystem;
+    }
+
+    public LEDSubsystem getLedSubsystem(){
+        return ledSubsystem;
     }
 }
