@@ -8,6 +8,10 @@ public class ShooterSubsystem {
     CANSparkMax shootRight = new CANSparkMax(1, MotorType.kBrushless);
 
     public void Shoot() {
+        shootLeft.getEncoder();
+        shootRight.getEncoder();
+
+        
         //TODO: make command to swap between shooter RPMS
     }
 
