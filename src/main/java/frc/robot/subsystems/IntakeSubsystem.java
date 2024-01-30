@@ -9,17 +9,21 @@ public class IntakeSubsystem {
     CANSparkMax intake = new CANSparkMax(0, MotorType.kBrushless);
     DigitalInput searchnote = new DigitalInput(0);
 
-    private static final boolean ENABLED = true;
-
     private boolean notedected = false;
 
-    public void IntakeRun() {
-        if(ENABLED){
+    public void IntakeRun(String target) {
+        if(target == "feed"){
             notedected = searchnote.get();
             intake.set(1);
         if(notedected == true){
             intake.disable();
         }
+        }
+        else if(target == "assistShoot"){
+            intake.set(1);
+        }
+        else{
+            intake.disable();
         }
     }
 }

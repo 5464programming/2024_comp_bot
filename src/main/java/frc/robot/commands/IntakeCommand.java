@@ -6,8 +6,9 @@ import frc.robot.subsystems.IntakeSubsystem;
 
 public class IntakeCommand extends EntechCommand{
         private final IntakeSubsystem intake;
+        private String target;
 
-    public IntakeCommand(IntakeSubsystem intake) {
+    public IntakeCommand(IntakeSubsystem intake, String target) {
         this.intake = intake;
     }
 
@@ -19,7 +20,7 @@ public class IntakeCommand extends EntechCommand{
     @Override
     public void execute(){
         if (UserPolicy.intaking) {
-            intake.IntakeRun();
+            intake.IntakeRun(target);
             return;
         }
     }
