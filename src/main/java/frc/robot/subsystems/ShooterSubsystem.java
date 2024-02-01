@@ -6,8 +6,8 @@ import com.revrobotics.SparkPIDController;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 
 public class ShooterSubsystem {
-    CANSparkMax shootTop = new CANSparkMax(0, MotorType.kBrushless);
-    CANSparkMax shootBottom = new CANSparkMax(1, MotorType.kBrushless);
+    CANSparkMax shootTop = new CANSparkMax(6, MotorType.kBrushless);
+    CANSparkMax shootBottom = new CANSparkMax(5, MotorType.kBrushless);
     RelativeEncoder codeTop = shootTop.getEncoder();
     RelativeEncoder codeBottom = shootBottom.getEncoder();
 
