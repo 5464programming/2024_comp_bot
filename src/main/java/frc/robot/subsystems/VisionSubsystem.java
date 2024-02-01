@@ -72,5 +72,5 @@ public class VisionSubsystem {
         SmartDashboard.putNumber("Camera X", cameraX);
         SmartDashboard.putNumber("Camera Y", cameraY);
     }
-    //TODO: detect april tags with this code and be able to use this code for futher sysstems in the commands 
+    //TODO: detect april tags with this code and be able to use this code for futher systems in the commands 
 }

@@ -8,6 +8,7 @@ import frc.robot.RobotConstants;
 import frc.robot.SubsystemManager;
 import frc.robot.commands.ShootCommand;
 import frc.robot.commands.ClimbCommand;
+import frc.robot.commands.ColorCommand;
 //import frc.robot.commands.AmpRPMCommand;
 import frc.robot.commands.DriveCommand;
 import frc.robot.commands.GyroReset;
@@ -52,6 +53,9 @@ public final class OperatorInterface {
 
         secondaryController.axisGreaterThan(1, 0.1).whileTrue(new ClimbCommand(subsystemManager.getClimbSubsystem(), "moveAuto", "AutoUp"));
         secondaryController.axisLessThan(1, -0.1).whileTrue(new ClimbCommand(subsystemManager.getClimbSubsystem(), "moveAuto", "AutoDown"));
+
+        secondaryController.button(7).onTrue(new ColorCommand(subsystemManager.getLedSubsystem(), "red"));
+        secondaryController.button(8).onTrue(new ColorCommand(subsystemManager.getLedSubsystem(), "blue"));
 
         // driveJoystick.WhilePressed(1, new TwistCommand()); // used for actual joystick
         // driveJoystick.WhenPressed(11, new GyroReset(subsystemManager.getDriveSubsystem()));

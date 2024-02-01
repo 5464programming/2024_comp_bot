@@ -6,6 +6,7 @@ public final class UserPolicy {
     public static boolean shootr = false;
     public static boolean intaking = false;
     public static boolean climbing = false;
+    public static boolean colorSelect = false;
 
     private UserPolicy() {
     }

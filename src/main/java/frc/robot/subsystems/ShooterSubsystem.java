@@ -67,8 +67,6 @@ public class ShooterSubsystem {
 
         PIDTop.setReference(SPtop, CANSparkMax.ControlType.kVelocity);
         PIDBottom.setReference(SPBottom, CANSparkMax.ControlType.kVelocity);
-
-        // do PID stuff
         //TODO: make command to swap between shooter RPMS
     }
 
