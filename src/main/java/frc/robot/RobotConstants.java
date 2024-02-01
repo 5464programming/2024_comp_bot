@@ -119,7 +119,7 @@ public final class RobotConstants {
             public static final int FRONT_RIGHT_TURNING = 21;
             public static final int REAR_RIGHT_TURNING = 27;
 
-            public static final int FRONT_LEFT_CANCODER = 11;
+            public static final int FRONT_LEFT_CANCODER = 11 ;
             public static final int REAR_LEFT_CANCODER = 10;
             public static final int FRONT_RIGHT_CANCODER = 12;
             public static final int REAR_RIGHT_CANCODER = 13;
