@@ -16,7 +16,7 @@ public class ClimbSubsystem {
     //TODO: command to move arms, arms seperate, and an auto command based off the navx to balance the robot on the chains 
 
     public void Climb(String target, String direction) {  
-        if(target == "moveSeperate"){
+        if(target.equals("moveSeperate")){
             if(direction == "LeftUp"){
                 leftarm.set(1);
             }

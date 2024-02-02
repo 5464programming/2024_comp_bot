@@ -11,19 +11,16 @@ public class IntakeSubsystem {
 
     private boolean notedected = false;
 
-    public void IntakeRun(String target) {
-        if(target == "feed"){
-            notedected = searchnote.get();
-            intake.set(1);
-        if(notedected == true){
+    public void IntakeFeed(){
+        intake.set(-1);
+        }
+
+    public void Intake(){
+        notedected = searchnote.get();
+        intake.set(1);
+        System.out.println("feed");
+    if(notedected == true){
             intake.disable();
-        }
-        }
-        else if(target == "assistShoot"){
-            intake.set(1);
-        }
-        else{
-            intake.disable();
-        }
+    }    
     }
 }

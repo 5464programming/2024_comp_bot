@@ -4,10 +4,10 @@ import entech.commands.EntechCommand;
 import frc.robot.OI.UserPolicy;
 import frc.robot.subsystems.IntakeSubsystem;
 
-public class IntakeCommand extends EntechCommand{
+public class FeedCommand extends EntechCommand{
         private final IntakeSubsystem intake;
 
-    public IntakeCommand(IntakeSubsystem intake) {
+    public FeedCommand(IntakeSubsystem intake) {
         this.intake = intake;
     }
 
@@ -18,13 +18,9 @@ public class IntakeCommand extends EntechCommand{
 
     @Override
     public void execute(){
-        System.out.print("Intake");
-        if (UserPolicy.intaking) {
-            System.out.println(" CMD");
-            intake.Intake();
+            intake.IntakeFeed();
             return;
         }
-    }
 
     @Override
     public void end(boolean interrupted) {

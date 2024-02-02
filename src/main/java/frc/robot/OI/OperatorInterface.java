@@ -11,6 +11,7 @@ import frc.robot.commands.ClimbCommand;
 import frc.robot.commands.ColorCommand;
 //import frc.robot.commands.AmpRPMCommand;
 import frc.robot.commands.DriveCommand;
+import frc.robot.commands.FeedCommand;
 import frc.robot.commands.GyroReset;
 import frc.robot.commands.IntakeCommand;
 //import frc.robot.commands.SpeakerRPMCommand;
@@ -42,10 +43,10 @@ public final class OperatorInterface {
         driveController.button(1).whileTrue(new ShootCommand(subsystemManager.getShooterSubsystem(), "speaker"));
         driveController.button(2).whileTrue(new ShootCommand(subsystemManager.getShooterSubsystem(), "amp"));
 
-        driveController.axisGreaterThan(2, 0.1).whileTrue(new IntakeCommand(subsystemManager.getIntakeSubsystem(), "feed"));
-        driveController.axisGreaterThan(3, 0.1).whileTrue(new IntakeCommand(subsystemManager.getIntakeSubsystem(), "assistShoot"));
+        driveController.button(6).whileTrue(new IntakeCommand(subsystemManager.getIntakeSubsystem()));
+        driveController.button(5).whileTrue(new FeedCommand(subsystemManager.getIntakeSubsystem()));
 
-        //Secondary controller
+        // //Secondary controller
         secondaryController.button(3).whileTrue(new ClimbCommand(subsystemManager.getClimbSubsystem(), "moveSeperate", "LeftUp"));
         secondaryController.button(1).whileTrue(new ClimbCommand(subsystemManager.getClimbSubsystem(), "moveSeperate", "LeftDown"));
         secondaryController.button(4).whileTrue(new ClimbCommand(subsystemManager.getClimbSubsystem(), "moveSeperate", "RightUp"));
