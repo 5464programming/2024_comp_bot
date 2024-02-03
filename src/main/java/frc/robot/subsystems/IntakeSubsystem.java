@@ -26,7 +26,7 @@ public class IntakeSubsystem extends EntechSubsystem{
 
     public void IntakeFeed(){
         if(UserPolicy.feeding){
-            intake.set(-0.5);
+            intake.set(-1);
         }
         else{
             DisableIntake();
@@ -35,7 +35,7 @@ public class IntakeSubsystem extends EntechSubsystem{
 
     public void IntakeReverse(){
         if(UserPolicy.intakeReverse){
-            intake.set(0.5);
+            intake.set(1);
         }
         else{
             DisableIntake();
@@ -46,7 +46,7 @@ public class IntakeSubsystem extends EntechSubsystem{
         if(UserPolicy.intaking){
             notedected = searchnote.get();
            if(notedected == true){
-            intake.set(-0.5);
+            intake.set(-1);
            } 
            else{
             intake.set(0);

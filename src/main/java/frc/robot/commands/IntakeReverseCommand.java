@@ -19,7 +19,7 @@ public class IntakeReverseCommand extends EntechCommand{
     @Override
     public void execute(){
         if (UserPolicy.intakeReverse) {
-            intake.Intake();
+            intake.IntakeReverse();
             return;
         }
     }
