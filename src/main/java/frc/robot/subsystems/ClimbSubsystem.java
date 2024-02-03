@@ -5,6 +5,7 @@ import com.revrobotics.CANSparkLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import entech.subsystems.EntechSubsystem;
+import frc.robot.OI.UserPolicy;
 
 public class ClimbSubsystem extends EntechSubsystem{
     CANSparkMax leftarm = new CANSparkMax(8, MotorType.kBrushless);
@@ -25,32 +26,65 @@ public class ClimbSubsystem extends EntechSubsystem{
 
     //TODO: command to move arms, arms seperate, and an auto command based off the navx to balance the robot on the chains 
 
-    public void Climb(String target, String direction) {  
-        if(target.equals("moveSeperate")){
-            if(direction == "LeftUp"){
-                leftarm.set(1);
-            }
-            else if(direction == "LeftDown"){
-                leftarm.set(-1);
-            }
-            else if(direction == "RightUp"){
-                rightarm.set(1);
-            }
-            else if(direction == "RightDown"){
-                rightarm.set(-1);
-            }
-        }
-        else if(target == "moveAuto"){
-            if(direction == "AutoUp"){
-                
-            }
-            else if(direction == "AutoDown"){
-
-            }
+    public void LeftUp(){
+        if(UserPolicy.leftUp){
+            leftarm.set(0.5);
         }
         else{
-            leftarm.set(0);
-            rightarm.set(0);
-       }
+            ClimbLeftDisable();
+        }
+    }
+
+    
+    public void LeftDown(){
+        if(UserPolicy.leftDown){
+            leftarm.set(-0.5);
+        }
+        else{
+            ClimbLeftDisable();
+        }
+    }
+
+    
+    public void RightUp(){
+        if(UserPolicy.rightUp){
+            rightarm.set(0.5);
+        }
+        else{
+            ClimbRightDisable();        }
+    }
+    
+    public void RightDown(){
+        if(UserPolicy.rightDown){
+            rightarm.set(-0.5);
+        }
+        else{
+            ClimbRightDisable();        }
+    }
+
+    public void AutoUp(){
+        if(UserPolicy.autoUp){
+        }
+        else{
+            ClimbLeftDisable();
+            ClimbRightDisable();
+        }
+    }
+
+    public void AutoDown(){
+        if(UserPolicy.autoDown){
+        }
+        else{
+            ClimbLeftDisable();
+            ClimbRightDisable();
+        }
+    }
+
+    public void ClimbLeftDisable(){
+        leftarm.set(0);
+    }
+
+    public void ClimbRightDisable(){
+        rightarm.set(0);
     }
 }
