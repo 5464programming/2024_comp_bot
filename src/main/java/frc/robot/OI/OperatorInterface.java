@@ -8,12 +8,13 @@ import frc.robot.RobotConstants;
 import frc.robot.SubsystemManager;
 import frc.robot.commands.AmpShootCommand;
 import frc.robot.commands.ClimbCommand;
-import frc.robot.commands.ColorCommand;
+import frc.robot.commands.BlueCommand;
 //import frc.robot.commands.AmpRPMCommand;
 import frc.robot.commands.DriveCommand;
 import frc.robot.commands.FeedCommand;
 import frc.robot.commands.GyroReset;
 import frc.robot.commands.IntakeCommand;
+import frc.robot.commands.RedCommand;
 import frc.robot.commands.SpeakerShootCommand;
 //import frc.robot.commands.SpeakerRPMCommand;
 import frc.robot.commands.XCommand;
@@ -56,8 +57,8 @@ public final class OperatorInterface {
         secondaryController.axisGreaterThan(1, 0.1).whileTrue(new ClimbCommand(subsystemManager.getClimbSubsystem(), "moveAuto", "AutoUp"));
         secondaryController.axisLessThan(1, -0.1).whileTrue(new ClimbCommand(subsystemManager.getClimbSubsystem(), "moveAuto", "AutoDown"));
 
-        secondaryController.button(7).onTrue(new ColorCommand(subsystemManager.getLedSubsystem(), "red"));
-        secondaryController.button(8).onTrue(new ColorCommand(subsystemManager.getLedSubsystem(), "blue"));
+        secondaryController.button(7).onTrue(new RedCommand(subsystemManager.getLedSubsystem()));
+        secondaryController.button(8).onTrue(new BlueCommand(subsystemManager.getLedSubsystem()));
 
         // driveJoystick.WhilePressed(1, new TwistCommand()); // used for actual joystick
         // driveJoystick.WhenPressed(11, new GyroReset(subsystemManager.getDriveSubsystem()));

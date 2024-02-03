@@ -4,30 +4,29 @@ import entech.commands.EntechCommand;
 import frc.robot.OI.UserPolicy;
 import frc.robot.subsystems.LEDSubsystem;
 
-public class ColorCommand extends EntechCommand {
+public class RedCommand extends EntechCommand {
     
     private final LEDSubsystem led;
-    private String target;
 
-    public ColorCommand(LEDSubsystem led, String target) {
+    public RedCommand(LEDSubsystem led) {
         this.led = led;
     }
 
      @Override
     public void initialize() {
-        UserPolicy.colorSelect = true;
+        UserPolicy.redSelect = true;
     }
 
     @Override
     public void execute() {
-        if (UserPolicy.colorSelect) {
-            led.LEDPeriodic(target);
+        if (UserPolicy.redSelect) {
+            led.Red();
             return;
         }
     }
 
     @Override
     public void end(boolean interrupted) {
-        UserPolicy.colorSelect = false;
+        UserPolicy.redSelect = false;
     }   
 }

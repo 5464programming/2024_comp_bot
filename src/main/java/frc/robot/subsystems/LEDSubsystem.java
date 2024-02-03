@@ -2,6 +2,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj.AddressableLEDBuffer;
+import frc.robot.OI.UserPolicy;
 
 public class LEDSubsystem {
     AddressableLED ledstrip = new AddressableLED(0);
@@ -13,17 +14,19 @@ public class LEDSubsystem {
         ledstrip.start();
     }
 
-    public void LEDPeriodic(String colorChoice){
-        String color = colorChoice.toLowerCase();
-        if(color.contains("red")){
-            for(int i = 1; i < 1; i++){
-                ledbuffer.setRGB(0, 255, 0, 0);
-            }
-        }
-        else if(color.contains("blue")){
-            for(int i = 1; i < 1; i++){
+        public void Blue(){
+            if(UserPolicy.blueSelect){
+                for(int i = 1; i < 1; i++){
                 ledbuffer.setRGB(0, 0, 0, 255);
             }
+            }
         }
-    }
+
+        public void Red(){
+          if(UserPolicy.redSelect){
+             for(int i = 1; i < 1; i++){
+                ledbuffer.setRGB(0, 255, 0, 0);
+            }
+            }
+        }
 }

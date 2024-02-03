@@ -8,7 +8,8 @@ public final class UserPolicy {
     public static boolean intaking = false;
     public static boolean feeding = false; 
     public static boolean climbing = false;
-    public static boolean colorSelect = false;
+    public static boolean redSelect = false;
+    public static boolean blueSelect = false;
 
     private UserPolicy() {
     }
