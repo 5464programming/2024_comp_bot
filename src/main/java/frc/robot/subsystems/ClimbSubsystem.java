@@ -5,6 +5,7 @@ import com.revrobotics.RelativeEncoder;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import entech.subsystems.EntechSubsystem;
 import frc.robot.OI.UserPolicy;
 
@@ -32,6 +33,7 @@ public class ClimbSubsystem extends EntechSubsystem{
 
     public void LeftUp(){
         if(UserPolicy.leftUp){
+            SmartDashboard.putNumber("left encoder", leftEncoder.getVelocity());
             if(leftEncoder.getPosition() > 100){
                 leftarm.set(0);
         }
@@ -62,6 +64,7 @@ public class ClimbSubsystem extends EntechSubsystem{
     
     public void RightUp(){
         if(UserPolicy.rightUp){
+            SmartDashboard.putNumber("right encoder", rightEncoder.getVelocity());
             if(rightEncoder.getPosition() > 100){
                 rightarm.set(0);
             }
