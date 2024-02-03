@@ -28,5 +28,6 @@ public class AmpShootCommand extends EntechCommand {
     @Override
     public void end(boolean interrupted) {
         UserPolicy.ampShoot = false;
+        shoot.DisableShoot();
     }   
 }

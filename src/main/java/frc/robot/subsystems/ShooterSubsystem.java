@@ -67,6 +67,13 @@ public class ShooterSubsystem {
         SmartDashboard.putNumber("bottom encoder", codeBottom.getVelocity());
     }
 
+    public void DisableShoot(){
+        SPtop = 0;
+        SPbottom = 0;
+        shootTop.set(0);
+        shootTop.set(0);
+    }
+
     public void AmpCommand() {
         if(UserPolicy.ampShoot){
             SPtop = 500;
@@ -75,8 +82,7 @@ public class ShooterSubsystem {
             DisplayEncoders();
         }
         else{
-            SPtop = 0;
-            SPtop = 0;
+            DisableShoot();
         }
         }    
 
@@ -88,8 +94,7 @@ public class ShooterSubsystem {
             DisplayEncoders();
         }
         else{
-            SPtop = 0;
-            SPbottom = 0;
+            DisableShoot();
         }
     }
 

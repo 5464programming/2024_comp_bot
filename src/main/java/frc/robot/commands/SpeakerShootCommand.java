@@ -28,6 +28,6 @@ public class SpeakerShootCommand extends EntechCommand {
     @Override
     public void end(boolean interrupted) {
         UserPolicy.speakerShoot = false;
-        
+        shoot.DisableShoot();
     }   
 }
