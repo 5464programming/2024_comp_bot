@@ -1,6 +1,7 @@
 package frc.robot.subsystems;
 
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.RelativeEncoder;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -10,10 +11,13 @@ import frc.robot.OI.UserPolicy;
 public class ClimbSubsystem extends EntechSubsystem{
     CANSparkMax leftarm = new CANSparkMax(8, MotorType.kBrushless);
     CANSparkMax rightarm = new CANSparkMax(7, MotorType.kBrushless);  
-    DigitalInput limitLup = new DigitalInput(1);
-    DigitalInput limitRup = new DigitalInput(2);
+
+    RelativeEncoder leftEncoder = leftarm.getEncoder();
+    RelativeEncoder rightEncoder = rightarm.getEncoder();
+
     DigitalInput limitLdown = new DigitalInput(3);
     DigitalInput limitRdown = new DigitalInput(4);
+
     private static final boolean ENABLED = true;
 
     @Override
@@ -28,9 +32,14 @@ public class ClimbSubsystem extends EntechSubsystem{
 
     public void LeftUp(){
         if(UserPolicy.leftUp){
+            if(leftEncoder.getPosition() > 100){
+                leftarm.set(0);
+        }
+            else{
             leftarm.set(0.5);
         }
-        else{
+        }
+            else{
             ClimbLeftDisable();
         }
     }
@@ -38,9 +47,14 @@ public class ClimbSubsystem extends EntechSubsystem{
     
     public void LeftDown(){
         if(UserPolicy.leftDown){
-            leftarm.set(-0.5);
+            if(limitLdown.get()){
+                leftarm.set(0);
+            }
+            else{
+                leftarm.set(-0.5);
+            }
         }
-        else{
+            else{
             ClimbLeftDisable();
         }
     }
@@ -48,18 +62,30 @@ public class ClimbSubsystem extends EntechSubsystem{
     
     public void RightUp(){
         if(UserPolicy.rightUp){
+            if(rightEncoder.getPosition() > 100){
+                rightarm.set(0);
+            }
+            else{
             rightarm.set(0.5);
+            }
         }
         else{
-            ClimbRightDisable();        }
+            ClimbRightDisable();        
+        }
     }
     
     public void RightDown(){
         if(UserPolicy.rightDown){
+            if(limitRdown.get()){
+                rightarm.set(0);
+            }
+            else{
             rightarm.set(-0.5);
+            }
         }
         else{
-            ClimbRightDisable();        }
+            ClimbRightDisable();      
+        }
     }
 
     public void AutoUp(){
