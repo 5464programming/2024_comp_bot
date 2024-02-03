@@ -88,8 +88,8 @@ public class ShooterSubsystem extends EntechSubsystem {
         if(UserPolicy.ampShoot){
             SPtop = -300;
             SPbottom = -300;
-            shootTop.set(0.6);
-            shootBottom.set(-0.6);
+            shootTop.set(0);
+            shootBottom.set(-0.45);
             //Homing();
             DisplayEncoders();
         }
