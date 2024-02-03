@@ -20,6 +20,7 @@ import frc.robot.commands.DriveCommand;
 import frc.robot.commands.FeedCommand;
 import frc.robot.commands.GyroReset;
 import frc.robot.commands.IntakeCommand;
+import frc.robot.commands.IntakeReverseCommand;
 import frc.robot.commands.RedCommand;
 import frc.robot.commands.SpeakerShootCommand;
 //import frc.robot.commands.SpeakerRPMCommand;
@@ -53,6 +54,7 @@ public final class OperatorInterface {
 
         driveController.button(6).whileTrue(new IntakeCommand(subsystemManager.getIntakeSubsystem()));
         driveController.button(5).whileTrue(new FeedCommand(subsystemManager.getIntakeSubsystem()));
+        driveController.button(7).whileTrue(new IntakeReverseCommand(subsystemManager.getIntakeSubsystem()));
 
         // //Secondary controller
         secondaryController.button(3).whileTrue(new ClimbLeftUpCommand(subsystemManager.getClimbSubsystem()));
