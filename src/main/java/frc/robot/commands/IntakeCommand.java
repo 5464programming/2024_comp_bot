@@ -18,9 +18,7 @@ public class IntakeCommand extends EntechCommand{
 
     @Override
     public void execute(){
-        System.out.print("Intake");
         if (UserPolicy.intaking) {
-            System.out.println(" CMD");
             intake.Intake();
             return;
         }

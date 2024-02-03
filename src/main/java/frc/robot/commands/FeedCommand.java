@@ -13,7 +13,7 @@ public class FeedCommand extends EntechCommand{
 
      @Override
     public void initialize() {
-        UserPolicy.intaking = true;
+        UserPolicy.feeding = true;
     }
 
     @Override
@@ -24,6 +24,6 @@ public class FeedCommand extends EntechCommand{
 
     @Override
     public void end(boolean interrupted) {
-        UserPolicy.intaking = false;
+        UserPolicy.feeding = false;
     }   
 }

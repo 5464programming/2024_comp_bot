@@ -14,10 +14,10 @@ public class IntakeSubsystem {
 
     public void IntakeFeed(){
         if(UserPolicy.feeding){
-            intake.set(-1);
+            intake.set(-0.5);
         }
         else{
-            intake.disable();
+            intake.set(0);
         }
         }
         
@@ -25,7 +25,7 @@ public class IntakeSubsystem {
         if(UserPolicy.intaking){
             notedected = searchnote.get();
            if(notedected == false){
-            intake.set(-1);
+            intake.set(-0.5);
            } 
            else{
             intake.set(0);
