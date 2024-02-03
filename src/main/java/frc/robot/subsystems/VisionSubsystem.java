@@ -6,8 +6,16 @@ import org.photonvision.PhotonCamera;
 import org.photonvision.targeting.PhotonTrackedTarget;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import entech.subsystems.EntechSubsystem;
 
-public class VisionSubsystem {
+public class VisionSubsystem extends EntechSubsystem{
+    private static final boolean ENABLED = true;
+
+    @Override
+    public boolean isEnabled() {
+        return ENABLED;
+    }
+
     //robot catches targets
     public double cameraX;
     public double cameraY;
@@ -25,6 +33,7 @@ public class VisionSubsystem {
     private PhotonCamera bestCamera = new PhotonCamera("name");
     private PhotonCamera Camera = new PhotonCamera("name");
 
+    @Override
     public void initialize(){
         bestCamera.setPipelineIndex(0);
 

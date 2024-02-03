@@ -6,9 +6,10 @@ import com.revrobotics.SparkPIDController;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import entech.subsystems.EntechSubsystem;
 import frc.robot.OI.UserPolicy;
 
-public class ShooterSubsystem {
+public class ShooterSubsystem extends EntechSubsystem {
     CANSparkMax shootTop = new CANSparkMax(6, MotorType.kBrushless);
     CANSparkMax shootBottom = new CANSparkMax(5, MotorType.kBrushless);
     RelativeEncoder codeTop = shootTop.getEncoder();
@@ -23,6 +24,14 @@ public class ShooterSubsystem {
     public double SPtop;
     public double SPbottom;
 
+    private static final boolean ENABLED = true;
+
+    @Override
+    public boolean isEnabled() {
+        return ENABLED;
+    }
+
+    @Override
     public void initialize(){
         kP_bottom = 0.00006;
         kI_bottom = 0.0;
