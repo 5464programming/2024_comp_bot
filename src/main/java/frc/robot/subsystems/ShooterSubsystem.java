@@ -5,6 +5,7 @@ import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkPIDController;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.OI.UserPolicy;
 
 public class ShooterSubsystem {
@@ -61,11 +62,21 @@ public class ShooterSubsystem {
         PIDBottom.setReference(SPbottom, CANSparkMax.ControlType.kVelocity);
     }
 
+    public void DisplayEncoders(){
+        SmartDashboard.putNumber("top encoder", codeTop.getVelocity());
+        SmartDashboard.putNumber("bottom encoder", codeBottom.getVelocity());
+    }
+
     public void AmpCommand() {
         if(UserPolicy.ampShoot){
             SPtop = 500;
             SPbottom = 500;
             Homing();
+            DisplayEncoders();
+        }
+        else{
+            SPtop = 0;
+            SPtop = 0;
         }
         }    
 
@@ -74,9 +85,11 @@ public class ShooterSubsystem {
             SPtop = 1000;
             SPbottom = 1000;
             Homing();
+            DisplayEncoders();
         }
         else{
-
+            SPtop = 0;
+            SPbottom = 0;
         }
     }
 
