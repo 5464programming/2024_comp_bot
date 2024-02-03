@@ -7,14 +7,20 @@ import frc.robot.CommandFactory;
 import frc.robot.RobotConstants;
 import frc.robot.SubsystemManager;
 import frc.robot.commands.AmpShootCommand;
-import frc.robot.commands.ClimbCommand;
+import frc.robot.commands.ClimbLeftUpCommand;
+import frc.robot.commands.ClimbRightDownCommand;
+import frc.robot.commands.ClimbRightUpCommand;
 import frc.robot.commands.DisableShootCommand;
 import frc.robot.commands.BlueCommand;
+import frc.robot.commands.ClimbAutoDownCommand;
+import frc.robot.commands.ClimbAutoUpCommand;
+import frc.robot.commands.ClimbLeftDownCommand;
 //import frc.robot.commands.AmpRPMCommand;
 import frc.robot.commands.DriveCommand;
 import frc.robot.commands.FeedCommand;
 import frc.robot.commands.GyroReset;
 import frc.robot.commands.IntakeCommand;
+import frc.robot.commands.IntakeReverseCommand;
 import frc.robot.commands.RedCommand;
 import frc.robot.commands.SpeakerShootCommand;
 //import frc.robot.commands.SpeakerRPMCommand;
@@ -48,15 +54,16 @@ public final class OperatorInterface {
 
         driveController.button(6).whileTrue(new IntakeCommand(subsystemManager.getIntakeSubsystem()));
         driveController.button(5).whileTrue(new FeedCommand(subsystemManager.getIntakeSubsystem()));
+        driveController.button(7).whileTrue(new IntakeReverseCommand(subsystemManager.getIntakeSubsystem()));
 
         // //Secondary controller
-        secondaryController.button(3).whileTrue(new ClimbCommand(subsystemManager.getClimbSubsystem(), "moveSeperate", "LeftUp"));
-        secondaryController.button(1).whileTrue(new ClimbCommand(subsystemManager.getClimbSubsystem(), "moveSeperate", "LeftDown"));
-        secondaryController.button(4).whileTrue(new ClimbCommand(subsystemManager.getClimbSubsystem(), "moveSeperate", "RightUp"));
-        secondaryController.button(2).whileTrue(new ClimbCommand(subsystemManager.getClimbSubsystem(), "moveSeperate", "RightDown"));
+        secondaryController.button(3).whileTrue(new ClimbLeftUpCommand(subsystemManager.getClimbSubsystem()));
+        secondaryController.button(1).whileTrue(new ClimbLeftDownCommand(subsystemManager.getClimbSubsystem()));
+        secondaryController.button(4).whileTrue(new ClimbRightUpCommand(subsystemManager.getClimbSubsystem()));
+        secondaryController.button(2).whileTrue(new ClimbRightDownCommand(subsystemManager.getClimbSubsystem()));
 
-        secondaryController.axisGreaterThan(1, 0.1).whileTrue(new ClimbCommand(subsystemManager.getClimbSubsystem(), "moveAuto", "AutoUp"));
-        secondaryController.axisLessThan(1, -0.1).whileTrue(new ClimbCommand(subsystemManager.getClimbSubsystem(), "moveAuto", "AutoDown"));
+        secondaryController.axisGreaterThan(1, 0.1).whileTrue(new ClimbAutoUpCommand(subsystemManager.getClimbSubsystem()));
+        secondaryController.axisLessThan(1, -0.1).whileTrue(new ClimbAutoDownCommand(subsystemManager.getClimbSubsystem()));
 
         secondaryController.button(7).onTrue(new RedCommand(subsystemManager.getLedSubsystem()));
         secondaryController.button(8).onTrue(new BlueCommand(subsystemManager.getLedSubsystem()));

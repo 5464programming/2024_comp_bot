@@ -32,6 +32,15 @@ public class IntakeSubsystem extends EntechSubsystem{
             DisableIntake();
         }
         }
+
+    public void IntakeReverse(){
+        if(UserPolicy.intakeReverse){
+            intake.set(0.5);
+        }
+        else{
+            DisableIntake();
+        }
+    }    
         
     public void Intake(){
         if(UserPolicy.intaking){
