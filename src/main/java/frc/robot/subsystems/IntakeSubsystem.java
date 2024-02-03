@@ -45,7 +45,7 @@ public class IntakeSubsystem extends EntechSubsystem{
     public void Intake(){
         if(UserPolicy.intaking){
             notedected = searchnote.get();
-           if(notedected == false){
+           if(notedected == true){
             intake.set(-0.5);
            } 
            else{
