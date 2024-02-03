@@ -38,7 +38,7 @@ public class ClimbSubsystem extends EntechSubsystem{
                 leftarm.set(0);
         }
             else{
-            leftarm.set(0.5);
+            leftarm.set(-0.5);
         }
         }
             else{
@@ -53,7 +53,7 @@ public class ClimbSubsystem extends EntechSubsystem{
                 leftarm.set(0);
             }
             else{
-                leftarm.set(-0.5);
+                leftarm.set(0.5);
             }
         }
             else{
@@ -69,7 +69,7 @@ public class ClimbSubsystem extends EntechSubsystem{
                 rightarm.set(0);
             }
             else{
-            rightarm.set(0.5);
+            rightarm.set(-0.5);
             }
         }
         else{
@@ -83,7 +83,7 @@ public class ClimbSubsystem extends EntechSubsystem{
                 rightarm.set(0);
             }
             else{
-            rightarm.set(-0.5);
+            rightarm.set(0.5);
             }
         }
         else{
