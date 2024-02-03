@@ -49,7 +49,7 @@ public class ClimbSubsystem extends EntechSubsystem{
     
     public void LeftDown(){
         if(UserPolicy.leftDown){
-            if(limitLdown.get()){
+            if(!limitLdown.get()){
                 leftarm.set(0);
             }
             else{
@@ -79,7 +79,7 @@ public class ClimbSubsystem extends EntechSubsystem{
     
     public void RightDown(){
         if(UserPolicy.rightDown){
-            if(limitRdown.get()){
+            if(!limitRdown.get()){
                 rightarm.set(0);
             }
             else{
