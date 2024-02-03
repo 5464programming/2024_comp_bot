@@ -5,6 +5,7 @@ public final class UserPolicy {
     public static boolean xLocked = false;
     public static boolean ampShoot = false;
     public static boolean speakerShoot = false;
+    public static boolean disableShoot = false;
     public static boolean intaking = false;
     public static boolean feeding = false; 
     public static boolean climbing = false;

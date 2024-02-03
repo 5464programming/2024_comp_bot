@@ -8,6 +8,7 @@ import frc.robot.RobotConstants;
 import frc.robot.SubsystemManager;
 import frc.robot.commands.AmpShootCommand;
 import frc.robot.commands.ClimbCommand;
+import frc.robot.commands.DisableShootCommand;
 import frc.robot.commands.BlueCommand;
 //import frc.robot.commands.AmpRPMCommand;
 import frc.robot.commands.DriveCommand;
@@ -64,8 +65,8 @@ public final class OperatorInterface {
         // driveJoystick.WhenPressed(11, new GyroReset(subsystemManager.getDriveSubsystem()));
         // driveJoystick.WhenPressed(9, new XCommand());
 
-        subsystemManager.getDriveSubsystem()
-                .setDefaultCommand(new DriveCommand(subsystemManager.getDriveSubsystem(), driveController));
+        subsystemManager.getDriveSubsystem().setDefaultCommand(new DriveCommand(subsystemManager.getDriveSubsystem(), driveController));
+        // subsystemManager.getShooterSubsystem().setDefaultCommand();
     }
 
     private OperatorInterface() {

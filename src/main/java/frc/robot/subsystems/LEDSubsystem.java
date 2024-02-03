@@ -2,11 +2,22 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj.AddressableLEDBuffer;
+import entech.subsystems.EntechSubsystem;
 import frc.robot.OI.UserPolicy;
 
-public class LEDSubsystem {
+public class LEDSubsystem extends EntechSubsystem{
     AddressableLED ledstrip = new AddressableLED(0);
     AddressableLEDBuffer ledbuffer = new AddressableLEDBuffer(0);
+    private static final boolean ENABLED = true;
+
+    @Override
+    public void initialize(){}
+
+    @Override
+    public boolean isEnabled() {
+        return ENABLED;
+    }
+
 
     public void LEDInit(){
         ledstrip.setLength(ledbuffer.getLength());
