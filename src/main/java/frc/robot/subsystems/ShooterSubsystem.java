@@ -112,4 +112,10 @@ public class ShooterSubsystem extends EntechSubsystem {
         }
     }
 
+    public void ShootReverse(){
+        if(UserPolicy.shootReverse){
+            shootTop.set(-0.5);
+            shootBottom.set(0.5);
+        }
+    }
 }
