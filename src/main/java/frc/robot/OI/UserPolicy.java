@@ -10,6 +10,7 @@ public final class UserPolicy {
 
     public static boolean intaking = false;
     public static boolean feeding = false; 
+    public static boolean intakeReverse = false;
 
     public static boolean leftUp = false;
     public static boolean leftDown = false;
