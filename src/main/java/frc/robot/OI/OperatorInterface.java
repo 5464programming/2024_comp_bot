@@ -6,7 +6,7 @@ import entech.util.EntechJoystick;
 import frc.robot.CommandFactory;
 import frc.robot.RobotConstants;
 import frc.robot.SubsystemManager;
-import frc.robot.commands.ShootCommand;
+import frc.robot.commands.AmpShootCommand;
 import frc.robot.commands.ClimbCommand;
 import frc.robot.commands.ColorCommand;
 //import frc.robot.commands.AmpRPMCommand;
@@ -14,6 +14,7 @@ import frc.robot.commands.DriveCommand;
 import frc.robot.commands.FeedCommand;
 import frc.robot.commands.GyroReset;
 import frc.robot.commands.IntakeCommand;
+import frc.robot.commands.SpeakerShootCommand;
 //import frc.robot.commands.SpeakerRPMCommand;
 import frc.robot.commands.XCommand;
 //import frc.robot.commands.AmpRPMCommand;
@@ -40,8 +41,8 @@ public final class OperatorInterface {
         driveController.button(4).onTrue(new GyroReset(subsystemManager.getDriveSubsystem()));
         driveController.button(3).onTrue(new XCommand());
         
-        driveController.button(1).whileTrue(new ShootCommand(subsystemManager.getShooterSubsystem(), "speaker"));
-        driveController.button(2).whileTrue(new ShootCommand(subsystemManager.getShooterSubsystem(), "amp"));
+        driveController.button(1).whileTrue(new SpeakerShootCommand(subsystemManager.getShooterSubsystem()));
+        driveController.button(2).whileTrue(new AmpShootCommand(subsystemManager.getShooterSubsystem()));
 
         driveController.button(6).whileTrue(new IntakeCommand(subsystemManager.getIntakeSubsystem()));
         driveController.button(5).whileTrue(new FeedCommand(subsystemManager.getIntakeSubsystem()));

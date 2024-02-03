@@ -4,30 +4,29 @@ import entech.commands.EntechCommand;
 import frc.robot.OI.UserPolicy;
 import frc.robot.subsystems.ShooterSubsystem;
 
-public class ShootCommand extends EntechCommand {
+public class SpeakerShootCommand extends EntechCommand {
 
     private final ShooterSubsystem shoot;
-    private String target;
 
-    public ShootCommand(ShooterSubsystem shoot, String target) {
+    public SpeakerShootCommand(ShooterSubsystem shoot) {
         this.shoot = shoot;
     }
 
      @Override
     public void initialize() {
-        UserPolicy.shootr = true;
+        UserPolicy.speakerShoot = true;
     }
 
     @Override
     public void execute(){
-        if (UserPolicy.shootr) {
-            shoot.Shoot(target);
+        if (UserPolicy.speakerShoot) {
+            shoot.SpeakerCommand();
             return;
         }
     }
 
     @Override
     public void end(boolean interrupted) {
-        UserPolicy.shootr = false;
+        UserPolicy.speakerShoot = false;
     }   
 }

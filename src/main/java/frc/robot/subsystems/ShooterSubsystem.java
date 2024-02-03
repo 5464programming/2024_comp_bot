@@ -5,6 +5,8 @@ import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkPIDController;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 
+import frc.robot.OI.UserPolicy;
+
 public class ShooterSubsystem {
     CANSparkMax shootTop = new CANSparkMax(6, MotorType.kBrushless);
     CANSparkMax shootBottom = new CANSparkMax(5, MotorType.kBrushless);
@@ -16,6 +18,9 @@ public class ShooterSubsystem {
     
     double kP_top, kI_top, kD_top, kIz_top, kFF_top, kMaxOutput_top, kMinOutput_top, maxRPM_top;
     double kP_bottom, kI_bottom, kD_bottom, kIz_bottom, kFF_bottom, kMaxOutput_bottom, kMinOutput_bottom, maxRPM_bottom;
+
+    public double SPtop;
+    public double SPbottom;
 
     public void initialize(){
         kP_bottom = 0.00006;
@@ -51,23 +56,28 @@ public class ShooterSubsystem {
         PIDTop.setOutputRange(kMinOutput_top, kMaxOutput_top);
     }
 
-    public void Shoot(String target) {
-        double SPtop = 0;
-        double SPBottom = 0;
-
-        if(target == "speaker"){
-            // make top and bottom "homing values"
-            SPtop = 1000;
-            SPBottom = 1000;
-        }
-        else if (target == "amp"){
-            SPtop = 500;
-            SPBottom = 500;
-        }
-
+    public void Homing(){
         PIDTop.setReference(SPtop, CANSparkMax.ControlType.kVelocity);
-        PIDBottom.setReference(SPBottom, CANSparkMax.ControlType.kVelocity);
-        //TODO: make command to swap between shooter RPMS
+        PIDBottom.setReference(SPbottom, CANSparkMax.ControlType.kVelocity);
+    }
+
+    public void AmpCommand() {
+        if(UserPolicy.ampShoot){
+            SPtop = 500;
+            SPbottom = 500;
+            Homing();
+        }
+        }    
+
+    public void SpeakerCommand(){
+        if(UserPolicy.speakerShoot){
+            SPtop = 1000;
+            SPbottom = 1000;
+            Homing();
+        }
+        else{
+
+        }
     }
 
 }
