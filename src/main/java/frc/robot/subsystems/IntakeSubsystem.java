@@ -12,12 +12,16 @@ public class IntakeSubsystem {
 
     private boolean notedected = false;
 
+    public void DisableIntake(){
+        intake.set(0);
+    }
+
     public void IntakeFeed(){
         if(UserPolicy.feeding){
             intake.set(-0.5);
         }
         else{
-            intake.set(0);
+            DisableIntake();
         }
         }
         
@@ -32,7 +36,7 @@ public class IntakeSubsystem {
            }
         }
         else{
-           intake.set(0); 
+            DisableIntake();
         }
     }
 }

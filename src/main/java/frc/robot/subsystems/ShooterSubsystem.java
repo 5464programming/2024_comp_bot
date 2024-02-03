@@ -76,8 +76,8 @@ public class ShooterSubsystem {
 
     public void AmpCommand() {
         if(UserPolicy.ampShoot){
-            SPtop = 500;
-            SPbottom = 500;
+            SPtop = -300;
+            SPbottom = -300;
             Homing();
             DisplayEncoders();
         }
@@ -88,8 +88,8 @@ public class ShooterSubsystem {
 
     public void SpeakerCommand(){
         if(UserPolicy.speakerShoot){
-            SPtop = 1000;
-            SPbottom = 1000;
+            SPtop = -300;
+            SPbottom = -300;
             Homing();
             DisplayEncoders();
         }

@@ -27,5 +27,6 @@ public class IntakeCommand extends EntechCommand{
     @Override
     public void end(boolean interrupted) {
         UserPolicy.intaking = false;
+        intake.DisableIntake();
     }   
 }

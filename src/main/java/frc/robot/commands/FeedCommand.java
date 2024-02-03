@@ -25,5 +25,6 @@ public class FeedCommand extends EntechCommand{
     @Override
     public void end(boolean interrupted) {
         UserPolicy.feeding = false;
+        intake.DisableIntake();
     }   
 }
