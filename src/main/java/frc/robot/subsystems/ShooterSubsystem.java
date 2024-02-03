@@ -72,6 +72,7 @@ public class ShooterSubsystem extends EntechSubsystem {
     }
 
     public void DisplayEncoders(){
+        System.out.println("PID");
         SmartDashboard.putNumber("top encoder", codeTop.getVelocity());
         SmartDashboard.putNumber("bottom encoder", codeBottom.getVelocity());
     }
@@ -80,14 +81,16 @@ public class ShooterSubsystem extends EntechSubsystem {
         SPtop = 0;
         SPbottom = 0;
         shootTop.set(0);
-        shootTop.set(0);
+        shootBottom.set(0);
     }
 
     public void AmpCommand() {
         if(UserPolicy.ampShoot){
             SPtop = -300;
             SPbottom = -300;
-            Homing();
+            shootTop.set(0.6);
+            shootBottom.set(-0.6);
+            //Homing();
             DisplayEncoders();
         }
         else{
@@ -99,7 +102,9 @@ public class ShooterSubsystem extends EntechSubsystem {
         if(UserPolicy.speakerShoot){
             SPtop = -300;
             SPbottom = -300;
-            Homing();
+            shootTop.set(0.6);
+            shootBottom.set(-0.6);
+            // Homing();
             DisplayEncoders();
         }
         else{
