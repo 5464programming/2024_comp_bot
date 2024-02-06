@@ -5,6 +5,7 @@ import java.util.List;
 import org.photonvision.PhotonCamera;
 import org.photonvision.targeting.PhotonTrackedTarget;
 
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import entech.subsystems.EntechSubsystem;
 
@@ -35,7 +36,7 @@ public class VisionSubsystem extends EntechSubsystem{
     @Override
     public void initialize(){
         bestCamera.setPipelineIndex(0);
-
+        CameraServer.startAutomaticCapture();
     }
 
     public void GetBestTarget(){
