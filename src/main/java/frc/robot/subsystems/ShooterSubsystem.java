@@ -10,10 +10,14 @@ import entech.subsystems.EntechSubsystem;
 import frc.robot.OI.UserPolicy;
 
 public class ShooterSubsystem extends EntechSubsystem {
+
+    //TODO: relate the RPMs of the shooter to the distance from the target using AprilTags
+
+
     CANSparkMax shootTop = new CANSparkMax(6, MotorType.kBrushless);
     CANSparkMax shootBottom = new CANSparkMax(5, MotorType.kBrushless);
-    RelativeEncoder codeTop = shootTop.getEncoder();
-    RelativeEncoder codeBottom = shootBottom.getEncoder();
+    public RelativeEncoder codeTop = shootTop.getEncoder();
+    public RelativeEncoder codeBottom = shootBottom.getEncoder();
 
     SparkPIDController PIDTop = shootBottom.getPIDController();
     SparkPIDController PIDBottom = shootTop.getPIDController();  
@@ -23,6 +27,10 @@ public class ShooterSubsystem extends EntechSubsystem {
 
     public double SPtop;
     public double SPbottom;
+
+    public double FullSpeedAmpBottom;
+    public double FullSpeedSpeakerTop;
+    public double FullSpeedSpeakerBottom;
 
     private static final boolean ENABLED = true;
 
@@ -85,6 +93,7 @@ public class ShooterSubsystem extends EntechSubsystem {
     }
 
     public void AmpCommand() {
+        FullSpeedAmpBottom = codeBottom.getVelocity();        
         if(UserPolicy.ampShoot){
             SPtop = -300;
             SPbottom = -300;
@@ -92,6 +101,11 @@ public class ShooterSubsystem extends EntechSubsystem {
             shootBottom.set(-0.45);
             //Homing();
             DisplayEncoders();
+
+        if(FullSpeedAmpBottom < -300){
+            UserPolicy.shootUptoSpeed = true;
+        }
+
         }
         else{
             DisableShoot();
@@ -99,6 +113,8 @@ public class ShooterSubsystem extends EntechSubsystem {
         }    
 
     public void SpeakerCommand(){
+        FullSpeedSpeakerTop = codeTop.getVelocity();
+        FullSpeedSpeakerBottom = codeBottom.getVelocity();
         if(UserPolicy.speakerShoot){
             SPtop = -300;
             SPbottom = -300;
@@ -106,6 +122,11 @@ public class ShooterSubsystem extends EntechSubsystem {
             shootBottom.set(-0.6);
             // Homing();
             DisplayEncoders();
+
+        if(FullSpeedSpeakerTop < -300 && FullSpeedSpeakerBottom < -300){
+            UserPolicy.shootUptoSpeed = true;
+        }
+        
         }
         else{
             DisableShoot();

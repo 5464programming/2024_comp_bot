@@ -15,6 +15,7 @@ public class AmpShootCommand extends EntechCommand {
      @Override
     public void initialize() {
         UserPolicy.ampShoot = true;
+        UserPolicy.shootUptoSpeed = false;
     }
 
     @Override

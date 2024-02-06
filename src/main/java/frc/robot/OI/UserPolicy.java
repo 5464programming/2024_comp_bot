@@ -8,6 +8,7 @@ public final class UserPolicy {
     public static boolean speakerShoot = false;
     public static boolean disableShoot = false;
     public static boolean shootReverse = false;
+    public static boolean shootUptoSpeed = false;
 
     public static boolean intaking = false;
     public static boolean feeding = false; 

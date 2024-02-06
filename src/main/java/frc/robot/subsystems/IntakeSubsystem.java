@@ -7,10 +7,14 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import frc.robot.OI.UserPolicy;
 
 public class IntakeSubsystem extends EntechSubsystem{
+
+    //TODO: create a command to automatic run the intake once the shooter is up to speed
+
     CANSparkMax intake = new CANSparkMax(9, MotorType.kBrushless);
     DigitalInput searchnote = new DigitalInput(0);
     private static final boolean ENABLED = true;
     private boolean notedected = false;
+
 
     @Override
     public void initialize(){}
@@ -25,7 +29,7 @@ public class IntakeSubsystem extends EntechSubsystem{
     }
 
     public void IntakeFeed(){
-        if(UserPolicy.feeding){
+        if(UserPolicy.feeding && UserPolicy.shootUptoSpeed){
             intake.set(-1);
         }
         else{
