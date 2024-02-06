@@ -13,28 +13,64 @@ public class ClimbSubsystem extends EntechSubsystem{
     CANSparkMax leftarm = new CANSparkMax(8, MotorType.kBrushless);
     CANSparkMax rightarm = new CANSparkMax(7, MotorType.kBrushless);  
 
-    RelativeEncoder leftEncoder = leftarm.getEncoder();
-    RelativeEncoder rightEncoder = rightarm.getEncoder();
+    RelativeEncoder leftEncoder;
+    RelativeEncoder rightEncoder;
 
-    DigitalInput limitLdown = new DigitalInput(3);
-    DigitalInput limitRdown = new DigitalInput(4);
+    DigitalInput limitLdown = new DigitalInput(1);
+    DigitalInput limitRdown = new DigitalInput(2);
 
     private static final boolean ENABLED = true;
 
+    boolean LeftLimitActivated;
+    boolean RightLimitActivated;
+
+    boolean LeftZero = false;
+    boolean RightZero = false;
+
     @Override
-    public void initialize(){}
+    public void initialize(){
+        leftEncoder = leftarm.getEncoder();
+        rightEncoder = rightarm.getEncoder();
+    }
+
+    public void periodic(){
+        LeftLimitActivated = limitLdown.get();
+        RightLimitActivated = limitRdown.get();
+        
+        SmartDashboard.putNumber("left encoder", leftEncoder.getPosition());
+        SmartDashboard.putNumber("right encoder", rightEncoder.getPosition());
+        SmartDashboard.putBoolean("left limit", LeftLimitActivated);
+        SmartDashboard.putBoolean("right limit", RightLimitActivated);
+
+        SmartDashboard.putBoolean("left zeroed", LeftZero);
+        SmartDashboard.putBoolean("right zeroed", RightZero);
+
+        if(LeftZero == false){
+            if(!LeftLimitActivated){
+                leftEncoder.setPosition(0);
+                LeftZero = true;
+            }
+        }
+
+        if(RightZero == false){
+            if(!RightLimitActivated){
+                rightEncoder.setPosition(0);
+                RightZero = true;
+            }
+        }
+    }
 
     @Override
     public boolean isEnabled() {
         return ENABLED;
     }
 
-    //TODO: command to move arms, arms seperate, and an auto command based off the navx to balance the robot on the chains 
-
     public void LeftUp(){
         if(UserPolicy.leftUp){
-            SmartDashboard.putNumber("left encoder", leftEncoder.getVelocity());
-            if(leftEncoder.getPosition() > 100){
+            if(leftEncoder.getPosition() < -85){
+                leftarm.set(0);
+        }
+            else if(LeftZero == false){
                 leftarm.set(0);
         }
             else{
@@ -49,7 +85,7 @@ public class ClimbSubsystem extends EntechSubsystem{
     
     public void LeftDown(){
         if(UserPolicy.leftDown){
-            if(!limitLdown.get()){
+            if(!LeftLimitActivated){
                 leftarm.set(0);
             }
             else{
@@ -64,8 +100,10 @@ public class ClimbSubsystem extends EntechSubsystem{
     
     public void RightUp(){
         if(UserPolicy.rightUp){
-            SmartDashboard.putNumber("right encoder", rightEncoder.getVelocity());
-            if(rightEncoder.getPosition() > 100){
+            if(rightEncoder.getPosition() < -85){
+                rightarm.set(0);
+            }
+            else if(RightZero == false){
                 rightarm.set(0);
             }
             else{
@@ -79,7 +117,7 @@ public class ClimbSubsystem extends EntechSubsystem{
     
     public void RightDown(){
         if(UserPolicy.rightDown){
-            if(!limitRdown.get()){
+            if(!RightLimitActivated){
                 rightarm.set(0);
             }
             else{
@@ -91,6 +129,8 @@ public class ClimbSubsystem extends EntechSubsystem{
         }
     }
 
+    //TODO: if there is extra time then create an automatic climbing method using the NAVX
+    
     public void AutoUp(){
         if(UserPolicy.autoUp){
         }

@@ -33,7 +33,9 @@ public class Robot extends TimedRobot {
     @Override
     public void robotPeriodic() {
         CommandScheduler.getInstance().run();
+        subsystemManager.getClimbSubsystem().periodic();   
     }
+
     @Override
     public void autonomousInit() {
         autonomousCommand = commandFactory.getAutoCommand();
