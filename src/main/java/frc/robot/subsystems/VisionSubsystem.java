@@ -31,17 +31,15 @@ public class VisionSubsystem extends EntechSubsystem{
     public double tag1y;
 
     private PhotonCamera bestCamera = new PhotonCamera("name");
-    private PhotonCamera Camera = new PhotonCamera("name");
 
     @Override
     public void initialize(){
         bestCamera.setPipelineIndex(0);
 
-        Camera.setPipelineIndex(1);
     }
 
     public void GetBestTarget(){
-        var result = Camera.getLatestResult();
+        var result = bestCamera.getLatestResult();
         cameraTargets = result.hasTargets();
 
         if(cameraTargets){
@@ -72,9 +70,6 @@ public class VisionSubsystem extends EntechSubsystem{
             bestX = bestTarget.getYaw();
             bestY = bestTarget.getPitch();
         }
-    }
-    public void setPipelineIndex(int pipelineIndex){
-        Camera.setPipelineIndex(pipelineIndex);
     }
     public void DisplayStats(){
         SmartDashboard.putBoolean("Camera Target Detection", cameraTargets);
