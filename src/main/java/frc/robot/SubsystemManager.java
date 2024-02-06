@@ -25,6 +25,7 @@ public class SubsystemManager {
     public SubsystemManager() {
         driveSubsystem.initialize();
         armSubsystem.initialize();
+        visionSubsystem.initialize();
     }
 
     public DriveSubsystem getDriveSubsystem() {
