@@ -20,14 +20,17 @@ public class ShooterSubsystem extends EntechSubsystem {
     public RelativeEncoder codeTop = shootTop.getEncoder();
     public RelativeEncoder codeBottom = shootBottom.getEncoder();
     
-    SparkPIDController PIDTop = shootBottom.getPIDController();
-    SparkPIDController PIDBottom = shootTop.getPIDController();  
+    SparkPIDController PIDTop = shootTop.getPIDController();
+    SparkPIDController PIDBottom = shootBottom.getPIDController();  
     
     double kP_top, kI_top, kD_top, kIz_top, kFF_top, kMaxOutput_top, kMinOutput_top, maxRPM_top;
     double kP_bottom, kI_bottom, kD_bottom, kIz_bottom, kFF_bottom, kMaxOutput_bottom, kMinOutput_bottom, maxRPM_bottom;
 
-    public double SPtop;
-    public double SPbottom;
+    public double SPtopSpeaker;
+    public double SPbottomSpeaker;
+
+    public double SPtopAmp;
+    public double SPbottomAmp;
 
     public double FullSpeedAmpBottom;
     public double FullSpeedSpeakerTop;
@@ -42,6 +45,17 @@ public class ShooterSubsystem extends EntechSubsystem {
 
     @Override
     public void initialize(){
+        SPtopSpeaker = 2500;
+        SPbottomSpeaker = -2000;
+
+        SPtopAmp = -300;
+        SPbottomAmp = -300;
+
+        SmartDashboard.putNumber("top speaker", SPtopSpeaker);
+        SmartDashboard.putNumber("bottom speaker", SPbottomSpeaker);
+        SmartDashboard.putNumber("top amp", SPtopAmp);
+        SmartDashboard.putNumber("bottom amo", SPbottomAmp);
+
         kP_bottom = 0.00006;
         kI_bottom = 0.0;
         kD_bottom = 0.0;
@@ -76,20 +90,38 @@ public class ShooterSubsystem extends EntechSubsystem {
         shootTop.setIdleMode(IdleMode.kBrake);
     }
 
-    public void Homing(){
+    public void Homing(double SPtop, double SPbottom){
         PIDTop.setReference(SPtop, CANSparkMax.ControlType.kVelocity);
         PIDBottom.setReference(SPbottom, CANSparkMax.ControlType.kVelocity);
     }
 
-    public void DisplayEncoders(){
-        System.out.println("PID");
+    public void periodic(){
         SmartDashboard.putNumber("top encoder", codeTop.getVelocity());
         SmartDashboard.putNumber("bottom encoder", codeBottom.getVelocity());
+
+        double kSPtopSpeaker = SmartDashboard.getNumber("top speaker", SPtopSpeaker);
+        double kSPbottomSpeaker = SmartDashboard.getNumber("bottom speaker", SPbottomSpeaker);
+        double kSPtopAmp = SmartDashboard.getNumber("top amp", SPtopAmp);
+        double kSPbottomAmp = SmartDashboard.getNumber("bottom amp", SPbottomAmp);
+
+        if(SPtopSpeaker != kSPtopSpeaker){
+            SPtopSpeaker = kSPtopSpeaker;
+        }
+
+        if(SPbottomSpeaker != kSPbottomSpeaker){
+            SPbottomSpeaker = kSPbottomSpeaker;
+        }
+        
+        if(SPtopAmp != kSPtopAmp){
+            SPtopAmp = kSPtopAmp;
+        }
+        
+        if(SPbottomAmp != kSPbottomAmp){
+            SPbottomAmp = kSPbottomAmp;
+        }
     }
 
     public void DisableShoot(){
-        SPtop = 0;
-        SPbottom = 0;
         shootTop.set(0);
         shootBottom.set(0);
     }
@@ -97,10 +129,7 @@ public class ShooterSubsystem extends EntechSubsystem {
     public void AmpCommand() {
         FullSpeedAmpBottom = codeBottom.getVelocity();        
         if(UserPolicy.ampShoot){
-            SPtop = -300;
-            SPbottom = -300;
-            Homing();
-            DisplayEncoders();
+            Homing(SPtopAmp, SPbottomAmp);
 
         if(FullSpeedAmpBottom < -300){
             UserPolicy.shootUptoSpeed = true;
@@ -116,10 +145,7 @@ public class ShooterSubsystem extends EntechSubsystem {
         FullSpeedSpeakerTop = codeTop.getVelocity();
         FullSpeedSpeakerBottom = codeBottom.getVelocity();
         if(UserPolicy.speakerShoot){
-            SPtop = -300;
-            SPbottom = -300;
-            Homing();
-            DisplayEncoders();
+            Homing(SPtopSpeaker, SPbottomSpeaker);
 
         if(FullSpeedSpeakerTop < -300 && FullSpeedSpeakerBottom < -300){
             UserPolicy.shootUptoSpeed = true;

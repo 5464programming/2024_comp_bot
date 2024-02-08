@@ -36,6 +36,7 @@ public class Robot extends TimedRobot {
         subsystemManager.getClimbSubsystem().periodic();
         subsystemManager.getIntakeSubsystem().periodic();  
         subsystemManager.getVisionSubsystem().periodic(); 
+        subsystemManager.getShooterSubsystem().periodic();
     }
 
     @Override
