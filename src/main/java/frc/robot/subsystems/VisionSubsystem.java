@@ -28,8 +28,8 @@ public class VisionSubsystem extends EntechSubsystem{
     public boolean bestTargets;
 
     //all tags (example, for now)
-    public double tag1x;
-    public double tag1y;
+    public double tag8x;
+    public double tag8y;
 
     private PhotonCamera bestCamera = new PhotonCamera("ShooterCamAprilTags");
 
@@ -66,9 +66,9 @@ public class VisionSubsystem extends EntechSubsystem{
                 int id = targets.get(i).getFiducialId();
                 System.out.print(i);
 
-                if(id == 1){
-                    tag1x = targets.get(i).getYaw();
-                    tag1y = targets.get(i).getPitch();
+                if(id == 8){
+                    tag8x = targets.get(i).getYaw();
+                    tag8y = targets.get(i).getPitch();
                 }
             }
             PhotonTrackedTarget bestTarget = bestResult.getBestTarget();
