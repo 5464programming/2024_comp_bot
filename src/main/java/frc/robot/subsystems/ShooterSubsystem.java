@@ -99,9 +99,7 @@ public class ShooterSubsystem extends EntechSubsystem {
         if(UserPolicy.ampShoot){
             SPtop = -300;
             SPbottom = -300;
-            shootTop.set(0);
-            shootBottom.set(-0.6);
-            //Homing();
+            Homing();
             DisplayEncoders();
 
         if(FullSpeedAmpBottom < -300){
@@ -120,9 +118,7 @@ public class ShooterSubsystem extends EntechSubsystem {
         if(UserPolicy.speakerShoot){
             SPtop = -300;
             SPbottom = -300;
-            shootTop.set(0.6);
-            shootBottom.set(-0.6);
-            // Homing();
+            Homing();
             DisplayEncoders();
 
         if(FullSpeedSpeakerTop < -300 && FullSpeedSpeakerBottom < -300){
