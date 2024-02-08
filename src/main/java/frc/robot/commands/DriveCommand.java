@@ -58,7 +58,7 @@ public class DriveCommand extends EntechCommand {
         }
 
         if (UserPolicy.twistable) {
-            drive.drive(-ySquared, -xSquared, -rotSquared, true, true);
+            drive.drive(-ySquared, -xSquared, rotSquared, true, true);
         } 
         else if (UserPolicy.snapAprilSpeaker && vision.cameraTargets){
             double yaw = vision.cameraX;
@@ -66,7 +66,7 @@ public class DriveCommand extends EntechCommand {
         }
         
         else {
-            drive.drive(-ySquared, -xSquared, -rotSquared, true, true);
+            drive.drive(-ySquared, -xSquared, rotSquared, true, true);
         }
 
 
