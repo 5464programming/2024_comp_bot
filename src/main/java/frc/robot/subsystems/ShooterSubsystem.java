@@ -48,8 +48,8 @@ public class ShooterSubsystem extends EntechSubsystem {
         SPtopSpeaker = 2500;
         SPbottomSpeaker = -2000;
 
-        SPtopAmp = -300;
-        SPbottomAmp = -300;
+        SPtopAmp = 2000;
+        SPbottomAmp = -1000;
 
         SmartDashboard.putNumber("top speaker", SPtopSpeaker);
         SmartDashboard.putNumber("bottom speaker", SPbottomSpeaker);
