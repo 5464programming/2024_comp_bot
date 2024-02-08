@@ -24,6 +24,8 @@ public final class UserPolicy {
     public static boolean redSelect = false;
     public static boolean blueSelect = false;
 
+    public static boolean snapAprilSpeaker = false;
+
     private UserPolicy() {
     }
 }

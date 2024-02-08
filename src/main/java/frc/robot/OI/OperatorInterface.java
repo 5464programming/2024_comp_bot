@@ -74,7 +74,7 @@ public final class OperatorInterface {
         // driveJoystick.WhenPressed(11, new GyroReset(subsystemManager.getDriveSubsystem()));
         // driveJoystick.WhenPressed(9, new XCommand());
 
-        subsystemManager.getDriveSubsystem().setDefaultCommand(new DriveCommand(subsystemManager.getDriveSubsystem(), driveController));
+        subsystemManager.getDriveSubsystem().setDefaultCommand(new DriveCommand(subsystemManager.getDriveSubsystem(),subsystemManager.getVisionSubsystem(), driveController));
         // subsystemManager.getShooterSubsystem().setDefaultCommand();
     }
 

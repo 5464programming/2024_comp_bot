@@ -7,6 +7,7 @@ public class TwistCommand extends EntechCommand {
     @Override
     public void initialize() {
         UserPolicy.twistable = true;
+        // TODO: SEE IF WE NEED TO RUN THIS COMMAND!
     }
 
     @Override

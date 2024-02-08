@@ -4,6 +4,7 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 import entech.subsystems.EntechSubsystem;
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.OI.UserPolicy;
 
 public class IntakeSubsystem extends EntechSubsystem{
@@ -24,12 +25,17 @@ public class IntakeSubsystem extends EntechSubsystem{
         return ENABLED;
     }
 
+    public void periodic(){
+        SmartDashboard.putBoolean("break beam", searchnote.get());
+    }
+
     public void DisableIntake(){
         intake.set(0);
     }
 
     public void IntakeFeed(){
-        if(UserPolicy.feeding && UserPolicy.shootUptoSpeed){
+        if(UserPolicy.feeding){ // JAKE PUT THIS IN
+        // if(UserPolicy.feeding && UserPolicy.shootUptoSpeed){ // THIS DOES NOT WORK CURRENTLY
             intake.set(-1);
         }
         else{

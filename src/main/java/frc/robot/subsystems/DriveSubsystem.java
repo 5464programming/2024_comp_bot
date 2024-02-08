@@ -39,10 +39,10 @@ import frc.robot.swerve.SwerveUtils;
 public class DriveSubsystem extends EntechSubsystem {
     private static final boolean ENABLED = true;
 
-    public static final double FRONT_LEFT_VIRTUAL_OFFSET_RADIANS = 0;
-    public static final double FRONT_RIGHT_VIRTUAL_OFFSET_RADIANS = 0;
-    public static final double REAR_LEFT_VIRTUAL_OFFSET_RADIANS = 0;
-    public static final double REAR_RIGHT_VIRTUAL_OFFSET_RADIANS = 0;
+    public static final double FRONT_LEFT_VIRTUAL_OFFSET_RADIANS = -1.017029;
+    public static final double FRONT_RIGHT_VIRTUAL_OFFSET_RADIANS = 0.176408;
+    public static final double REAR_LEFT_VIRTUAL_OFFSET_RADIANS = 1.104466;
+    public static final double REAR_RIGHT_VIRTUAL_OFFSET_RADIANS = 0.674952;
 
     public static final int GYRO_ORIENTATION = -1; // might be able to merge with kGyroReversed
 
@@ -101,6 +101,11 @@ public class DriveSubsystem extends EntechSubsystem {
                     rearLeft.getTurningAbsoluteEncoder().getPosition(),
                     rearRight.getTurningAbsoluteEncoder().getPosition()
             });
+            
+                frontLeft.absoluteEncoderPrintout("leftFront");
+                frontRight.absoluteEncoderPrintout("rightFront");
+                rearLeft.absoluteEncoderPrintout("leftBack");
+                rearRight.absoluteEncoderPrintout("rightBack");
 
             SmartDashboard.putData("NAVX", gyro);
             SmartDashboard.putNumber("Navx angle", gyro.getAngle());

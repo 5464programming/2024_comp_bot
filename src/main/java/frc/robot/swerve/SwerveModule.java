@@ -4,15 +4,16 @@
 
 package frc.robot.swerve;
 
+import com.revrobotics.CANSparkBase.IdleMode;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkPIDController;
-import com.revrobotics.CANSparkBase.IdleMode;
 
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotConstants.SwerveModuleConstants;
 import frc.robot.sensors.CanCoder;
 
@@ -153,6 +154,9 @@ public class SwerveModule {
         correctedDesiredState.speedMetersPerSecond = desiredState.speedMetersPerSecond;
         correctedDesiredState.angle = desiredState.angle;
 
+        
+        
+
         // Optimize the reference state to avoid spinning further than 90 degrees.
         SwerveModuleState optimizedDesiredState = SwerveModuleState.optimize(correctedDesiredState,
                 new Rotation2d(m_turningEncoder.getPosition()));
@@ -211,6 +215,10 @@ public class SwerveModule {
         return m_turningAbsoluteEncoder;
     }
 
+    public void absoluteEncoderPrintout(String name){
+        SmartDashboard.putNumber(name, m_turningAbsoluteEncoder.getVirtualPosition());
+        SmartDashboard.putNumber(name+" relative", m_turningEncoder.getPosition());
+    }
     public SwerveModuleState getDesiredState() {
         return m_desiredState;
     }

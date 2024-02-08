@@ -3,6 +3,7 @@ package frc.robot.subsystems;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkPIDController;
+import com.revrobotics.CANSparkBase.IdleMode;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -18,7 +19,7 @@ public class ShooterSubsystem extends EntechSubsystem {
     CANSparkMax shootBottom = new CANSparkMax(5, MotorType.kBrushless);
     public RelativeEncoder codeTop = shootTop.getEncoder();
     public RelativeEncoder codeBottom = shootBottom.getEncoder();
-
+    
     SparkPIDController PIDTop = shootBottom.getPIDController();
     SparkPIDController PIDBottom = shootTop.getPIDController();  
     
@@ -72,6 +73,7 @@ public class ShooterSubsystem extends EntechSubsystem {
         PIDTop.setIZone(kIz_top);
         PIDTop.setFF(kFF_top);
         PIDTop.setOutputRange(kMinOutput_top, kMaxOutput_top);
+        shootTop.setIdleMode(IdleMode.kBrake);
     }
 
     public void Homing(){
@@ -98,7 +100,7 @@ public class ShooterSubsystem extends EntechSubsystem {
             SPtop = -300;
             SPbottom = -300;
             shootTop.set(0);
-            shootBottom.set(-0.45);
+            shootBottom.set(-0.6);
             //Homing();
             DisplayEncoders();
 

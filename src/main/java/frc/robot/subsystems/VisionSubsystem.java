@@ -31,7 +31,7 @@ public class VisionSubsystem extends EntechSubsystem{
     public double tag1x;
     public double tag1y;
 
-    private PhotonCamera bestCamera = new PhotonCamera("name");
+    private PhotonCamera bestCamera = new PhotonCamera("ShooterCamAprilTags");
 
     @Override
     public void initialize(){
@@ -39,6 +39,10 @@ public class VisionSubsystem extends EntechSubsystem{
         CameraServer.startAutomaticCapture();
     }
 
+    public void periodic(){
+        GetBestTarget();
+        DisplayStats();
+    }
     public void GetBestTarget(){
         var result = bestCamera.getLatestResult();
         cameraTargets = result.hasTargets();

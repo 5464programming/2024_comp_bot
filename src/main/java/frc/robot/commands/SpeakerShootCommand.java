@@ -16,6 +16,7 @@ public class SpeakerShootCommand extends EntechCommand {
     public void initialize() {
         UserPolicy.speakerShoot = true;
         UserPolicy.shootUptoSpeed = false;
+        UserPolicy.snapAprilSpeaker = true;
     }
 
     @Override
@@ -30,5 +31,6 @@ public class SpeakerShootCommand extends EntechCommand {
     public void end(boolean interrupted) {
         UserPolicy.speakerShoot = false;
         shoot.DisableShoot();
+        UserPolicy.snapAprilSpeaker = false;
     }   
 }

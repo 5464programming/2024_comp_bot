@@ -1,26 +1,29 @@
 package frc.robot.commands;
 
 import edu.wpi.first.math.MathUtil;
+// import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
 import entech.commands.EntechCommand;
 // import entech.util.EntechJoystick;
 import frc.robot.RobotConstants;
 import frc.robot.OI.UserPolicy;
 import frc.robot.subsystems.DriveSubsystem;
-// import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
+import frc.robot.subsystems.VisionSubsystem;
 
 public class DriveCommand extends EntechCommand {
-    private static final double MAX_SPEED_PERCENT = 1;
+    private static final double MAX_SPEED_PERCENT = 0.79;
 
     private final DriveSubsystem drive;
     // private final EntechJoystick joystick;
     private final CommandJoystick driveController;
     // Joystick logi_joystick;
+    private final VisionSubsystem vision;
 
-    public DriveCommand(DriveSubsystem drive, CommandJoystick driveController) {
+    public DriveCommand(DriveSubsystem drive, VisionSubsystem vision, CommandJoystick driveController) {
         super(drive);
         this.drive = drive;
         this.driveController = driveController;
+        this.vision =vision;
     }
 
     @Override
@@ -56,9 +59,17 @@ public class DriveCommand extends EntechCommand {
 
         if (UserPolicy.twistable) {
             drive.drive(-ySquared, -xSquared, -rotSquared, true, true);
-        } else {
+        } 
+        else if (UserPolicy.snapAprilSpeaker && vision.cameraTargets){
+            double yaw = vision.cameraX;
+            drive.drive(-ySquared, -xSquared, -yaw/100, true, true);
+        }
+        
+        else {
             drive.drive(-ySquared, -xSquared, -rotSquared, true, true);
         }
+
+
     }
 
     @Override

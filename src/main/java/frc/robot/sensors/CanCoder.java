@@ -20,7 +20,7 @@ public class CanCoder {
 	}
 
 	public double getPosition() {
-		return (inverted ? -1.0 : 1.0) * Units.degreesToRadians(canCoder.getAbsolutePosition().getValueAsDouble());
+		return (inverted ? -1.0 : 1.0) * Units.degreesToRadians(canCoder.getAbsolutePosition().getValueAsDouble()*360);
 	}
 
 	public void setInverted(boolean inverted) {
