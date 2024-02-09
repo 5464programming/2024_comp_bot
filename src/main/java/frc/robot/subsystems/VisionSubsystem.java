@@ -8,6 +8,7 @@ import org.photonvision.targeting.PhotonTrackedTarget;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import entech.subsystems.EntechSubsystem;
+import frc.robot.OI.UserPolicy;
 
 public class VisionSubsystem extends EntechSubsystem{
     private static final boolean ENABLED = true;
@@ -25,7 +26,7 @@ public class VisionSubsystem extends EntechSubsystem{
     //best target
     public double bestX;
     public double bestY;
-    public boolean bestTargets;
+    public boolean targetsPresent;
 
     //all tags (example, for now)
     public double tag8x;
@@ -40,38 +41,39 @@ public class VisionSubsystem extends EntechSubsystem{
     }
 
     public void periodic(){
-        GetBestTarget();
+        VisionUpdate();
         DisplayStats();
     }
-    public void GetBestTarget(){
+    public void VisionUpdate(){
+
+
+
+
         var result = bestCamera.getLatestResult();
-        cameraTargets = result.hasTargets();
+        targetsPresent = result.hasTargets();
 
-        if(cameraTargets){
-            PhotonTrackedTarget target = result.getBestTarget();
-            cameraX = target.getYaw();
-            cameraY = target.getPitch();
-        }
-
-        var bestResult = bestCamera.getLatestResult();
-        bestTargets = bestResult.hasTargets();
-
-        if(bestTargets){
+        if(targetsPresent){
             //listing the targets
             List<PhotonTrackedTarget> targets = result.getTargets();
 
-            System.out.print("bestTags:");
-            
+            //looking in the grocery store
             for(int i = 0; i < targets.size(); i++){
+                //check grocery aisle i
                 int id = targets.get(i).getFiducialId();
-                System.out.print(i);
+                System.out.print(id);
 
-                if(id == 8){
-                    tag8x = targets.get(i).getYaw();
-                    tag8y = targets.get(i).getPitch();
+                if(id == 8 && UserPolicy.speakerShoot){
+                    cameraX = targets.get(i).getYaw();
+                    cameraY = targets.get(i).getPitch();
+                }
+
+                if (id == 6 && UserPolicy.speakerShoot) {
+                    cameraX = targets.get(i).getYaw();
+                    cameraY = targets.get(i).getPitch();                
                 }
             }
-            PhotonTrackedTarget bestTarget = bestResult.getBestTarget();
+            
+            PhotonTrackedTarget bestTarget = result.getBestTarget();
             bestX = bestTarget.getYaw();
             bestY = bestTarget.getPitch();
         }
