@@ -16,7 +16,7 @@ public class CommandFactory {
         this.driveSubsystem = subsystemManager.getDriveSubsystem();
     }
 
-    public Command getAutoCommand() {
+    public Command Line1Score() {
         SequentialCommandGroup auto = new SequentialCommandGroup();
         // reset the gyro
         auto.addCommands(new GyroReset(driveSubsystem));
@@ -27,14 +27,9 @@ public class CommandFactory {
         // 
         auto.addCommands(new PathPlannerAuto("Line1Score"));
         // wait for 1 year(second)
-      
-
 
         // run the path named "line"
         // auto.addCommands(new PathPlannerAuto("Line"));
-
-
-
 
         return auto;
     }

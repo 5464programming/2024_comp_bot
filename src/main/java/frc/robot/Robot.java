@@ -5,6 +5,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.OI.OperatorInterface;
@@ -22,6 +23,13 @@ public class Robot extends TimedRobot {
     private Command autonomousCommand;
     private SubsystemManager subsystemManager;
     private CommandFactory commandFactory;
+
+    private String auto_selected;
+    private final SendableChooser<String> auto_chooser = new SendableChooser<>();
+
+    private static final String kLine1Score = "Line1Score";
+
+
 
     @Override
     public void robotInit() {
@@ -41,12 +49,28 @@ public class Robot extends TimedRobot {
 
     @Override
     public void autonomousInit() {
-        autonomousCommand = commandFactory.getAutoCommand();
+        auto_selected = auto_chooser.getSelected();
+
+        //TODO: add autonomous options
+        auto_chooser.addOption("Line1Score", kLine1Score);
+
+          switch(auto_selected){
+            case kLine1Score:
+            autonomousCommand = commandFactory.Line1Score();
+            break;
+
+            default:
+            break;
+            }
 
         if (autonomousCommand != null) {
             autonomousCommand.schedule();
         }
     }
+
+    @Override
+    public void autonomousPeriodic(){
+        }
 
     @Override
     public void teleopInit() {
