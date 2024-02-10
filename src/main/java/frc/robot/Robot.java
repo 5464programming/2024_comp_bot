@@ -4,12 +4,15 @@
 
 package frc.robot;
 
+import com.pathplanner.lib.auto.NamedCommands;
+
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.OI.OperatorInterface;
+import frc.robot.commands.IntakeCommand;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -36,6 +39,9 @@ public class Robot extends TimedRobot {
     @Override
     public void robotInit() {
         subsystemManager = new SubsystemManager();
+
+        NamedCommands.registerCommand("IntakeCommand", new IntakeCommand(subsystemManager.getIntakeSubsystem()));
+
         commandFactory = new CommandFactory(subsystemManager);
         OperatorInterface.create(commandFactory, subsystemManager);
 
