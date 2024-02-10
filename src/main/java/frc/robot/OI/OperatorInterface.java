@@ -59,10 +59,11 @@ public final class OperatorInterface {
         driveController.button(7).whileTrue(new IntakeReverseCommand(subsystemManager.getIntakeSubsystem()));
 
         // //Secondary controller
-        secondaryController.button(3).whileTrue(new ClimbLeftUpCommand(subsystemManager.getClimbSubsystem()));
-        secondaryController.button(1).whileTrue(new ClimbLeftDownCommand(subsystemManager.getClimbSubsystem()));
+        secondaryController.pov(0).whileTrue(new ClimbLeftUpCommand(subsystemManager.getClimbSubsystem()));
+        secondaryController.pov(180).whileTrue(new ClimbLeftDownCommand(subsystemManager.getClimbSubsystem()));
+
         secondaryController.button(4).whileTrue(new ClimbRightUpCommand(subsystemManager.getClimbSubsystem()));
-        secondaryController.button(2).whileTrue(new ClimbRightDownCommand(subsystemManager.getClimbSubsystem()));
+        secondaryController.button(1).whileTrue(new ClimbRightDownCommand(subsystemManager.getClimbSubsystem()));
 
         secondaryController.axisGreaterThan(1, 0.1).whileTrue(new ClimbAutoUpCommand(subsystemManager.getClimbSubsystem()));
         secondaryController.axisLessThan(1, -0.1).whileTrue(new ClimbAutoDownCommand(subsystemManager.getClimbSubsystem()));

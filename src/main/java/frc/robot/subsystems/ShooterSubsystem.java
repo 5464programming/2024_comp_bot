@@ -33,6 +33,8 @@ public class ShooterSubsystem extends EntechSubsystem {
     public double SPbottomAmp;
 
     public double FullSpeedAmpBottom;
+    public double FullSpeedAmpTop;
+
     public double FullSpeedSpeakerTop;
     public double FullSpeedSpeakerBottom;
 
@@ -45,8 +47,8 @@ public class ShooterSubsystem extends EntechSubsystem {
 
     @Override
     public void initialize(){
-        SPtopSpeaker = 2500;
-        SPbottomSpeaker = -2000;
+        SPtopSpeaker = 300;
+        SPbottomSpeaker = -2400;
 
         SPtopAmp = 2000;
         SPbottomAmp = -1000;
@@ -54,10 +56,10 @@ public class ShooterSubsystem extends EntechSubsystem {
         SmartDashboard.putNumber("top speaker", SPtopSpeaker);
         SmartDashboard.putNumber("bottom speaker", SPbottomSpeaker);
         SmartDashboard.putNumber("top amp", SPtopAmp);
-        SmartDashboard.putNumber("bottom amo", SPbottomAmp);
+        SmartDashboard.putNumber("bottom amp", SPbottomAmp);
 
         kP_bottom = 0.00006;
-        kI_bottom = 0.0;
+        kI_bottom = 0.00000001;
         kD_bottom = 0.0;
         kIz_bottom = 0;
         kFF_bottom = 0.00018;
@@ -66,7 +68,7 @@ public class ShooterSubsystem extends EntechSubsystem {
         maxRPM_bottom = 5700;
 
         kP_top = 0.00006;
-        kI_top = 0.0;
+        kI_top = 0.00000001;
         kD_top = 0.0;
         kIz_top = 0;
         kFF_top = 0.00018;
@@ -96,6 +98,8 @@ public class ShooterSubsystem extends EntechSubsystem {
     }
 
     public void periodic(){
+        SmartDashboard.putBoolean("up to speed!", UserPolicy.shootUptoSpeed);
+
         SmartDashboard.putNumber("top encoder", codeTop.getVelocity());
         SmartDashboard.putNumber("bottom encoder", codeBottom.getVelocity());
 
@@ -131,7 +135,7 @@ public class ShooterSubsystem extends EntechSubsystem {
         if(UserPolicy.ampShoot){
             Homing(SPtopAmp, SPbottomAmp);
 
-        if(FullSpeedAmpBottom < -300){
+        if(FullSpeedAmpBottom < FullSpeedAmpBottom && FullSpeedAmpTop > FullSpeedAmpBottom){
             UserPolicy.shootUptoSpeed = true;
         }
 
@@ -147,7 +151,7 @@ public class ShooterSubsystem extends EntechSubsystem {
         if(UserPolicy.speakerShoot){
             Homing(SPtopSpeaker, SPbottomSpeaker);
 
-        if(FullSpeedSpeakerTop < -300 && FullSpeedSpeakerBottom < -300){
+        if(FullSpeedSpeakerTop > SPtopSpeaker && FullSpeedSpeakerBottom < SPbottomSpeaker){
             UserPolicy.shootUptoSpeed = true;
         }
         

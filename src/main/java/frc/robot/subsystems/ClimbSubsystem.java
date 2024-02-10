@@ -67,7 +67,7 @@ public class ClimbSubsystem extends EntechSubsystem{
 
     public void LeftUp(){
         if(UserPolicy.leftUp){
-            if(leftEncoder.getPosition() < -85){
+            if(leftEncoder.getPosition() < -13){
                 leftarm.set(0);
         }
             else if(LeftZero == false){
