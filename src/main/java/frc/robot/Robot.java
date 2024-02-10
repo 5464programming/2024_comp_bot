@@ -27,7 +27,6 @@ public class Robot extends TimedRobot {
 
     private String auto_selected;
     private final SendableChooser<String> auto_chooser = new SendableChooser<>();
-    private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
     private static final String kBluePos1 = "BluePos1";
     private static final String kBluePos2 = "BluePos2";
@@ -39,8 +38,13 @@ public class Robot extends TimedRobot {
         subsystemManager = new SubsystemManager();
         commandFactory = new CommandFactory(subsystemManager);
         OperatorInterface.create(commandFactory, subsystemManager);
+
+        auto_chooser.addOption("BluePos1", kBluePos1);
+        auto_chooser.addOption("BluePos2", kBluePos2);
+        auto_chooser.addOption("BluePos3", kBluePos3);
+        auto_chooser.addOption("BluePos4", kBluePos4);
         
-        SmartDashboard.putData("Auto choices", m_chooser);
+        SmartDashboard.putData("Auto choices", auto_chooser);
     }
 
     @Override
@@ -59,10 +63,6 @@ public class Robot extends TimedRobot {
         auto_selected = auto_chooser.getSelected();
 
         //TODO: add autonomous options
-        auto_chooser.addOption("BluePos1", kBluePos1);
-        auto_chooser.addOption("BluePos2", kBluePos2);
-        auto_chooser.addOption("BluePos3", kBluePos3);
-        auto_chooser.addOption("BluePos4", kBluePos4);
 
           switch(auto_selected){
             case kBluePos1:
