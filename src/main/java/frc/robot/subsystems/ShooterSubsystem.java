@@ -47,11 +47,11 @@ public class ShooterSubsystem extends EntechSubsystem {
 
     @Override
     public void initialize(){
-        SPtopSpeaker = 300;
-        SPbottomSpeaker = -2400;
+        SPtopAmp = 300;
+        SPbottomAmp = 2400;
 
-        SPtopAmp = 2000;
-        SPbottomAmp = -1000;
+        SPtopSpeaker = 2500;
+        SPbottomSpeaker = 2500;
 
         SmartDashboard.putNumber("top speaker", SPtopSpeaker);
         SmartDashboard.putNumber("bottom speaker", SPbottomSpeaker);
@@ -135,7 +135,7 @@ public class ShooterSubsystem extends EntechSubsystem {
         if(UserPolicy.ampShoot){
             Homing(SPtopAmp, SPbottomAmp);
 
-        if(FullSpeedAmpBottom < FullSpeedAmpBottom && FullSpeedAmpTop > FullSpeedAmpBottom){
+        if(FullSpeedAmpBottom > FullSpeedAmpBottom-50 && FullSpeedAmpTop > FullSpeedAmpBottom-50){
             UserPolicy.shootUptoSpeed = true;
         }
 
@@ -151,7 +151,7 @@ public class ShooterSubsystem extends EntechSubsystem {
         if(UserPolicy.speakerShoot){
             Homing(SPtopSpeaker, SPbottomSpeaker);
 
-        if(FullSpeedSpeakerTop > SPtopSpeaker && FullSpeedSpeakerBottom < SPbottomSpeaker){
+        if(FullSpeedSpeakerTop > SPtopSpeaker-50 && FullSpeedSpeakerBottom > SPbottomSpeaker-50){
             UserPolicy.shootUptoSpeed = true;
         }
         
