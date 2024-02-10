@@ -16,21 +16,39 @@ public class CommandFactory {
         this.driveSubsystem = subsystemManager.getDriveSubsystem();
     }
 
-    public Command Line1Score() {
+    public Command BluePos1(){
         SequentialCommandGroup auto = new SequentialCommandGroup();
-        // reset the gyro
+
         auto.addCommands(new GyroReset(driveSubsystem));
-        // wait for two seconds
-        auto.addCommands(new WaitCommand(2));
-        // aim and score
+        auto.addCommands(new PathPlannerAuto("BluePos1"));
+        
+        return auto;
+    }
+    
+    public Command BluePos2(){
+        SequentialCommandGroup auto = new SequentialCommandGroup();
 
-        // 
-        auto.addCommands(new PathPlannerAuto("Line1Score"));
-        // wait for 1 year(second)
+        auto.addCommands(new GyroReset(driveSubsystem));
+        auto.addCommands(new PathPlannerAuto("BluePos2"));
+        
+        return auto;
+    }
 
-        // run the path named "line"
-        // auto.addCommands(new PathPlannerAuto("Line"));
+    public Command BluePos3(){
+        SequentialCommandGroup auto = new SequentialCommandGroup();
 
+        auto.addCommands(new GyroReset(driveSubsystem));
+        auto.addCommands(new PathPlannerAuto("BluePos3"));
+        
+        return auto;
+    }
+
+    public Command BluePos4(){
+        SequentialCommandGroup auto = new SequentialCommandGroup();
+
+        auto.addCommands(new GyroReset(driveSubsystem));
+        auto.addCommands(new PathPlannerAuto("BluePos4"));
+        
         return auto;
     }
 }

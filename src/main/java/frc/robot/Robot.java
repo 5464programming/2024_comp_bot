@@ -29,9 +29,10 @@ public class Robot extends TimedRobot {
     private final SendableChooser<String> auto_chooser = new SendableChooser<>();
     private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
-    private static final String kLine1Score = "Line1Score";
-
-
+    private static final String kBluePos1 = "BluePos1";
+    private static final String kBluePos2 = "BluePos2";
+    private static final String kBluePos3 = "BluePos3";
+    private static final String kBluePos4 = "BluePos4";
 
     @Override
     public void robotInit() {
@@ -49,6 +50,8 @@ public class Robot extends TimedRobot {
         subsystemManager.getIntakeSubsystem().periodic();  
         subsystemManager.getVisionSubsystem().periodic(); 
         subsystemManager.getShooterSubsystem().periodic();
+
+        SmartDashboard.putData("Auto choices", auto_chooser);
     }
 
     @Override
@@ -56,13 +59,28 @@ public class Robot extends TimedRobot {
         auto_selected = auto_chooser.getSelected();
 
         //TODO: add autonomous options
-        auto_chooser.addOption("Line1Score", kLine1Score);
+        auto_chooser.addOption("BluePos1", kBluePos1);
+        auto_chooser.addOption("BluePos2", kBluePos2);
+        auto_chooser.addOption("BluePos3", kBluePos3);
+        auto_chooser.addOption("BluePos4", kBluePos4);
 
           switch(auto_selected){
-            case kLine1Score:
-            autonomousCommand = commandFactory.Line1Score();
+            case kBluePos1:
+            autonomousCommand = commandFactory.BluePos1();
             break;
 
+            case kBluePos2:
+            autonomousCommand = commandFactory.BluePos2();
+            break;
+            
+            case kBluePos3:
+            autonomousCommand = commandFactory.BluePos3();
+            break;
+            
+            case kBluePos4:
+            autonomousCommand = commandFactory.BluePos4();
+            break;
+            
             default:
             break;
             }
