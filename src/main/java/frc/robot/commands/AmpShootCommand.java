@@ -9,6 +9,7 @@ public class AmpShootCommand extends EntechCommand {
     private final ShooterSubsystem shoot;
 
     public AmpShootCommand(ShooterSubsystem shoot) {
+        // TODO: Do some funky stuff, the same as the speaker shoot command, to get auto-feeding working
         this.shoot = shoot;
     }
 

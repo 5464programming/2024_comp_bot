@@ -39,7 +39,7 @@ public class Robot extends TimedRobot {
     @Override
     public void robotInit() {
         subsystemManager = new SubsystemManager();
-
+        // TODO: Get this initialized correctly, so that it can run in Path Planner
         NamedCommands.registerCommand("IntakeCommand", new IntakeCommand(subsystemManager.getIntakeSubsystem()));
 
         commandFactory = new CommandFactory(subsystemManager);

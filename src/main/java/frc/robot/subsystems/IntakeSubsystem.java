@@ -35,7 +35,7 @@ public class IntakeSubsystem extends EntechSubsystem{
 
     public void IntakeFeed(){
         if(UserPolicy.feeding){ // JAKE PUT THIS IN
-        // if(UserPolicy.feeding && UserPolicy.shootUptoSpeed){ // THIS DOES NOT WORK CURRENTLY
+            // TODO: Make this stop once the break beam is no longer triggered
             intake.set(-1);
         }
         else{

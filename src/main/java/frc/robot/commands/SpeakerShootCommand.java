@@ -9,6 +9,8 @@ public class SpeakerShootCommand extends EntechCommand {
     private final ShooterSubsystem shoot;
 
     public SpeakerShootCommand(ShooterSubsystem shoot) {
+        // TODO: Take the intake subsystem in as an argument
+
         this.shoot = shoot;
     }
 
@@ -22,6 +24,8 @@ public class SpeakerShootCommand extends EntechCommand {
     @Override
     public void execute(){
         if (UserPolicy.speakerShoot) {
+            // TODO: Make this run the intake feed when we are up to speed
+
             shoot.SpeakerCommand();
             return;
         }
@@ -29,8 +33,10 @@ public class SpeakerShootCommand extends EntechCommand {
 
     @Override
     public void end(boolean interrupted) {
+
         UserPolicy.speakerShoot = false;
         shoot.DisableShoot();
+        // TODO: Sam asked to have the drivetrain always homing even when not shooting. How do we do this?
         UserPolicy.snapAprilSpeaker = false;
     }   
 }

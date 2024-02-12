@@ -45,10 +45,6 @@ public class VisionSubsystem extends EntechSubsystem{
         DisplayStats();
     }
     public void VisionUpdate(){
-
-
-
-
         var result = bestCamera.getLatestResult();
         targetsPresent = result.hasTargets();
 
@@ -66,7 +62,7 @@ public class VisionSubsystem extends EntechSubsystem{
                     cameraX = targets.get(i).getYaw();
                     cameraY = targets.get(i).getPitch();
                 }
-
+                // TODO: fix this user policy check to be something else....... ????
                 if (id == 6 && UserPolicy.speakerShoot) {
                     cameraX = targets.get(i).getYaw();
                     cameraY = targets.get(i).getPitch();                

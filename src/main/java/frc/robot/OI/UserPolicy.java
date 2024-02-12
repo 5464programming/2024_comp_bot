@@ -25,6 +25,7 @@ public final class UserPolicy {
     public static boolean blueSelect = false;
 
     public static boolean snapAprilSpeaker = false;
+    // TODO: Make snapping to the amp a possiblity
 
     private UserPolicy() {
     }
