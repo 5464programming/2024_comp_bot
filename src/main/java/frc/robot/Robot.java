@@ -27,6 +27,7 @@ public class Robot extends TimedRobot {
     private Command autonomousCommand;
     private SubsystemManager subsystemManager;
     private CommandFactory commandFactory;
+    private IntakeCommand intakeCommand;
 
     private String auto_selected;
     private final SendableChooser<String> auto_chooser = new SendableChooser<>();
@@ -39,8 +40,9 @@ public class Robot extends TimedRobot {
     @Override
     public void robotInit() {
         subsystemManager = new SubsystemManager();
+        intakeCommand = new IntakeCommand(subsystemManager.getIntakeSubsystem());
         // TODO: Get this initialized correctly, so that it can run in Path Planner
-        NamedCommands.registerCommand("IntakeCommand", new IntakeCommand(subsystemManager.getIntakeSubsystem()));
+        NamedCommands.registerCommand("IntakeCommand", intakeCommand);
 
         commandFactory = new CommandFactory(subsystemManager);
         OperatorInterface.create(commandFactory, subsystemManager);
