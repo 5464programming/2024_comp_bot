@@ -29,18 +29,23 @@ import frc.robot.commands.SpeakerShootCommand;
  * project.
  */
 public class Robot extends TimedRobot {
+
+    // Main robot startup things
     private Command autonomousCommand;
     private SubsystemManager subsystemManager;
     private CommandFactory commandFactory;
+    
+    // Commands to register in Path Planner
     private IntakeCommand intakeCommand;
     private AmpShootCommand ampShootCommand;
     private SpeakerShootCommand speakerShootCommand;
     private FeedCommand feedCommand;
     private GyroReset gyroReset;
+    private BackflipCommand backflipCommand;
 
+    // Building the autonomous chooser
     private String auto_selected;
     private final SendableChooser<String> auto_chooser = new SendableChooser<>();
-
     private static final String kBluePos1 = "BluePos1";
     private static final String kBluePos2 = "BluePos2";
     private static final String kBluePos3 = "BluePos3";
@@ -54,7 +59,8 @@ public class Robot extends TimedRobot {
         speakerShootCommand = new SpeakerShootCommand(subsystemManager.getShooterSubsystem());
         feedCommand = new FeedCommand(subsystemManager.getIntakeSubsystem());
         gyroReset = new GyroReset(subsystemManager.getDriveSubsystem());
-        // TODO: Get this initialized correctly, so that it can run in Path Planner
+        backflipCommand = new BackflipCommand();
+
         NamedCommands.registerCommand("IntakeCommand", intakeCommand);
         NamedCommands.registerCommand("AmpShootCommand", ampShootCommand);
         NamedCommands.registerCommand("SpeakerShootCommand", speakerShootCommand);
@@ -70,6 +76,8 @@ public class Robot extends TimedRobot {
         auto_chooser.addOption("BluePos4", kBluePos4);
         
         SmartDashboard.putData("Auto choices", auto_chooser);
+
+
     }
 
     @Override
@@ -124,6 +132,7 @@ public class Robot extends TimedRobot {
         if (autonomousCommand != null) {
             autonomousCommand.cancel();
         }
+
     }
 
     @Override

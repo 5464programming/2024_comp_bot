@@ -60,7 +60,7 @@ public class DriveCommand extends EntechCommand {
         if (UserPolicy.twistable) {
             drive.drive(-ySquared, -xSquared, rotSquared, true, true);
         } 
-        else if (UserPolicy.snapAprilSpeaker && vision.targetsPresent){ // TODO: cameraTargets is never updated. There is a new variable in vision that you need to check.
+        else if (UserPolicy.snapAprilSpeaker && vision.targetsPresent){
             double yaw = vision.cameraX;
             drive.drive(-ySquared, -xSquared, -yaw/100, true, true);
         }

@@ -16,7 +16,6 @@ public class IntakeSubsystem extends EntechSubsystem{
     private static final boolean ENABLED = true;
     private boolean notedected = false;
 
-
     @Override
     public void initialize(){}
 
@@ -25,6 +24,8 @@ public class IntakeSubsystem extends EntechSubsystem{
         return ENABLED;
     }
 
+    // TODO: Make the state of the break beam sensor get updated constantly in periodic.
+    // This will make your autonomous AND teleop code much cleaner.
     public void periodic(){
         SmartDashboard.putBoolean("break beam", searchnote.get());
     }
