@@ -30,12 +30,17 @@ public class IntakeCommand extends EntechCommand{
         intake.DisableIntake();
     }   
 
-    //TODO: Make isFinished return TRUE when the break beam sensor is tripped!
-    //HINT: use the instance of "intake" to access the break beam state.
+    //Returns value of boolean and quits the command when break beam sensor is tripped
 
     @Override
     public boolean isFinished(){
-        return false;
+        if (intake.notenotdected == false) {
+            return true;
+        }
+
+        else {
+            return false;
+        }
     }
 
 }

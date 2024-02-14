@@ -13,7 +13,6 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.OI.OperatorInterface;
 import frc.robot.commands.AmpShootCommand;
-import frc.robot.commands.BackflipCommand;
 import frc.robot.commands.FeedCommand;
 import frc.robot.commands.GyroReset;
 import frc.robot.commands.IntakeCommand;
@@ -41,7 +40,6 @@ public class Robot extends TimedRobot {
     private SpeakerShootCommand speakerShootCommand;
     private FeedCommand feedCommand;
     private GyroReset gyroReset;
-    private BackflipCommand backflipCommand;
 
     // Building the autonomous chooser
     private String auto_selected;
@@ -56,10 +54,9 @@ public class Robot extends TimedRobot {
         subsystemManager = new SubsystemManager();
         intakeCommand = new IntakeCommand(subsystemManager.getIntakeSubsystem());
         ampShootCommand = new AmpShootCommand(subsystemManager.getShooterSubsystem());
-        speakerShootCommand = new SpeakerShootCommand(subsystemManager.getShooterSubsystem());
+        speakerShootCommand = new SpeakerShootCommand(subsystemManager.getShooterSubsystem(), subsystemManager.getIntakeSubsystem());
         feedCommand = new FeedCommand(subsystemManager.getIntakeSubsystem());
         gyroReset = new GyroReset(subsystemManager.getDriveSubsystem());
-        backflipCommand = new BackflipCommand();
 
         NamedCommands.registerCommand("IntakeCommand", intakeCommand);
         NamedCommands.registerCommand("AmpShootCommand", ampShootCommand);
@@ -76,7 +73,6 @@ public class Robot extends TimedRobot {
         auto_chooser.addOption("BluePos4", kBluePos4);
         
         SmartDashboard.putData("Auto choices", auto_chooser);
-
 
     }
 

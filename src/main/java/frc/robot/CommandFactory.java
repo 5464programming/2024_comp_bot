@@ -33,6 +33,7 @@ public class CommandFactory {
 
         auto.addCommands(new GyroReset(driveSubsystem));
         auto.addCommands(new PathPlannerAuto("BluePos2"));
+     
         return auto;
     }
 

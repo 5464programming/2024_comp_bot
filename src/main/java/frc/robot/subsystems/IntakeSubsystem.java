@@ -14,7 +14,7 @@ public class IntakeSubsystem extends EntechSubsystem{
     CANSparkMax intake = new CANSparkMax(9, MotorType.kBrushless);
     DigitalInput searchnote = new DigitalInput(0);
     private static final boolean ENABLED = true;
-    private boolean notedected = false;
+    public boolean notenotdected = false;
 
     @Override
     public void initialize(){}
@@ -27,7 +27,8 @@ public class IntakeSubsystem extends EntechSubsystem{
     // TODO: Make the state of the break beam sensor get updated constantly in periodic.
     // This will make your autonomous AND teleop code much cleaner.
     public void periodic(){
-        SmartDashboard.putBoolean("break beam", searchnote.get());
+        notenotdected = searchnote.get();
+        SmartDashboard.putBoolean("break beam", notenotdected);
     }
 
     public void DisableIntake(){
@@ -55,8 +56,8 @@ public class IntakeSubsystem extends EntechSubsystem{
         
     public void Intake(){
         if(UserPolicy.intaking){
-            notedected = searchnote.get();
-           if(notedected == true){
+            
+           if(notenotdected == true){
             intake.set(-1);
            } 
            else{

@@ -50,7 +50,7 @@ public final class OperatorInterface {
         driveController.button(4).onTrue(new GyroReset(subsystemManager.getDriveSubsystem()));
         driveController.button(3).onTrue(new XCommand());
         
-        driveController.button(1).whileTrue(new SpeakerShootCommand(subsystemManager.getShooterSubsystem()));
+        driveController.button(1).whileTrue(new SpeakerShootCommand(subsystemManager.getShooterSubsystem(), subsystemManager.getIntakeSubsystem()));
         driveController.button(2).whileTrue(new AmpShootCommand(subsystemManager.getShooterSubsystem()));
         driveController.button(8).whileTrue(new ShootReverseCommand(subsystemManager.getShooterSubsystem()));
 

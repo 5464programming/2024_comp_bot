@@ -8,20 +8,20 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.0770212369613166,
-        "y": 5.001875959047612
+        "x": 1.9904956049228335,
+        "y": 3.91754173821738
       },
       "isLocked": false,
       "linkedName": "Line 1_2 Score"
     },
     {
       "anchor": {
-        "x": 2.4399011268331336,
-        "y": 4.124147725730131
+        "x": 3.031275350299988,
+        "y": 4.1046482092964185
       },
       "prevControl": {
-        "x": 1.8434992502686969,
-        "y": 4.591913903427728
+        "x": 2.4231793192931113,
+        "y": 4.139730672623738
       },
       "nextControl": null,
       "isLocked": false,
@@ -32,14 +32,14 @@
   "constraintZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 1.0,
+    "maxVelocity": 1.5,
     "maxAcceleration": 1.0,
     "maxAngularVelocity": 54.0,
     "maxAngularAcceleration": 72.0
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0,
+    "rotation": 0.0,
     "rotateFast": false
   },
   "reversed": false,
