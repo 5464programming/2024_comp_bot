@@ -18,6 +18,7 @@ public class FeedCommand extends EntechCommand{
 
     @Override
     public void execute(){
+        System.out.println("f");
             intake.IntakeFeed();
             return;
         }

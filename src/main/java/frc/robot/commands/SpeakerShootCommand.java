@@ -26,9 +26,10 @@ public class SpeakerShootCommand extends EntechCommand {
 
     @Override
     public void execute(){
+        System.out.println("5");
         if (UserPolicy.speakerShoot) {
             // TODO: Make this run the intake feed when we are up to speed
-            if (UserPolicy.shootUptoSpeed) {
+            if (UserPolicy.shootUptoSpeed && UserPolicy.closetospeaker) {
                 UserPolicy.feeding = true;
                 intake.IntakeFeed();
             }
@@ -41,7 +42,9 @@ public class SpeakerShootCommand extends EntechCommand {
     public void end(boolean interrupted) {
 
         UserPolicy.speakerShoot = false;
+        UserPolicy.feeding = false;
         shoot.DisableShoot();
+        intake.DisableIntake();
         // TODO: Sam asked to have the drivetrain always homing even when not shooting. How do we do this?
         UserPolicy.snapAprilSpeaker = false;
     }  

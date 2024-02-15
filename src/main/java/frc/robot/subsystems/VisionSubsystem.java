@@ -48,6 +48,10 @@ public class VisionSubsystem extends EntechSubsystem{
         var result = bestCamera.getLatestResult();
         targetsPresent = result.hasTargets();
 
+        if(cameraY < 3) {
+            UserPolicy.closetospeaker = false;
+        }
+
         if(targetsPresent){
             //listing the targets
             List<PhotonTrackedTarget> targets = result.getTargets();
@@ -61,9 +65,13 @@ public class VisionSubsystem extends EntechSubsystem{
                 if(id == 8 && UserPolicy.speakerShoot){
                     cameraX = targets.get(i).getYaw();
                     cameraY = targets.get(i).getPitch();
+                    if(cameraY > 3) {
+                        UserPolicy.closetospeaker = true;
+                    }
                 }
+
                 // TODO: fix this user policy check to be something else....... ????
-                if (id == 6 && UserPolicy.speakerShoot) {
+                if (id == 6 && UserPolicy.ampShoot) {
                     cameraX = targets.get(i).getYaw();
                     cameraY = targets.get(i).getPitch();                
                 }
@@ -78,6 +86,7 @@ public class VisionSubsystem extends EntechSubsystem{
         SmartDashboard.putBoolean("Camera Target Detection", cameraTargets);
         SmartDashboard.putNumber("Camera X", cameraX);
         SmartDashboard.putNumber("Camera Y", cameraY);
+        SmartDashboard.putBoolean("speakerclose", UserPolicy.closetospeaker);
     }
     //TODO: detect april tags with this code and be able to use this code for futher systems in the commands 
 }

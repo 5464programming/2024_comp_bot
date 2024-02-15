@@ -29,6 +29,10 @@ public class IntakeSubsystem extends EntechSubsystem{
     public void periodic(){
         notenotdected = searchnote.get();
         SmartDashboard.putBoolean("break beam", notenotdected);
+        SmartDashboard.putBoolean("feeding", UserPolicy.feeding);
+        SmartDashboard.putBoolean("intaking", UserPolicy.intaking);
+        SmartDashboard.putBoolean("speakerscoring", UserPolicy.speakerShoot);
+        SmartDashboard.putBoolean("ampshoot", UserPolicy.ampShoot);
     }
 
     public void DisableIntake(){
@@ -36,6 +40,7 @@ public class IntakeSubsystem extends EntechSubsystem{
     }
 
     public void IntakeFeed(){
+        System.out.println("!");
         if(UserPolicy.feeding){ // JAKE PUT THIS IN
             // TODO: Make this stop once the break beam is no longer triggered
             intake.set(-1);
