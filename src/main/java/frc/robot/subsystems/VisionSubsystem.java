@@ -21,7 +21,6 @@ public class VisionSubsystem extends EntechSubsystem{
     //robot catches targets
     public double cameraX;
     public double cameraY;
-    public boolean cameraTargets;
 
     //best target
     public double bestX;
@@ -33,9 +32,11 @@ public class VisionSubsystem extends EntechSubsystem{
     public double tag8y;
 
     private PhotonCamera bestCamera = new PhotonCamera("ShooterCamAprilTags");
+    // private PhotonCamera intakeCamera = new PhotonCamera("IntakeCam");
 
     @Override
     public void initialize(){
+        // intakeCamera.setPipelineIndex(1);
         bestCamera.setPipelineIndex(0);
         CameraServer.startAutomaticCapture();
     }
@@ -83,7 +84,7 @@ public class VisionSubsystem extends EntechSubsystem{
         }
     }
     public void DisplayStats(){
-        SmartDashboard.putBoolean("Camera Target Detection", cameraTargets);
+        SmartDashboard.putBoolean("Camera Target Detection", targetsPresent);
         SmartDashboard.putNumber("Camera X", cameraX);
         SmartDashboard.putNumber("Camera Y", cameraY);
         SmartDashboard.putBoolean("speakerclose", UserPolicy.closetospeaker);

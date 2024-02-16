@@ -40,6 +40,8 @@ public class Robot extends TimedRobot {
     private SpeakerShootCommand speakerShootCommand;
     private FeedCommand feedCommand;
     private GyroReset gyroReset;
+    // private BackflipCommand backflipCommand;
+
 
     // Building the autonomous chooser
     private String auto_selected;

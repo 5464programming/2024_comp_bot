@@ -21,8 +21,7 @@ public final class UserPolicy {
     public static boolean autoUp = false;
     public static boolean autoDown = false;
 
-    public static boolean redSelect = false;
-    public static boolean blueSelect = false;
+    public static String LEDselected;
 
     public static boolean snapAprilSpeaker = false;
     // TODO: Make snapping to the amp a possiblity

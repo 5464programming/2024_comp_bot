@@ -16,6 +16,25 @@ public class LEDSubsystem extends EntechSubsystem{
     @Override
     public void initialize(){}
 
+    public void periodic(){
+        switch (UserPolicy.LEDselected) {
+            case "YellowCoop":
+                YellowCoop();
+                break;
+
+            case "BlueAmplified":
+                BlueAmplified();
+                break;
+
+            case "PinkIntake":
+                PinkIntake();
+                break;
+        
+            default:
+                break;
+        }
+    }
+
     @Override
     public boolean isEnabled() {
         return ENABLED;
@@ -27,20 +46,22 @@ public class LEDSubsystem extends EntechSubsystem{
         ledstrip.setData(ledbuffer);
         ledstrip.start();
     }
-
-        public void Blue(){
-            if(UserPolicy.blueSelect){
-                for(int i = 1; i < 1; i++){
-                ledbuffer.setRGB(0, 0, 0, 255);
-            }
+        
+        public void YellowCoop(){
+             for(int i = 1; i < 1; i++){
+                ledbuffer.setRGB(0, 0, 0, 0);
             }
         }
 
-        public void Red(){
-          if(UserPolicy.redSelect){
+        public void BlueAmplified(){
              for(int i = 1; i < 1; i++){
-                ledbuffer.setRGB(0, 255, 0, 0);
+                ledbuffer.setRGB(0, 0, 0, 255);
             }
+        }
+
+        public void PinkIntake(){
+             for(int i = 1; i < 1; i++){
+                ledbuffer.setRGB(0, 0, 0, 0);
             }
         }
 }
