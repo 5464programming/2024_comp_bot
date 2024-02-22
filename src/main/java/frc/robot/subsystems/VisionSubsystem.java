@@ -31,12 +31,17 @@ public class VisionSubsystem extends EntechSubsystem{
     public double tag8x;
     public double tag8y;
 
+    public double note;
+    public boolean notesPresent;
+    public double noteX;
+    public double noteY;
+
     private PhotonCamera bestCamera = new PhotonCamera("ShooterCamAprilTags");
-    // private PhotonCamera intakeCamera = new PhotonCamera("IntakeCam");
+    private PhotonCamera intakeCamera = new PhotonCamera("IntakeCam");
 
     @Override
     public void initialize(){
-        // intakeCamera.setPipelineIndex(1);
+        intakeCamera.setPipelineIndex(0);
         bestCamera.setPipelineIndex(0);
         CameraServer.startAutomaticCapture();
     }
@@ -45,6 +50,20 @@ public class VisionSubsystem extends EntechSubsystem{
         VisionUpdate();
         DisplayStats();
     }
+
+    public void NoteUpdate(){
+        var noteResult = intakeCamera.getLatestResult();
+        notesPresent = noteResult.hasTargets();
+
+        PhotonTrackedTarget bestTarget = noteResult.getBestTarget();
+        noteX = bestTarget.getYaw();
+        noteY = bestTarget.getPitch();  
+
+        if(noteY < 3){
+            UserPolicy.noteHoming = false;
+        }
+    }
+
     public void VisionUpdate(){
         var result = bestCamera.getLatestResult();
         targetsPresent = result.hasTargets();

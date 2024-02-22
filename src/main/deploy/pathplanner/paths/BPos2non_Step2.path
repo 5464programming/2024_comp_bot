@@ -3,37 +3,37 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.809386006239974,
-        "y": 4.116342363738859
+        "x": 2.855863033663389,
+        "y": 5.566417514601411
       },
       "prevControl": null,
       "nextControl": {
-        "x": 5.25316469436715,
-        "y": 1.6605699308315243
+        "x": 2.361903061098285,
+        "y": 5.518363150740554
       },
       "isLocked": false,
-      "linkedName": "Bpos3_Step2"
+      "linkedName": "BluePos2non_Step1"
     },
     {
       "anchor": {
-        "x": 8.305339003833122,
-        "y": 4.104648209294296
+        "x": 1.4649253051475237,
+        "y": 5.518363150740554
       },
       "prevControl": {
-        "x": 3.1716052036055644,
-        "y": 4.303448834820827
+        "x": 2.030411281725178,
+        "y": 5.5086133925236975
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Bpos3_Step3"
+      "linkedName": "BPos2non_Step2"
     }
   ],
   "rotationTargets": [],
   "constraintZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 3.0,
-    "maxAcceleration": 3.0,
+    "maxVelocity": 1.5,
+    "maxAcceleration": 2.5,
     "maxAngularVelocity": 54.0,
     "maxAngularAcceleration": 72.0
   },
@@ -45,5 +45,5 @@
   "reversed": false,
   "folder": null,
   "previewStartingState": null,
-  "useDefaultConstraints": false
+  "useDefaultConstraints": true
 }

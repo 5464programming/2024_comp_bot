@@ -8,20 +8,20 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.332653786447717,
-        "y": 6.37634187382389
+        "x": 1.9086365238257539,
+        "y": 6.922939429924444
       },
       "isLocked": false,
       "linkedName": "Bpos1_Step1"
     },
     {
       "anchor": {
-        "x": 1.6209214366172213,
-        "y": 5.625610491125971
+        "x": 0.8678567784485995,
+        "y": 6.665668032190766
       },
       "prevControl": {
-        "x": 2.3131542700140053,
-        "y": 6.2788442916553295
+        "x": 1.768306670516475,
+        "y": 6.782609576615164
       },
       "nextControl": null,
       "isLocked": false,
@@ -39,7 +39,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0,
+    "rotation": 58.74,
     "rotateFast": false
   },
   "reversed": false,

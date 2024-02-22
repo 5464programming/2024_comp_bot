@@ -48,8 +48,9 @@ public class Robot extends TimedRobot {
     private final SendableChooser<String> auto_chooser = new SendableChooser<>();
     private static final String kBluePos1 = "BluePos1";
     private static final String kBluePos2 = "BluePos2";
+    private static final String kBluePos2non = "BluePos2non";
     private static final String kBluePos3 = "BluePos3";
-    private static final String kBluePos4 = "BluePos4";
+    // private static final String kBluePos4 = "BluePos4";
     private static final String kBlueShoot1 = "BlueShoot1";
     private static final String kBlueShoot2 = "BlueShoot2";
     private static final String kBlueShoot3 = "BlueShoot3";
@@ -76,8 +77,9 @@ public class Robot extends TimedRobot {
 
         auto_chooser.addOption("BluePos1", kBluePos1);
         auto_chooser.addOption("BluePos2", kBluePos2);
+        auto_chooser.addOption("BluePos2non", kBluePos2non);
         auto_chooser.addOption("BluePos3", kBluePos3);
-        auto_chooser.addOption("BluePos4", kBluePos4);
+        // auto_chooser.addOption("BluePos4", kBluePos4);
 
         auto_chooser.addOption("BlueShoot1", kBlueShoot1);
         auto_chooser.addOption("BlueShoot2", kBlueShoot2);
@@ -116,14 +118,18 @@ public class Robot extends TimedRobot {
             case kBluePos2:
             autonomousCommand = commandFactory.BluePos2();
             break;
+
+            case kBluePos2non:
+            autonomousCommand = commandFactory.BluePos2non();
+            break;
             
             case kBluePos3:
             autonomousCommand = commandFactory.BluePos3();
             break;
             
-            case kBluePos4:
-            autonomousCommand = commandFactory.BluePos4();
-            break;
+            // case kBluePos4:
+            // autonomousCommand = commandFactory.BluePos4();
+            // break;
 
             case kBlueShoot1:
             autonomousCommand = commandFactory.BlueShoot1();

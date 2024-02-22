@@ -8,20 +8,20 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 5.276553003248456,
-        "y": 3.9058475837749405
+        "x": 3.863365826494124,
+        "y": 4.670134185874073
       },
       "isLocked": false,
       "linkedName": "Bpos4_Step3"
     },
     {
       "anchor": {
-        "x": 1.6306711948340775,
-        "y": 5.420865568571993
+        "x": 0.7336934388833163,
+        "y": 4.094898451079563
       },
       "prevControl": {
-        "x": 3.6627596901917445,
-        "y": 4.934933174709655
+        "x": 2.839641213724234,
+        "y": 0.6239845258787919
       },
       "nextControl": null,
       "isLocked": false,
@@ -33,13 +33,13 @@
   "eventMarkers": [],
   "globalConstraints": {
     "maxVelocity": 3.0,
-    "maxAcceleration": 1.0,
+    "maxAcceleration": 3.0,
     "maxAngularVelocity": 54.0,
     "maxAngularAcceleration": 72.0
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0,
+    "rotation": 123.69,
     "rotateFast": false
   },
   "reversed": false,

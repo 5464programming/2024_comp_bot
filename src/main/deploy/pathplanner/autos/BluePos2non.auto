@@ -1,12 +1,6 @@
 {
   "version": 1.0,
-  "startingPose": {
-    "position": {
-      "x": 1.6111716784003651,
-      "y": 5.5768617000416905
-    },
-    "rotation": 0
-  },
+  "startingPose": null,
   "command": {
     "type": "sequential",
     "data": {
@@ -24,83 +18,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Test Path"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "IntakeCommand"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "parallel",
-          "data": {
-            "commands": [
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "Line1_1ToScore"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "SpeakerShootCommand"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "parallel",
-          "data": {
-            "commands": [
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "SubToLine1_2"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "IntakeCommand"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "parallel",
-          "data": {
-            "commands": [
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "Line1_2ToScore"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "SpeakerShootCommand"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "parallel",
-          "data": {
-            "commands": [
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "SubToLine1_3"
+                  "pathName": "BluePos2non_Step1"
                 }
               },
               {
@@ -120,6 +38,44 @@
                 "type": "path",
                 "data": {
                   "pathName": "BPos2non_Step2"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "SpeakerShootCommand"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Bpos2non_Step3"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeCommand"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Bpos2non_Step4"
                 }
               },
               {

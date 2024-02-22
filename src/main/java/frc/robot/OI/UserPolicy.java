@@ -29,6 +29,8 @@ public final class UserPolicy {
     public static boolean closetospeaker = false;
     public static boolean closetoamp = false;
 
+    public static boolean noteHoming = false;
+
     private UserPolicy() {
     }
 }

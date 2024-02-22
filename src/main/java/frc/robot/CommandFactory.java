@@ -37,6 +37,15 @@ public class CommandFactory {
         return auto;
     }
 
+    public Command BluePos2non(){
+        SequentialCommandGroup auto = new SequentialCommandGroup();
+
+        auto.addCommands(new GyroReset(driveSubsystem));
+        auto.addCommands(new PathPlannerAuto("BluePos2non"));
+     
+        return auto;
+    }
+
     public Command BluePos3(){
         SequentialCommandGroup auto = new SequentialCommandGroup();
 
@@ -46,14 +55,14 @@ public class CommandFactory {
         return auto;
     }
 
-    public Command BluePos4(){
-        SequentialCommandGroup auto = new SequentialCommandGroup();
+    // public Command BluePos4(){
+    //     SequentialCommandGroup auto = new SequentialCommandGroup();
 
-        auto.addCommands(new GyroReset(driveSubsystem));
-        auto.addCommands(new PathPlannerAuto("BluePos4"));
+    //     auto.addCommands(new GyroReset(driveSubsystem));
+    //     auto.addCommands(new PathPlannerAuto("BluePos4"));
         
-        return auto;
-    }
+    //     return auto;
+    // }
 
     public Command BlueShoot1(){
         SequentialCommandGroup auto = new SequentialCommandGroup();
