@@ -50,6 +50,11 @@ public class Robot extends TimedRobot {
     private static final String kBluePos2 = "BluePos2";
     private static final String kBluePos3 = "BluePos3";
     private static final String kBluePos4 = "BluePos4";
+    private static final String kBlueShoot1 = "BlueShoot1";
+    private static final String kBlueShoot2 = "BlueShoot2";
+    private static final String kBlueShoot3 = "BlueShoot3";
+    private static final String kBackup = "Backup";
+    private static final String kCryingInACorner = "CryingInACorner";
 
     @Override
     public void robotInit() {
@@ -73,7 +78,15 @@ public class Robot extends TimedRobot {
         auto_chooser.addOption("BluePos2", kBluePos2);
         auto_chooser.addOption("BluePos3", kBluePos3);
         auto_chooser.addOption("BluePos4", kBluePos4);
-        
+
+        auto_chooser.addOption("BlueShoot1", kBlueShoot1);
+        auto_chooser.addOption("BlueShoot2", kBlueShoot2);
+        auto_chooser.addOption("BlueShoot3", kBlueShoot3);
+
+        auto_chooser.addOption("Backup", kBackup);
+
+        auto_chooser.addOption("CryingInACorner", kCryingInACorner);
+
         SmartDashboard.putData("Auto choices", auto_chooser);
 
     }
@@ -111,7 +124,27 @@ public class Robot extends TimedRobot {
             case kBluePos4:
             autonomousCommand = commandFactory.BluePos4();
             break;
+
+            case kBlueShoot1:
+            autonomousCommand = commandFactory.BlueShoot1();
+            break;
+
+            case kBlueShoot2:
+            autonomousCommand = commandFactory.BlueShoot2();
+            break;
+
+            case kBlueShoot3:
+            autonomousCommand = commandFactory.BlueShoot3();
+            break;
             
+            case kBackup:
+            autonomousCommand = commandFactory.Backup();
+            break;
+
+            case kCryingInACorner:
+            autonomousCommand = commandFactory.CryingInACorner();
+            break;
+
             default:
             break;
             }

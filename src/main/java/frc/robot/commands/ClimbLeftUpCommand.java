@@ -20,6 +20,7 @@ public class ClimbLeftUpCommand extends EntechCommand {
     @Override
     public void execute(){
         if (UserPolicy.leftUp) {
+            
             climb.LeftUp();
             return;
         }

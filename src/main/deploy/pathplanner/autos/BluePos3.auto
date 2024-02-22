@@ -6,45 +6,79 @@
     "data": {
       "commands": [
         {
-          "type": "path",
+          "type": "parallel",
           "data": {
-            "pathName": "Bpos3_Step1"
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Bpos3_Step1"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeCommand"
+                }
+              }
+            ]
           }
         },
         {
-          "type": "wait",
+          "type": "parallel",
           "data": {
-            "waitTime": 0.5
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Bpos3_Step2"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "SpeakerShootCommand"
+                }
+              }
+            ]
           }
         },
         {
-          "type": "path",
+          "type": "parallel",
           "data": {
-            "pathName": "Bpos3_Step2"
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Bpos3_Step3"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeCommand"
+                }
+              }
+            ]
           }
         },
         {
-          "type": "wait",
+          "type": "parallel",
           "data": {
-            "waitTime": 0.5
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Bpos3_Step3"
-          }
-        },
-        {
-          "type": "wait",
-          "data": {
-            "waitTime": 0.5
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Bpos3_Step4"
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Bpos3_Step4"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "SpeakerShootCommand"
+                }
+              }
+            ]
           }
         }
       ]

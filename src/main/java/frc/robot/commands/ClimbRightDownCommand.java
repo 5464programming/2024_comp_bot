@@ -20,6 +20,7 @@ public class ClimbRightDownCommand extends EntechCommand {
     @Override
     public void execute(){
         if (UserPolicy.rightDown) {
+            System.out.println("down right");
             climb.RightDown();
             return;
         }

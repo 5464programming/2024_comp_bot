@@ -87,9 +87,11 @@ public class ClimbSubsystem extends EntechSubsystem{
         if(UserPolicy.leftDown){
             if(!LeftLimitActivated){
                 leftarm.set(0);
+                System.out.println("left limit");
             }
             else{
                 leftarm.set(1);
+                System.out.println("down left");
             }
         }
             else{

@@ -54,4 +54,49 @@ public class CommandFactory {
         
         return auto;
     }
+
+    public Command BlueShoot1(){
+        SequentialCommandGroup auto = new SequentialCommandGroup();
+
+        auto.addCommands(new GyroReset(driveSubsystem));
+        auto.addCommands(new PathPlannerAuto("BlueShoot1"));
+        
+        return auto;
+    }
+
+    public Command BlueShoot2(){
+        SequentialCommandGroup auto = new SequentialCommandGroup();
+
+        auto.addCommands(new GyroReset(driveSubsystem));
+        auto.addCommands(new PathPlannerAuto("BlueShoot2"));
+        
+        return auto;
+    }
+
+    public Command BlueShoot3(){
+        SequentialCommandGroup auto = new SequentialCommandGroup();
+
+        auto.addCommands(new GyroReset(driveSubsystem));
+        auto.addCommands(new PathPlannerAuto("BlueShoot3"));
+        
+        return auto;
+    }
+
+    public Command Backup(){
+        SequentialCommandGroup auto = new SequentialCommandGroup();
+
+        auto.addCommands(new GyroReset(driveSubsystem));
+        auto.addCommands(new PathPlannerAuto("Backup"));
+        
+        return auto;
+    }
+
+    public Command CryingInACorner(){
+        SequentialCommandGroup auto = new SequentialCommandGroup();
+
+        auto.addCommands(new GyroReset(driveSubsystem));
+        auto.addCommands(new PathPlannerAuto("CryingInACorner"));
+        
+        return auto;
+    }
 }

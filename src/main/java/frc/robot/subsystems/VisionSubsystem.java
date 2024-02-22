@@ -6,7 +6,6 @@ import org.photonvision.PhotonCamera;
 import org.photonvision.targeting.PhotonTrackedTarget;
 
 import edu.wpi.first.cameraserver.CameraServer;
-import edu.wpi.first.net.PortForwarder;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import entech.subsystems.EntechSubsystem;
 import frc.robot.OI.UserPolicy;
@@ -35,15 +34,10 @@ public class VisionSubsystem extends EntechSubsystem{
     private PhotonCamera bestCamera = new PhotonCamera("ShooterCamAprilTags");
     // private PhotonCamera intakeCamera = new PhotonCamera("IntakeCam");
 
-
-    
-
     @Override
     public void initialize(){
         // intakeCamera.setPipelineIndex(1);
         bestCamera.setPipelineIndex(0);
-        // TODO: Check that this code allows us to see Photonvision over USB. The address may be incorrect, address is in photonvision settings.
-        // PortForwarder.add(5800, "photonvision.local", 5800);
         CameraServer.startAutomaticCapture();
     }
 
@@ -52,9 +46,6 @@ public class VisionSubsystem extends EntechSubsystem{
         DisplayStats();
     }
     public void VisionUpdate(){
-        
-        // TODO: Fetch data from the intake camera's object detection as well
-        
         var result = bestCamera.getLatestResult();
         targetsPresent = result.hasTargets();
 
@@ -72,7 +63,15 @@ public class VisionSubsystem extends EntechSubsystem{
                 int id = targets.get(i).getFiducialId();
                 System.out.print(id);
 
-                if(id == 8 && UserPolicy.speakerShoot){
+                if(id == 7 && UserPolicy.speakerShoot){
+                    cameraX = targets.get(i).getYaw();
+                    cameraY = targets.get(i).getPitch();
+                    if(cameraY > 3) {
+                        UserPolicy.closetospeaker = true;
+                    }
+                }
+
+                if(id == 4 && UserPolicy.speakerShoot){
                     cameraX = targets.get(i).getYaw();
                     cameraY = targets.get(i).getPitch();
                     if(cameraY > 3) {

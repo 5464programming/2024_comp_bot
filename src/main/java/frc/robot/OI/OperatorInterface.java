@@ -11,7 +11,7 @@ import frc.robot.commands.ClimbLeftUpCommand;
 import frc.robot.commands.ClimbRightDownCommand;
 import frc.robot.commands.ClimbRightUpCommand;
 import frc.robot.commands.DisableShootCommand;
-import frc.robot.commands.BlueAmplifiedCommand;
+// import frc.robot.commands.BlueAmplifiedCommand;
 import frc.robot.commands.ClimbAutoDownCommand;
 import frc.robot.commands.ClimbAutoUpCommand;
 import frc.robot.commands.ClimbLeftDownCommand;
@@ -21,7 +21,7 @@ import frc.robot.commands.FeedCommand;
 import frc.robot.commands.GyroReset;
 import frc.robot.commands.IntakeCommand;
 import frc.robot.commands.IntakeReverseCommand;
-import frc.robot.commands.YellowCoopCommand;
+// import frc.robot.commands.YellowCoopCommand;
 import frc.robot.commands.ShootReverseCommand;
 import frc.robot.commands.SpeakerShootCommand;
 //import frc.robot.commands.SpeakerRPMCommand;
@@ -50,11 +50,16 @@ public final class OperatorInterface {
         driveController.button(4).onTrue(new GyroReset(subsystemManager.getDriveSubsystem()));
         driveController.button(3).onTrue(new XCommand());
         
-        driveController.button(1).whileTrue(new SpeakerShootCommand(subsystemManager.getShooterSubsystem(), subsystemManager.getIntakeSubsystem()));
+        // driveController.button(1).whileTrue(new SpeakerShootCommand(subsystemManager.getShooterSubsystem(), subsystemManager.getIntakeSubsystem()));
+        driveController.axisGreaterThan(3, 0.1).whileTrue(new SpeakerShootCommand(subsystemManager.getShooterSubsystem(), subsystemManager.getIntakeSubsystem()));
+       
+        
         driveController.button(2).whileTrue(new AmpShootCommand(subsystemManager.getShooterSubsystem()));
         driveController.button(8).whileTrue(new ShootReverseCommand(subsystemManager.getShooterSubsystem()));
 
-        driveController.button(6).whileTrue(new IntakeCommand(subsystemManager.getIntakeSubsystem()));
+        // driveController.button(6).whileTrue(new IntakeCommand(subsystemManager.getIntakeSubsystem()));
+        driveController.axisGreaterThan(2, 0.1).whileTrue(new IntakeCommand(subsystemManager.getIntakeSubsystem()));
+
         driveController.button(5).whileTrue(new FeedCommand(subsystemManager.getIntakeSubsystem()));
         driveController.button(7).whileTrue(new IntakeReverseCommand(subsystemManager.getIntakeSubsystem()));
 
@@ -68,8 +73,8 @@ public final class OperatorInterface {
         secondaryController.axisGreaterThan(1, 0.1).whileTrue(new ClimbAutoUpCommand(subsystemManager.getClimbSubsystem()));
         secondaryController.axisLessThan(1, -0.1).whileTrue(new ClimbAutoDownCommand(subsystemManager.getClimbSubsystem()));
 
-        secondaryController.button(7).onTrue(new YellowCoopCommand(subsystemManager.getLedSubsystem()));
-        secondaryController.button(8).onTrue(new BlueAmplifiedCommand(subsystemManager.getLedSubsystem()));
+        // secondaryController.button(7).onTrue(new YellowCoopCommand(subsystemManager.getLedSubsystem()));
+        // secondaryController.button(8).onTrue(new BlueAmplifiedCommand(subsystemManager.getLedSubsystem()));
 
         // driveJoystick.WhilePressed(1, new TwistCommand()); // used for actual joystick
         // driveJoystick.WhenPressed(11, new GyroReset(subsystemManager.getDriveSubsystem()));
