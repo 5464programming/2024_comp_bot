@@ -2,21 +2,15 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 1.4057878828008366,
-      "y": 6.981410202136645
+      "x": 0.9189388450035821,
+      "y": 6.639585345679005
     },
-    "rotation": 0
+    "rotation": 59.53445508054013
   },
   "command": {
     "type": "sequential",
     "data": {
       "commands": [
-        {
-          "type": "path",
-          "data": {
-            "pathName": "BShoot_1"
-          }
-        },
         {
           "type": "named",
           "data": {
