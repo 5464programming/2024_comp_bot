@@ -49,6 +49,7 @@ public class Robot extends TimedRobot {
     private static final String kBluePos1 = "BluePos1";
     private static final String kBluePos2 = "BluePos2";
     private static final String kBluePos2non = "BluePos2non";
+    private static final String kCenter4Piece_nonPar = "Center4Piece_nonPar";
     private static final String kBluePos3 = "BluePos3";
     // private static final String kBluePos4 = "BluePos4";
     private static final String kBlueShoot1 = "BlueShoot1";
@@ -78,6 +79,7 @@ public class Robot extends TimedRobot {
         auto_chooser.addOption("BluePos1", kBluePos1);
         auto_chooser.addOption("BluePos2", kBluePos2);
         auto_chooser.addOption("BluePos2non", kBluePos2non);
+        auto_chooser.addOption("Center4Piece_nonPar", kCenter4Piece_nonPar);
         auto_chooser.addOption("BluePos3", kBluePos3);
         // auto_chooser.addOption("BluePos4", kBluePos4);
 
@@ -122,6 +124,9 @@ public class Robot extends TimedRobot {
             case kBluePos2non:
             autonomousCommand = commandFactory.BluePos2non();
             break;
+
+            case kCenter4Piece_nonPar:
+            autonomousCommand = commandFactory.Center4Piece_nonPar();
             
             case kBluePos3:
             autonomousCommand = commandFactory.BluePos3();

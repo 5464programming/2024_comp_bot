@@ -37,6 +37,15 @@ public class CommandFactory {
         return auto;
     }
 
+    public Command Center4Piece_nonPar(){
+        SequentialCommandGroup auto = new SequentialCommandGroup();
+
+        auto.addCommands(new GyroReset(driveSubsystem));
+        auto.addCommands(new PathPlannerAuto("Center4Piece_nonPar"));
+     
+        return auto;        
+    }
+
     public Command BluePos2non(){
         SequentialCommandGroup auto = new SequentialCommandGroup();
 

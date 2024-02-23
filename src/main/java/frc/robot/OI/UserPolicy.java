@@ -31,6 +31,8 @@ public final class UserPolicy {
 
     public static boolean noteHoming = false;
 
+    public static boolean aprilTagsAreDetected = false;
+
     private UserPolicy() {
     }
 }

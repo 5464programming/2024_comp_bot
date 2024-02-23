@@ -27,13 +27,25 @@ public class SpeakerShootCommand extends EntechCommand {
     public void execute(){
 
         if (UserPolicy.speakerShoot) {
-
-            if (UserPolicy.shootUptoSpeed && UserPolicy.closetospeaker) {
-                UserPolicy.feeding = true;
-                intake.IntakeFeed();
+            // If we have April tag detection working properly,
+            // We only auto-shoot when we are in range.
+            if(UserPolicy.aprilTagsAreDetected){ 
+                if (UserPolicy.shootUptoSpeed && UserPolicy.closetospeaker) {
+                    UserPolicy.feeding = true;
+                    intake.IntakeFeed();
+                }
+                shoot.SpeakerCommand();
+                return;
             }
-            shoot.SpeakerCommand();
-            return;
+            else{
+                // Otherwise, if no apriltags are detected, just shoot when up to speed.
+                if (UserPolicy.shootUptoSpeed) {
+                    UserPolicy.feeding = true;
+                    intake.IntakeFeed();
+                }
+                shoot.SpeakerCommand();
+                return;
+            }
         }
     }
 

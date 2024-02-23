@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.photonvision.PhotonCamera;
 import org.photonvision.targeting.PhotonTrackedTarget;
-
-import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.net.PortForwarder;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import entech.subsystems.EntechSubsystem;
@@ -74,6 +72,7 @@ public class VisionSubsystem extends EntechSubsystem{
         }
 
         if(targetsPresent){
+            UserPolicy.aprilTagsAreDetected = true;
             //listing the targets
             List<PhotonTrackedTarget> targets = result.getTargets();
 
@@ -109,6 +108,9 @@ public class VisionSubsystem extends EntechSubsystem{
             PhotonTrackedTarget bestTarget = result.getBestTarget();
             bestX = bestTarget.getYaw();
             bestY = bestTarget.getPitch();
+        }
+        else{
+            UserPolicy.aprilTagsAreDetected = false;
         }
     }
     public void DisplayStats(){
