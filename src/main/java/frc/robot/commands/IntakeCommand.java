@@ -18,7 +18,8 @@ public class IntakeCommand extends EntechCommand{
 
     @Override
     public void execute(){
-        if (UserPolicy.intaking && UserPolicy.noteHoming) {
+        // if (UserPolicy.intaking && UserPolicy.noteHoming) {
+            if(UserPolicy.intaking){
             intake.Intake();
             return;
         }

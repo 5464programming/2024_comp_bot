@@ -24,8 +24,8 @@ public class ClimbSubsystem extends EntechSubsystem{
     boolean LeftLimitActivated;
     boolean RightLimitActivated;
 
-    boolean LeftZero = false;
-    boolean RightZero = false;
+    boolean LeftZero = true;
+    boolean RightZero = true;
 
     @Override
     public void initialize(){

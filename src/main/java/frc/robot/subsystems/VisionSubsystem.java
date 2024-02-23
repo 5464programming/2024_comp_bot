@@ -6,6 +6,7 @@ import org.photonvision.PhotonCamera;
 import org.photonvision.targeting.PhotonTrackedTarget;
 
 import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.net.PortForwarder;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import entech.subsystems.EntechSubsystem;
 import frc.robot.OI.UserPolicy;
@@ -43,7 +44,7 @@ public class VisionSubsystem extends EntechSubsystem{
     public void initialize(){
         intakeCamera.setPipelineIndex(0);
         bestCamera.setPipelineIndex(0);
-        CameraServer.startAutomaticCapture();
+        PortForwarder.add(5800, "photonvision.local", 5800);
     }
 
     public void periodic(){
