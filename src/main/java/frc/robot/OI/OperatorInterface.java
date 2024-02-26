@@ -8,6 +8,7 @@ import frc.robot.RobotConstants;
 import frc.robot.SubsystemManager;
 import frc.robot.commands.AmpShootCommand;
 import frc.robot.commands.ClimbLeftUpCommand;
+import frc.robot.commands.ClimbOverride;
 import frc.robot.commands.ClimbRightDownCommand;
 import frc.robot.commands.ClimbRightUpCommand;
 import frc.robot.commands.DisableShootCommand;
@@ -72,6 +73,8 @@ public final class OperatorInterface {
 
         secondaryController.axisGreaterThan(1, 0.1).whileTrue(new ClimbAutoUpCommand(subsystemManager.getClimbSubsystem()));
         secondaryController.axisLessThan(1, -0.1).whileTrue(new ClimbAutoDownCommand(subsystemManager.getClimbSubsystem()));
+
+        secondaryController.button(7).whileTrue(new ClimbOverride());
 
         // secondaryController.button(7).onTrue(new YellowCoopCommand(subsystemManager.getLedSubsystem()));
         // secondaryController.button(8).onTrue(new BlueAmplifiedCommand(subsystemManager.getLedSubsystem()));
