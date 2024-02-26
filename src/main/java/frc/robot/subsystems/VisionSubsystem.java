@@ -56,7 +56,7 @@ public class VisionSubsystem extends EntechSubsystem{
 
         PhotonTrackedTarget bestTarget = noteResult.getBestTarget();
         noteX = bestTarget.getYaw();
-        noteY = bestTarget.getPitch();  
+        noteY = bestTarget.getPitch();
 
         if(noteY < 3){
             UserPolicy.noteHoming = false;

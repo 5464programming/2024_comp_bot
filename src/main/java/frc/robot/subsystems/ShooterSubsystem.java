@@ -15,8 +15,8 @@ public class ShooterSubsystem extends EntechSubsystem {
     //TODO: relate the RPMs of the shooter to the distance from the target using AprilTags
 
 
-    CANSparkMax shootTop = new CANSparkMax(6, MotorType.kBrushless);
-    CANSparkMax shootBottom = new CANSparkMax(5, MotorType.kBrushless);
+    CANSparkMax shootTop = new CANSparkMax(5, MotorType.kBrushless);
+    CANSparkMax shootBottom = new CANSparkMax(6, MotorType.kBrushless);
     public RelativeEncoder codeTop = shootTop.getEncoder();
     public RelativeEncoder codeBottom = shootBottom.getEncoder();
     
