@@ -4,7 +4,6 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import entech.subsystems.EntechSubsystem;
 import frc.robot.OI.UserPolicy;
@@ -16,48 +15,20 @@ public class ClimbSubsystem extends EntechSubsystem{
     RelativeEncoder leftEncoder;
     RelativeEncoder rightEncoder;
 
-    DigitalInput limitLdown = new DigitalInput(1);
-    DigitalInput limitRdown = new DigitalInput(2);
-
     private static final boolean ENABLED = true;
-
-    boolean LeftLimitActivated;
-    boolean RightLimitActivated;
-
-    boolean LeftZero = true;
-    boolean RightZero = true;
 
     @Override
     public void initialize(){
         leftEncoder = leftarm.getEncoder();
         rightEncoder = rightarm.getEncoder();
+
+        leftEncoder.setPosition(0);
+        rightEncoder.setPosition(0);
     }
 
     public void periodic(){
-        LeftLimitActivated = limitLdown.get();
-        RightLimitActivated = limitRdown.get();
-        
         SmartDashboard.putNumber("left encoder", leftEncoder.getPosition());
         SmartDashboard.putNumber("right encoder", rightEncoder.getPosition());
-        SmartDashboard.putBoolean("left limit", LeftLimitActivated);
-        SmartDashboard.putBoolean("right limit", RightLimitActivated);
-
-        SmartDashboard.putBoolean("left zeroed", LeftZero);
-        SmartDashboard.putBoolean("right zeroed", RightZero);
-
-        if(LeftZero == false){
-            if(!LeftLimitActivated){
-                leftEncoder.setPosition(0);
-                LeftZero = true;
-            }
-        }
-
-        if(RightZero == false){
-            if(!RightLimitActivated){
-                rightEncoder.setPosition(0);
-                RightZero = true;
-            }
-        }
     }
 
     @Override
@@ -70,12 +41,9 @@ public class ClimbSubsystem extends EntechSubsystem{
             if(leftEncoder.getPosition() < -13){
                 leftarm.set(0);
         }
-            else if(LeftZero == false){
-                leftarm.set(0);
-        }
             else{
             leftarm.set(-1);
-        }
+            }
         }
             else{
             ClimbLeftDisable();
@@ -85,13 +53,11 @@ public class ClimbSubsystem extends EntechSubsystem{
     
     public void LeftDown(){
         if(UserPolicy.leftDown){
-            if(!LeftLimitActivated){
+            if(leftEncoder.getPosition() > -1){
                 leftarm.set(0);
-                System.out.println("left limit");
             }
             else{
                 leftarm.set(1);
-                System.out.println("down left");
             }
         }
             else{
@@ -105,9 +71,6 @@ public class ClimbSubsystem extends EntechSubsystem{
             if(rightEncoder.getPosition() < -85){
                 rightarm.set(0);
             }
-            else if(RightZero == false){
-                rightarm.set(0);
-            }
             else{
             rightarm.set(-1);
             }
@@ -119,7 +82,7 @@ public class ClimbSubsystem extends EntechSubsystem{
     
     public void RightDown(){
         if(UserPolicy.rightDown){
-            if(!RightLimitActivated){
+            if(rightEncoder.getPosition() > -1){
                 rightarm.set(0);
             }
             else{
