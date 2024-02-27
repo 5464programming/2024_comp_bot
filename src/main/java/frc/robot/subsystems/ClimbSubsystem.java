@@ -41,6 +41,9 @@ public class ClimbSubsystem extends EntechSubsystem{
             if(leftEncoder.getPosition() < -13){
                 leftarm.set(0);
         }
+        else if(UserPolicy.climbOverride){
+            leftarm.set(-1);
+        }
             else{
             leftarm.set(-1);
             }
@@ -56,6 +59,9 @@ public class ClimbSubsystem extends EntechSubsystem{
             if(leftEncoder.getPosition() > -1){
                 leftarm.set(0);
             }
+            else if(UserPolicy.climbOverride){
+                leftarm.set(1);
+            }
             else{
                 leftarm.set(1);
             }
@@ -65,11 +71,21 @@ public class ClimbSubsystem extends EntechSubsystem{
         }
     }
 
-    
+    // public void ClimbOverride(){
+    //     if(UserPolicy.climbOverride == true){
+    //     leftarm.set(1);
+    //     rightarm.set(1);
+    //     }
+    // }
+
+
     public void RightUp(){
         if(UserPolicy.rightUp){
             if(rightEncoder.getPosition() < -85){
                 rightarm.set(0);
+            }
+            else if(UserPolicy.climbOverride){
+                rightarm.set(-1);
             }
             else{
             rightarm.set(-1);
@@ -84,6 +100,9 @@ public class ClimbSubsystem extends EntechSubsystem{
         if(UserPolicy.rightDown){
             if(rightEncoder.getPosition() > -1){
                 rightarm.set(0);
+            }
+            else if(UserPolicy.climbOverride){
+                rightarm.set(1);
             }
             else{
             rightarm.set(1);

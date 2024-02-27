@@ -21,6 +21,8 @@ public final class UserPolicy {
     public static boolean autoUp = false;
     public static boolean autoDown = false;
 
+    public static boolean climbOverride = false;
+
     public static String LEDselected;
 
     public static boolean snapAprilSpeaker = false;
