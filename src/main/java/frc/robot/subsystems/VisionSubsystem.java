@@ -35,13 +35,13 @@ public class VisionSubsystem extends EntechSubsystem{
     public double noteX;
     public double noteY;
 
-    private PhotonCamera bestCamera = new PhotonCamera("ShooterCamAprilTags");
-    private PhotonCamera intakeCamera = new PhotonCamera("IntakeCam");
+    private PhotonCamera AprilTagCamera = new PhotonCamera("AprilTagCamera");
+    private PhotonCamera NoteCamera = new PhotonCamera("NoteCamera");
 
     @Override
     public void initialize(){
-        intakeCamera.setPipelineIndex(0);
-        bestCamera.setPipelineIndex(0);
+        NoteCamera.setPipelineIndex(0);
+        AprilTagCamera.setPipelineIndex(0);
         PortForwarder.add(5800, "photonvision.local", 5800);
     }
 
@@ -51,7 +51,7 @@ public class VisionSubsystem extends EntechSubsystem{
     }
 
     public void NoteUpdate(){
-        var noteResult = intakeCamera.getLatestResult();
+        var noteResult = NoteCamera.getLatestResult();
         notesPresent = noteResult.hasTargets();
 
         PhotonTrackedTarget bestTarget = noteResult.getBestTarget();
@@ -64,7 +64,7 @@ public class VisionSubsystem extends EntechSubsystem{
     }
 
     public void VisionUpdate(){
-        var result = bestCamera.getLatestResult();
+        var result = AprilTagCamera.getLatestResult();
         targetsPresent = result.hasTargets();
 
         if(cameraY < 3) {
@@ -82,7 +82,7 @@ public class VisionSubsystem extends EntechSubsystem{
                 int id = targets.get(i).getFiducialId();
                 System.out.print(id);
 
-                if(id == 7 && UserPolicy.speakerShoot){
+                if(id == 8 && UserPolicy.speakerShoot){
                     cameraX = targets.get(i).getYaw();
                     cameraY = targets.get(i).getPitch();
                     if(cameraY > 3) {
