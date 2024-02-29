@@ -38,17 +38,17 @@ public class ClimbSubsystem extends EntechSubsystem{
 
     public void LeftUp(){
         if(UserPolicy.leftUp){
-            if(leftEncoder.getPosition() < -13){
+            if(UserPolicy.climbOverride){
+                leftarm.set(-1);
+            }
+            else if(leftEncoder.getPosition() < -17){
                 leftarm.set(0);
-        }
-        else if(UserPolicy.climbOverride){
-            leftarm.set(-1);
-        }
+            }
             else{
-            leftarm.set(-1);
+                leftarm.set(-1);
             }
         }
-            else{
+        else{
             ClimbLeftDisable();
         }
     }
@@ -56,17 +56,17 @@ public class ClimbSubsystem extends EntechSubsystem{
     
     public void LeftDown(){
         if(UserPolicy.leftDown){
-            if(leftEncoder.getPosition() > -1){
-                leftarm.set(0);
-            }
-            else if(UserPolicy.climbOverride){
+            if(UserPolicy.climbOverride){
                 leftarm.set(1);
+            }
+            else if(leftEncoder.getPosition() > -0.4){
+                leftarm.set(0);
             }
             else{
                 leftarm.set(1);
             }
         }
-            else{
+        else{
             ClimbLeftDisable();
         }
     }
@@ -81,14 +81,14 @@ public class ClimbSubsystem extends EntechSubsystem{
 
     public void RightUp(){
         if(UserPolicy.rightUp){
-            if(rightEncoder.getPosition() < -85){
-                rightarm.set(0);
-            }
-            else if(UserPolicy.climbOverride){
+            if(UserPolicy.climbOverride){
                 rightarm.set(-1);
             }
+            else if(rightEncoder.getPosition() < -110){
+                rightarm.set(0);
+            }
             else{
-            rightarm.set(-1);
+                rightarm.set(-1);
             }
         }
         else{
@@ -98,14 +98,14 @@ public class ClimbSubsystem extends EntechSubsystem{
     
     public void RightDown(){
         if(UserPolicy.rightDown){
-            if(rightEncoder.getPosition() > -1){
-                rightarm.set(0);
-            }
-            else if(UserPolicy.climbOverride){
+            if(UserPolicy.climbOverride){
                 rightarm.set(1);
             }
+            else if(rightEncoder.getPosition() > -1){
+                rightarm.set(0);
+            }
             else{
-            rightarm.set(1);
+                rightarm.set(1);
             }
         }
         else{
@@ -139,5 +139,10 @@ public class ClimbSubsystem extends EntechSubsystem{
 
     public void ClimbRightDisable(){
         rightarm.set(0);
+    }
+
+    public void zeroEncoders(){
+        leftEncoder.setPosition(0);
+        rightEncoder.setPosition(0);        
     }
 }
