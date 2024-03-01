@@ -1,67 +1,69 @@
-// package frc.robot.subsystems;
+package frc.robot.subsystems;
 
-// import edu.wpi.first.wpilibj.AddressableLED;
-// import edu.wpi.first.wpilibj.AddressableLEDBuffer;
-// import entech.subsystems.EntechSubsystem;
-// import frc.robot.OI.UserPolicy;
+import edu.wpi.first.wpilibj.AddressableLED;
+import edu.wpi.first.wpilibj.AddressableLEDBuffer;
+import entech.subsystems.EntechSubsystem;
+import frc.robot.OI.UserPolicy;
 
-// public class LEDSubsystem extends EntechSubsystem{
+public class LEDSubsystem extends EntechSubsystem{
 
-//     //TODO: test this code
+    //TODO: test this code
 
-//     AddressableLED ledstrip = new AddressableLED(0);
-//     AddressableLEDBuffer ledbuffer = new AddressableLEDBuffer(0);
-//     private static final boolean ENABLED = true;
+    int totalLED = 15;
 
-//     @Override
-//     public void initialize(){}
+    AddressableLED ledstrip = new AddressableLED(0);
+    AddressableLEDBuffer ledbuffer = new AddressableLEDBuffer(totalLED);
+    private static final boolean ENABLED = true;
 
-//     public void periodic(){
-//         switch (UserPolicy.LEDselected) {
-//             case "YellowCoop":
-//                 YellowCoop();
-//                 break;
+    @Override
+    public void initialize(){
+        ledstrip.setLength(ledbuffer.getLength());
+        ledstrip.setData(ledbuffer);
+        ledstrip.start();
+    }
 
-//             case "BlueAmplified":
-//                 BlueAmplified();
-//                 break;
+    public void periodic(){
+        switch (UserPolicy.LEDselected) {
+            case "YellowCoop":
+                YellowCoop();
+                break;
 
-//             case "PinkIntake":
-//                 PinkIntake();
-//                 break;
+            case "BlueAmplified":
+                BlueAmplified();
+                break;
+
+            case "PinkIntake":
+                PinkIntake();
+                break;
         
-//             default:
-//                 break;
-//         }
-//     }
+            default:
+                break;
+        }
+    }
 
-//     @Override
-//     public boolean isEnabled() {
-//         return ENABLED;
-//     }
-
-
-//     public void LEDInit(){
-//         ledstrip.setLength(ledbuffer.getLength());
-//         ledstrip.setData(ledbuffer);
-//         ledstrip.start();
-//     }
+    @Override
+    public boolean isEnabled() {
+        return ENABLED;
+    }
         
-//         public void YellowCoop(){
-//              for(int i = 1; i < 1; i++){
-//                 ledbuffer.setRGB(0, 0, 0, 0);
-//             }
-//         }
+        public void YellowCoop(){
+             for(int i = 1; i < totalLED; i++){
+                ledbuffer.setRGB(i, 200, 80, 0);
+            }
+           ledstrip.setData(ledbuffer); 
+        }
 
-//         public void BlueAmplified(){
-//              for(int i = 1; i < 1; i++){
-//                 ledbuffer.setRGB(0, 0, 0, 255);
-//             }
-//         }
+        public void BlueAmplified(){
+             for(int i = 1; i < totalLED; i++){
+                ledbuffer.setRGB(i, 0, 0, 255);
+            }
+            ledstrip.setData(ledbuffer);
+        }
 
-//         public void PinkIntake(){
-//              for(int i = 1; i < 1; i++){
-//                 ledbuffer.setRGB(0, 0, 0, 0);
-//             }
-//         }
-// }
+        public void PinkIntake(){
+             for(int i = 1; i < totalLED; i++){
+                ledbuffer.setRGB(i, 255, 192, 203);
+            }
+            ledstrip.setData(ledbuffer);
+        }
+}

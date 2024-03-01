@@ -18,7 +18,7 @@ public class IntakeCommand extends EntechCommand{
 
     @Override
     public void execute(){
-        // if (UserPolicy.intaking && UserPolicy.noteHoming) {
+        // if (UserPolicy.intaking && UserPolicy.) {
             if(UserPolicy.intaking){
             intake.Intake();
             return;
@@ -36,6 +36,7 @@ public class IntakeCommand extends EntechCommand{
     @Override
     public boolean isFinished(){
         if (intake.notenotdected == false) {
+            UserPolicy.LEDselected = "PinkIntake";
             return true;
         }
 

@@ -1,32 +1,25 @@
-// package frc.robot.commands;
+package frc.robot.commands;
 
-// import entech.commands.EntechCommand;
-// import frc.robot.OI.UserPolicy;
-// // import frc.robot.subsystems.LEDSubsystem;
+import entech.commands.EntechCommand;
+import frc.robot.OI.UserPolicy;
 
-// public class BlueAmplifiedCommand extends EntechCommand {
+public class BlueAmplifiedCommand extends EntechCommand {
     
-//     private final LEDSubsystem led;
+    // private final LEDSubsystem led;
 
-//     // public BlueAmplifiedCommand(LEDSubsystem led) {
-//     //     this.led = led;
-//     // }
+    // public BlueAmplifiedCommand(LEDSubsystem led) {
+    //     this.led = led;
+    // }
 
-    
-//      @Override
-//     public void initialize() {
-//         UserPolicy.LEDselected = "BlueAmplified";
-//     }
+     @Override
+    public void initialize() {
+        UserPolicy.LEDselected = "BlueAmplified";
+    }
 
-//     @Override
-//     public void execute() {
-//         if (UserPolicy.LEDselected == "BlueAmplified") {
-//             led.BlueAmplified();
-//             return;
-//         }
-//     }
+    @Override
+    public void execute() {}
 
-//     @Override
-//     public void end(boolean interrupted) {
-//     }   
-// }
+    @Override
+    public void end(boolean interrupted) {
+    }   
+}

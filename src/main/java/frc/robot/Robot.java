@@ -102,6 +102,7 @@ public class Robot extends TimedRobot {
         subsystemManager.getIntakeSubsystem().periodic();  
         subsystemManager.getVisionSubsystem().periodic(); 
         subsystemManager.getShooterSubsystem().periodic();
+        subsystemManager.getLedSubsystem().periodic();
 
         SmartDashboard.putData("Auto choices", auto_chooser);
     }

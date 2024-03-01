@@ -63,7 +63,6 @@ public class IntakeSubsystem extends EntechSubsystem{
         if(UserPolicy.intaking){
            if(notenotdected == true){
             intake.set(-1);
-            UserPolicy.LEDselected = "PinkIntake";
            }
            else{
             intake.set(0);
