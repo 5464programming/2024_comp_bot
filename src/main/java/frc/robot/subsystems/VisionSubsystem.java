@@ -81,7 +81,6 @@ public class VisionSubsystem extends EntechSubsystem{
             for(int i = 0; i < targets.size(); i++){
                 //check grocery aisle i
                 int id = targets.get(i).getFiducialId();
-                System.out.print(id);
 
                 if(id == 8 && UserPolicy.speakerShoot){
                     cameraX = targets.get(i).getYaw();

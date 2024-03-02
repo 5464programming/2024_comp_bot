@@ -54,7 +54,6 @@ public class IntakeSubsystem extends EntechSubsystem{
     }
 
     public void IntakeFeed(){
-        System.out.println("!");
         if(UserPolicy.feeding){ // JAKE PUT THIS IN
             // TODO: Make this stop once the break beam is no longer triggered
             intake.set(-1);

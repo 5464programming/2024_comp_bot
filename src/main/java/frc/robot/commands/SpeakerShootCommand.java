@@ -21,6 +21,7 @@ public class SpeakerShootCommand extends EntechCommand {
         UserPolicy.speakerShoot = true;
         UserPolicy.shootUptoSpeed = false;
         UserPolicy.snapAprilSpeaker = true;
+        UserPolicy.closetospeaker = false;
     }
 
     @Override

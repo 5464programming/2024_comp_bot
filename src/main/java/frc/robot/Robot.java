@@ -57,6 +57,7 @@ public class Robot extends TimedRobot {
     private static final String kBlueShoot3 = "BlueShoot3";
     private static final String kBackup = "Backup";
     private static final String kCryingInACorner = "CryingInACorner";
+    private static final String kBluePos2_1 = "BluePos2_1";
 
     private String wait_selected;
     private final SendableChooser<String> wait_chooser = new SendableChooser<>();
@@ -98,6 +99,8 @@ public class Robot extends TimedRobot {
 
         auto_chooser.addOption("CryingInACorner", kCryingInACorner);
 
+        auto_chooser.addOption("BluePos2_1", kBluePos2_1);
+
         SmartDashboard.putData("Auto choices", auto_chooser);
 
         wait_chooser.addOption("0Seconds", k0Seconds);
@@ -136,6 +139,10 @@ public class Robot extends TimedRobot {
             autonomousCommand = commandFactory.BluePos2();
             break;
 
+            case kBluePos2_1:
+            autonomousCommand = commandFactory.BluePos2_1();
+            break;
+            
             case kBluePos2non:
             autonomousCommand = commandFactory.BluePos2non();
             break;

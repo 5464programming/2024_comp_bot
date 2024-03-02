@@ -76,7 +76,7 @@ public class LEDSubsystem extends EntechSubsystem{
 
         public void PinkIntake(){
              for(int i = 1; i < totalLED; i++){
-                ledbuffer.setRGB(i, 255, 0, 0);
+                ledbuffer.setRGB(i, 255, 50, 50);
             }
             ledstrip.setData(ledbuffer);
         }

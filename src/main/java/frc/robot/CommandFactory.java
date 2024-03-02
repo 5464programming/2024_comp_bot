@@ -37,6 +37,15 @@ public class CommandFactory {
         return auto;
     }
 
+    public Command BluePos2_1(){
+        SequentialCommandGroup auto = new SequentialCommandGroup();
+
+        auto.addCommands(new GyroReset(driveSubsystem));
+        auto.addCommands(new PathPlannerAuto("BluePos2_1"));
+     
+        return auto;
+    }
+
     public Command Center4Piece_nonPar(){
         SequentialCommandGroup auto = new SequentialCommandGroup();
 
