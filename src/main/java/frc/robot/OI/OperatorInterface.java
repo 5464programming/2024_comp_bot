@@ -71,10 +71,10 @@ public final class OperatorInterface {
         secondaryController.button(4).whileTrue(new ClimbRightUpCommand(subsystemManager.getClimbSubsystem()));
         secondaryController.button(1).whileTrue(new ClimbRightDownCommand(subsystemManager.getClimbSubsystem()));
 
-        secondaryController.axisGreaterThan(1, 0.1).whileTrue(new ClimbAutoUpCommand(subsystemManager.getClimbSubsystem()));
-        secondaryController.axisLessThan(1, -0.1).whileTrue(new ClimbAutoDownCommand(subsystemManager.getClimbSubsystem()));
+        secondaryController.button(5).onTrue(new ClimbAutoUpCommand(subsystemManager.getClimbSubsystem()));
+        secondaryController.button(6).onTrue(new ClimbAutoDownCommand(subsystemManager.getClimbSubsystem()));
 
-        secondaryController.button(7).whileTrue(new ClimbOverrideCommand(subsystemManager.getClimbSubsystem()));
+        secondaryController.button(3).whileTrue(new ClimbOverrideCommand(subsystemManager.getClimbSubsystem()));
 
         secondaryController.button(7).onTrue(new YellowCoopCommand());
         secondaryController.button(8).onTrue(new BlueAmplifiedCommand());
