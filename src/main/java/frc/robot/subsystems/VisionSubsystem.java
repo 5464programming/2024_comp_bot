@@ -55,16 +55,18 @@ public class VisionSubsystem extends EntechSubsystem{
         var noteResult = NoteCamera.getLatestResult();
         notesPresent = noteResult.hasTargets();
 
+        if(notesPresent){
         PhotonTrackedTarget bestTarget = noteResult.getBestTarget();
         noteX = bestTarget.getYaw();
         noteY = bestTarget.getPitch();
+        }
     }
 
     public void VisionUpdate(){
         var result = AprilTagCamera.getLatestResult();
         targetsPresent = result.hasTargets();
 
-        if(cameraY < 3) {
+        if(cameraY < 14.5) {
             UserPolicy.closetospeaker = false;
         }
 

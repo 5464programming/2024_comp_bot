@@ -23,22 +23,22 @@ public class LEDSubsystem extends EntechSubsystem{
     }
 
     public void periodic(){
-        switch (UserPolicy.LEDselected) {
-            case "YellowCoop":
-                YellowCoop();
-                break;
+        // switch (UserPolicy.LEDselected) {
+        //     case "YellowCoop":
+        //         YellowCoop();
+        //         break;
 
-            case "BlueAmplified":
-                BlueAmplified();
-                break;
+        //     case "BlueAmplified":
+        //         BlueAmplified();
+        //         break;
 
-            case "PinkIntake":
-                PinkIntake();
-                break;
+        //     case "PinkIntake":
+        //         PinkIntake();
+        //         break;
         
-            default:
-                break;
-        }
+        //     default:
+        //         break;
+        // }
     }
 
     @Override
