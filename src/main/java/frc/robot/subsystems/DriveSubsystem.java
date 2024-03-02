@@ -66,7 +66,7 @@ public class DriveSubsystem extends EntechSubsystem {
 
     Field2d field = new Field2d();
 
-    private double getGyroAngle() {
+    public double getGyroAngle() {
         return gyro.getAngle() + 0;
     }
 
