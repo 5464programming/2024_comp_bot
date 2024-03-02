@@ -66,6 +66,7 @@ public class IntakeSubsystem extends EntechSubsystem{
            }
            else{
             intake.set(0);
+            UserPolicy.LEDselected = "PinkIntake";
            }
         }
         else{
