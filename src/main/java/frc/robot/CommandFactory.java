@@ -117,4 +117,36 @@ public class CommandFactory {
         
         return auto;
     }
+
+    public Command ZeroSeconds(){
+        SequentialCommandGroup auto = new SequentialCommandGroup(null);
+
+        auto.addCommands(new GyroReset(driveSubsystem));
+
+        return auto;
+    }
+
+    public Command OneSecond(){
+        SequentialCommandGroup auto = new SequentialCommandGroup(null);
+
+        auto.addCommands(new GyroReset(driveSubsystem));
+
+        return auto;
+    }
+
+    public Command TwoSeconds(){
+        SequentialCommandGroup auto = new SequentialCommandGroup(null);
+
+        auto.addCommands(new GyroReset(driveSubsystem));
+
+        return auto;
+    }
+
+    public Command ThreeSeconds(){
+        SequentialCommandGroup auto = new SequentialCommandGroup(null);
+
+        auto.addCommands(new GyroReset(driveSubsystem));
+
+        return auto;
+    }
 }
