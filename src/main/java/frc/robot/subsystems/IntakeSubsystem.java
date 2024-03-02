@@ -27,7 +27,21 @@ public class IntakeSubsystem extends EntechSubsystem{
     // TODO: Make the state of the break beam sensor get updated constantly in periodic.
     // This will make your autonomous AND teleop code much cleaner.
     public void periodic(){
+        // grab the past state of the break beam
+        boolean oldnotenotdetected = notenotdected;
+        // grab the newest state of the break beam
         notenotdected = !searchnote.get();
+
+        // IF something happened (either a note was detected or a note left,)
+        if(notenotdected!=oldnotenotdetected){
+            if(notenotdected){
+                UserPolicy.LEDselected = "White";
+            }
+            else{
+                UserPolicy.LEDselected = "PinkIntake";
+            }
+        }
+        
         SmartDashboard.putBoolean("break beam", notenotdected);
         SmartDashboard.putBoolean("feeding", UserPolicy.feeding);
         SmartDashboard.putBoolean("intaking", UserPolicy.intaking);
