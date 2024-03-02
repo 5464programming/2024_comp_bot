@@ -12,8 +12,8 @@ public class ClimbSubsystem extends EntechSubsystem{
     CANSparkMax leftarm = new CANSparkMax(8, MotorType.kBrushless);
     CANSparkMax rightarm = new CANSparkMax(7, MotorType.kBrushless);  
 
-    RelativeEncoder leftEncoder;
-    RelativeEncoder rightEncoder;
+    public RelativeEncoder leftEncoder;
+    public RelativeEncoder rightEncoder;
 
     public double rightUp = -110;
     public double rightDown = -1;
@@ -35,6 +35,9 @@ public class ClimbSubsystem extends EntechSubsystem{
     public void periodic(){
         SmartDashboard.putNumber("left encoder", leftEncoder.getPosition());
         SmartDashboard.putNumber("right encoder", rightEncoder.getPosition());
+
+        SmartDashboard.putBoolean("Auto up", UserPolicy.autoUp);
+        SmartDashboard.putBoolean("Auto down", UserPolicy.autoDown);
     }
 
     @Override
@@ -123,16 +126,21 @@ public class ClimbSubsystem extends EntechSubsystem{
     
     public void AutoUp(){
         if(UserPolicy.autoUp){
-            rightarm.set(-1);
-            if(rightEncoder.getPosition() < rightUp){
-                rightarm.set(0);
-                UserPolicy.autoUp = false;
-            }
-            leftarm.set(-1);
-            if(leftEncoder.getPosition() < leftUp){
-                leftarm.set(0);
-                UserPolicy.autoUp = false;
-            }
+            UserPolicy.leftUp = true;
+            UserPolicy.rightUp = true;
+            RightUp();
+            LeftUp();
+
+            // rightarm.set(-1);
+            // if(rightEncoder.getPosition() < rightUp){
+            //     rightarm.set(0);
+            //     UserPolicy.autoUp = false;
+            // }
+            // leftarm.set(-1);
+            // if(leftEncoder.getPosition() < leftUp){
+            //     leftarm.set(0);
+            //     UserPolicy.autoUp = false;
+            // }
         }
         else{
             ClimbLeftDisable();
@@ -142,17 +150,22 @@ public class ClimbSubsystem extends EntechSubsystem{
 
     public void AutoDown(){
         if(UserPolicy.autoDown){
-            rightarm.set(1);
-            if(rightEncoder.getPosition() > rightDown){
-                rightarm.set(0);
-                UserPolicy.autoUp = false;
-            }
+            UserPolicy.leftDown = true;
+            UserPolicy.rightDown = true;
+            RightDown();
+            LeftDown();
 
-            leftarm.set(1);
-            if(leftEncoder.getPosition() > leftDown){
-                leftarm.set(0);
-                UserPolicy.autoUp = false;
-            }
+            // rightarm.set(1);
+            // if(rightEncoder.getPosition() > rightDown){
+            //     rightarm.set(0);
+            //     UserPolicy.autoUp = false;
+            // }
+
+            // leftarm.set(1);
+            // if(leftEncoder.getPosition() > leftDown){
+            //     leftarm.set(0);
+            //     UserPolicy.autoUp = false;
+            // }
         }
         else{
             ClimbLeftDisable();

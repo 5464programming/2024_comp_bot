@@ -23,7 +23,7 @@ public final class UserPolicy {
 
     public static boolean climbOverride = false;
 
-    public static String LEDselected;
+    public static String LEDselected = "White";
 
     public static boolean snapAprilSpeaker = false;
     // TODO: Make snapping to the amp a possiblity

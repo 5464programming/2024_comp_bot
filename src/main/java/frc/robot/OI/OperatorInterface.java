@@ -76,8 +76,8 @@ public final class OperatorInterface {
 
         secondaryController.button(3).whileTrue(new ClimbOverrideCommand(subsystemManager.getClimbSubsystem()));
 
-        secondaryController.button(7).onTrue(new YellowCoopCommand());
-        secondaryController.button(8).onTrue(new BlueAmplifiedCommand());
+        secondaryController.button(7).whileTrue(new YellowCoopCommand());
+        secondaryController.button(8).whileTrue(new BlueAmplifiedCommand());
 
         // driveJoystick.WhilePressed(1, new TwistCommand()); // used for actual joystick
         // driveJoystick.WhenPressed(11, new GyroReset(subsystemManager.getDriveSubsystem()));

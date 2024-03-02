@@ -21,5 +21,6 @@ public class YellowCoopCommand extends EntechCommand {
 
     @Override
     public void end(boolean interrupted) {
+        UserPolicy.LEDselected = "White";
     }   
 }

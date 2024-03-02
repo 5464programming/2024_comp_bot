@@ -31,4 +31,16 @@ public class ClimbAutoUpCommand extends EntechCommand {
         climb.ClimbLeftDisable();
         climb.ClimbRightDisable();
     }   
+
+    @Override 
+    public boolean isFinished(){
+        if(climb.rightEncoder.getPosition() < climb.rightUp && climb.leftEncoder.getPosition() < climb.leftUp){
+            UserPolicy.autoUp = false;
+            return true;
+        }
+        else{
+            UserPolicy.autoUp = true;
+            return false;
+        }
+    }
 }

@@ -15,33 +15,44 @@ public class LEDSubsystem extends EntechSubsystem{
     AddressableLEDBuffer ledbuffer = new AddressableLEDBuffer(totalLED);
     private static final boolean ENABLED = true;
 
+    public static String color_choice;
+
+    private static final String kBlueAmplified = "BlueAmplified";
+    private static final String kYellowCoop = "YellowCoop";
+    private static final String kPinkIntake = "PinkIntake";
+    private static final String kWhite = "White";
+
     @Override
     public void initialize(){
         ledstrip.setLength(ledbuffer.getLength());
         ledstrip.setData(ledbuffer);
         ledstrip.start();
-        
+        White();
     }
 
     public void periodic(){
-        // switch (UserPolicy.LEDselected) {
-        //     case "YellowCoop":
-        //         YellowCoop();
-        //         break;
+        color_choice = UserPolicy.LEDselected;
+        switch (color_choice) {
+            case kYellowCoop:
+                YellowCoop();
+                break;
 
-        //     case "BlueAmplified":
-        //         BlueAmplified();
-        //         break;
-        
-        BlueAmplified();
+            case kBlueAmplified:
+                BlueAmplified();
+                break;
 
-        //     case "PinkIntake":
-        //         PinkIntake();
-        //         break;
+            case kPinkIntake:
+                PinkIntake();
+                break;
+
+            case kWhite:
+                White();
+                break;
         
-        //     default:
-        //         break;
-        // }
+            default:
+                White();
+                break;
+        }
     }
 
     @Override
@@ -58,7 +69,7 @@ public class LEDSubsystem extends EntechSubsystem{
 
         public void BlueAmplified(){
              for(int i = 1; i < totalLED; i++){
-                ledbuffer.setRGB(i, 0, 0, 255);
+                ledbuffer.setRGB(i, 0, 0, 60);
             }
             ledstrip.setData(ledbuffer);
         }
@@ -66,6 +77,13 @@ public class LEDSubsystem extends EntechSubsystem{
         public void PinkIntake(){
              for(int i = 1; i < totalLED; i++){
                 ledbuffer.setRGB(i, 255, 192, 203);
+            }
+            ledstrip.setData(ledbuffer);
+        }
+
+        public void White(){
+             for(int i = 1; i < totalLED; i++){
+                ledbuffer.setRGB(i, 100, 100, 100);
             }
             ledstrip.setData(ledbuffer);
         }
