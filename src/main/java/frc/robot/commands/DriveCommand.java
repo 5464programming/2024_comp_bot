@@ -57,6 +57,8 @@ public class DriveCommand extends EntechCommand {
             return;
         }
 
+        // (current_variable - setpoint) / scale
+
         if (UserPolicy.twistable) {
             drive.drive(-ySquared, -xSquared, rotSquared, true, true);
         } 
@@ -67,6 +69,9 @@ public class DriveCommand extends EntechCommand {
         else if(UserPolicy.intaking && vision.notesPresent){
             double noteYaw = vision.noteX;
             drive.drive(-ySquared, -xSquared, -noteYaw/100, true, true);
+        }
+        else if(UserPolicy.ampShoot){
+            drive.drive(xSquared, ySquared, (drive.getGyroAngle() - 90)/100, true, true);
         }
         // TODO: Uncomment this code and sure this works!
         // This "should" allow auto-homing of the drivetrain to any notes ahead of it.
