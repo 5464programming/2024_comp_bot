@@ -47,6 +47,7 @@ public class IntakeSubsystem extends EntechSubsystem{
         }
         else{
             DisableIntake();
+            UserPolicy.LEDselected = "White";
         }
         }
 
