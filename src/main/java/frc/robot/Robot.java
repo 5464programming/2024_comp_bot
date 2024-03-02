@@ -58,6 +58,13 @@ public class Robot extends TimedRobot {
     private static final String kBackup = "Backup";
     private static final String kCryingInACorner = "CryingInACorner";
 
+    private String wait_selected;
+    private final SendableChooser<String> wait_chooser = new SendableChooser<>();
+    private static final String k0Seconds = "0Seconds";
+    private static final String k1Second = "1Second";
+    private static final String k2Seconds = "2Seconds";
+    private static final String k3Seconds = "3Seconds";
+
     @Override
     public void robotInit() {
         subsystemManager = new SubsystemManager();
@@ -93,6 +100,12 @@ public class Robot extends TimedRobot {
 
         SmartDashboard.putData("Auto choices", auto_chooser);
 
+        wait_chooser.addOption("0Seconds", k0Seconds);
+        wait_chooser.addOption("1Second", k1Second);
+        wait_chooser.addOption("2Seconds", k2Seconds);
+        wait_chooser.addOption("3Seconds", k3Seconds);
+
+        SmartDashboard.putData("Wait choices", wait_chooser);
     }
 
     @Override
@@ -105,6 +118,7 @@ public class Robot extends TimedRobot {
         subsystemManager.getLedSubsystem().periodic();
 
         SmartDashboard.putData("Auto choices", auto_chooser);
+        SmartDashboard.putData("Wait choices", wait_chooser);
     }
 
     @Override
@@ -159,6 +173,29 @@ public class Robot extends TimedRobot {
 
             default:
             break;
+            }
+
+        wait_selected = wait_chooser.getSelected();
+
+            switch(wait_selected){
+                case k0Seconds:
+                autonomousCommand = commandFactory.ZeroSeconds();
+                break;
+
+                case k1Second:
+                autonomousCommand = commandFactory.OneSecond();
+                break;
+
+                case k2Seconds:
+                autonomousCommand = commandFactory.TwoSeconds();
+                break;
+
+                case k3Seconds:
+                autonomousCommand = commandFactory.ThreeSeconds();
+                break;
+
+                default:
+                break;
             }
 
         if (autonomousCommand != null) {
