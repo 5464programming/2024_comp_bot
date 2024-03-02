@@ -38,6 +38,8 @@ public class VisionSubsystem extends EntechSubsystem{
     private PhotonCamera AprilTagCamera = new PhotonCamera("AprilTagCamera");
     private PhotonCamera NoteCamera = new PhotonCamera("NoteCamera");
 
+    public double yValue = 13;
+
     @Override
     public void initialize(){
         NoteCamera.setPipelineIndex(0);
@@ -66,7 +68,7 @@ public class VisionSubsystem extends EntechSubsystem{
         var result = AprilTagCamera.getLatestResult();
         targetsPresent = result.hasTargets();
 
-        if(cameraY < 14.5) {
+        if(cameraY < 13) {
             UserPolicy.closetospeaker = false;
         }
 
@@ -84,7 +86,7 @@ public class VisionSubsystem extends EntechSubsystem{
                 if(id == 8 && UserPolicy.speakerShoot){
                     cameraX = targets.get(i).getYaw();
                     cameraY = targets.get(i).getPitch();
-                    if(cameraY > 3) {
+                    if(cameraY > yValue) {
                         UserPolicy.closetospeaker = true;
                     }
                 }
@@ -92,7 +94,7 @@ public class VisionSubsystem extends EntechSubsystem{
                 if(id == 4 && UserPolicy.speakerShoot){
                     cameraX = targets.get(i).getYaw();
                     cameraY = targets.get(i).getPitch();
-                    if(cameraY > 3) {
+                    if(cameraY > yValue) {
                         UserPolicy.closetospeaker = true;
                     }
                 }

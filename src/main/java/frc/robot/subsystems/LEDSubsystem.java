@@ -9,7 +9,7 @@ public class LEDSubsystem extends EntechSubsystem{
 
     //TODO: test this code
 
-    int totalLED = 15;
+    int totalLED = 60;
 
     AddressableLED ledstrip = new AddressableLED(0);
     AddressableLEDBuffer ledbuffer = new AddressableLEDBuffer(totalLED);
@@ -20,6 +20,7 @@ public class LEDSubsystem extends EntechSubsystem{
         ledstrip.setLength(ledbuffer.getLength());
         ledstrip.setData(ledbuffer);
         ledstrip.start();
+        
     }
 
     public void periodic(){
@@ -31,6 +32,8 @@ public class LEDSubsystem extends EntechSubsystem{
         //     case "BlueAmplified":
         //         BlueAmplified();
         //         break;
+        
+        BlueAmplified();
 
         //     case "PinkIntake":
         //         PinkIntake();
