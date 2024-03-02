@@ -180,19 +180,19 @@ public class Robot extends TimedRobot {
 
             switch(wait_selected){
                 case k0Seconds:
-                autonomousCommand = commandFactory.ZeroSeconds();
+                // autonomousCommand = commandFactory.ZeroSeconds();
                 break;
 
                 case k1Second:
-                autonomousCommand = commandFactory.OneSecond();
+                // autonomousCommand = commandFactory.OneSecond();
                 break;
 
                 case k2Seconds:
-                autonomousCommand = commandFactory.TwoSeconds();
+                // autonomousCommand = commandFactory.TwoSeconds();
                 break;
 
                 case k3Seconds:
-                autonomousCommand = commandFactory.ThreeSeconds();
+                // autonomousCommand = commandFactory.ThreeSeconds();
                 break;
 
                 default:
