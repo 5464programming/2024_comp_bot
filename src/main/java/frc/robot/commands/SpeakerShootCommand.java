@@ -33,8 +33,10 @@ public class SpeakerShootCommand extends EntechCommand {
             // if(UserPolicy.aprilTagsAreDetected){ 
             if (UserPolicy.shootUptoSpeed && UserPolicy.closetospeaker) {
                 UserPolicy.feeding = true;
-                intake.IntakeFeed();
             }
+            if(UserPolicy.feeding == true){
+                intake.IntakeFeed();
+                }
             shoot.SpeakerCommand();
             return;
             // }

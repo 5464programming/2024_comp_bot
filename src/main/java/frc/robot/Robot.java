@@ -96,6 +96,7 @@ public class Robot extends TimedRobot {
         auto_chooser.addOption("BlueShoot3", kBlueShoot3);
 
         auto_chooser.addOption("Backup", kBackup);
+        auto_chooser.setDefaultOption("BlueShoot2", kBlueShoot2);
 
         auto_chooser.addOption("CryingInACorner", kCryingInACorner);
 
@@ -104,6 +105,7 @@ public class Robot extends TimedRobot {
         SmartDashboard.putData("Auto choices", auto_chooser);
 
         wait_chooser.addOption("0Seconds", k0Seconds);
+        wait_chooser.setDefaultOption("0Seconds", k0Seconds);
         wait_chooser.addOption("1Second", k1Second);
         wait_chooser.addOption("2Seconds", k2Seconds);
         wait_chooser.addOption("3Seconds", k3Seconds);
@@ -142,7 +144,7 @@ public class Robot extends TimedRobot {
             case kBluePos2_1:
             autonomousCommand = commandFactory.BluePos2_1();
             break;
-            
+
             case kBluePos2non:
             autonomousCommand = commandFactory.BluePos2non();
             break;

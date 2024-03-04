@@ -1,6 +1,12 @@
 {
   "version": 1.0,
-  "startingPose": null,
+  "startingPose": {
+    "position": {
+      "x": 0.77430354290908,
+      "y": 6.712444649960525
+    },
+    "rotation": 60.51846390973123
+  },
   "command": {
     "type": "sequential",
     "data": {
@@ -8,7 +14,7 @@
         {
           "type": "named",
           "data": {
-            "name": "AmpShootCommand"
+            "name": "SpeakerShootCommand"
           }
         },
         {

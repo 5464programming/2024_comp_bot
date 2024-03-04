@@ -1,10 +1,22 @@
 {
   "version": 1.0,
-  "startingPose": null,
+  "startingPose": {
+    "position": {
+      "x": 0.75,
+      "y": 4.387391197585246
+    },
+    "rotation": -60.83030136974256
+  },
   "command": {
     "type": "sequential",
     "data": {
       "commands": [
+        {
+          "type": "named",
+          "data": {
+            "name": "SpeakerShootCommand"
+          }
+        },
         {
           "type": "parallel",
           "data": {
