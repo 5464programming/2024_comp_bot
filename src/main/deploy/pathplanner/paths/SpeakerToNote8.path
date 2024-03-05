@@ -8,8 +8,8 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.1747523495046979,
-        "y": 0.5871040313509204
+        "x": 1.698356253855365,
+        "y": 1.6813019340324398
       },
       "isLocked": false,
       "linkedName": null
@@ -29,7 +29,19 @@
     }
   ],
   "rotationTargets": [],
-  "constraintZones": [],
+  "constraintZones": [
+    {
+      "name": "ZOOMZONE",
+      "minWaypointRelativePos": 0.3,
+      "maxWaypointRelativePos": 0.5,
+      "constraints": {
+        "maxVelocity": 3.0,
+        "maxAcceleration": 3.0,
+        "maxAngularVelocity": 54.0,
+        "maxAngularAcceleration": 72.0
+      }
+    }
+  ],
   "eventMarkers": [
     {
       "name": "IntakeStart",

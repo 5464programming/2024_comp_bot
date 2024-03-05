@@ -347,8 +347,6 @@ public class DriveSubsystem extends EntechSubsystem {
             // In WPIlib, positive rotations are clockwise.
             // Therefore, a positive x value means we need a positive rotation.
             Rotation2d rot = new Rotation2d(RobotStatus.noteVisionX * PATH_TURN_NOTE_HOMING_FORCE);
-            
-
             return Optional.of(rot);
         }
         else{
