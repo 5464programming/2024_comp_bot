@@ -3,6 +3,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj.AddressableLEDBuffer;
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import entech.subsystems.EntechSubsystem;
 import frc.robot.OI.UserPolicy;
 
@@ -43,6 +44,7 @@ public class LEDSubsystem extends EntechSubsystem{
     }
 
     public void periodic(){
+        SmartDashboard.putBoolean("blinking", blinkingActive);
         if(blinkingActive){
             handleBlinking();
         }

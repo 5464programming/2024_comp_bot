@@ -35,6 +35,8 @@ public final class UserPolicy {
 
     public static boolean aprilTagsAreDetected = false;
 
+    public static double wait;
+
     private UserPolicy() {
     }
 }

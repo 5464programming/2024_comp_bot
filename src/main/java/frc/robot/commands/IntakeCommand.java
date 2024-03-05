@@ -37,6 +37,7 @@ public class IntakeCommand extends EntechCommand{
     public boolean isFinished(){
         if (intake.notenotdected == false) {
             UserPolicy.LEDselected = "PinkIntake";
+            
             return true;
         }
 

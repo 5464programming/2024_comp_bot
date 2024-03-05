@@ -4,6 +4,8 @@
 
 package frc.robot;
 
+import org.w3c.dom.UserDataHandler;
+
 import com.pathplanner.lib.auto.NamedCommands;
 
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -12,6 +14,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.OI.OperatorInterface;
+import frc.robot.OI.UserPolicy;
 import frc.robot.commands.AmpShootCommand;
 import frc.robot.commands.FeedCommand;
 import frc.robot.commands.GyroReset;
@@ -124,10 +127,36 @@ public class Robot extends TimedRobot {
 
         SmartDashboard.putData("Auto choices", auto_chooser);
         SmartDashboard.putData("Wait choices", wait_chooser);
+
+        SmartDashboard.putNumber("wait time", UserPolicy.wait);
     }
 
     @Override
     public void autonomousInit() {
+         wait_selected = wait_chooser.getSelected();
+
+            switch(wait_selected){
+                case k0Seconds:
+                UserPolicy.wait = 0;
+                break;
+
+                case k1Second:
+                UserPolicy.wait = 1;
+                break;
+
+                case k2Seconds:
+                UserPolicy.wait = 2;
+                break;
+
+                case k3Seconds:
+                UserPolicy.wait = 3;
+                break;
+
+                default:
+                UserPolicy.wait = 0;
+                break;
+            }
+
         auto_selected = auto_chooser.getSelected();
 
         //TODO: add autonomous options
@@ -183,29 +212,6 @@ public class Robot extends TimedRobot {
             default: 
             // autonomousCommand = commandFactory.Backup();
             break;
-            }
-
-        wait_selected = wait_chooser.getSelected();
-
-            switch(wait_selected){
-                case k0Seconds:
-                // autonomousCommand = commandFactory.ZeroSeconds();
-                break;
-
-                case k1Second:
-                // autonomousCommand = commandFactory.OneSecond();
-                break;
-
-                case k2Seconds:
-                // autonomousCommand = commandFactory.TwoSeconds();
-                break;
-
-                case k3Seconds:
-                // autonomousCommand = commandFactory.ThreeSeconds();
-                break;
-
-                default:
-                break;
             }
 
         if (autonomousCommand != null) {

@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
+import frc.robot.OI.UserPolicy;
 import frc.robot.commands.GyroReset;
 import frc.robot.commands.IntakeCommand;
 import frc.robot.subsystems.DriveSubsystem;
@@ -22,6 +23,8 @@ public class CommandFactory {
     public Command BluePos1(){
         SequentialCommandGroup auto = new SequentialCommandGroup();
 
+        auto.addCommands(new WaitCommand(UserPolicy.wait));
+
         auto.addCommands(new GyroReset(driveSubsystem));
         auto.addCommands(new PathPlannerAuto("BluePos1"));
         
@@ -30,6 +33,8 @@ public class CommandFactory {
     
     public Command BluePos2(){
         SequentialCommandGroup auto = new SequentialCommandGroup();
+
+        auto.addCommands(new WaitCommand(UserPolicy.wait));
 
         auto.addCommands(new GyroReset(driveSubsystem));
         auto.addCommands(new PathPlannerAuto("BluePos2"));
@@ -40,6 +45,8 @@ public class CommandFactory {
     public Command BluePos2_1(){
         SequentialCommandGroup auto = new SequentialCommandGroup();
 
+        auto.addCommands(new WaitCommand(UserPolicy.wait));
+
         auto.addCommands(new GyroReset(driveSubsystem));
         auto.addCommands(new PathPlannerAuto("BluePos2_1"));
      
@@ -48,6 +55,8 @@ public class CommandFactory {
 
     public Command Center4Piece_nonPar(){
         SequentialCommandGroup auto = new SequentialCommandGroup();
+
+        auto.addCommands(new WaitCommand(UserPolicy.wait));
 
         auto.addCommands(new GyroReset(driveSubsystem));
         auto.addCommands(new PathPlannerAuto("Center4Piece_nonPar"));
@@ -58,6 +67,8 @@ public class CommandFactory {
     public Command BluePos2non(){
         SequentialCommandGroup auto = new SequentialCommandGroup();
 
+        auto.addCommands(new WaitCommand(UserPolicy.wait));
+
         auto.addCommands(new GyroReset(driveSubsystem));
         auto.addCommands(new PathPlannerAuto("BluePos2non"));
      
@@ -66,6 +77,8 @@ public class CommandFactory {
 
     public Command BluePos3(){
         SequentialCommandGroup auto = new SequentialCommandGroup();
+
+        auto.addCommands(new WaitCommand(UserPolicy.wait));
 
         auto.addCommands(new GyroReset(driveSubsystem));
         auto.addCommands(new PathPlannerAuto("BluePos3"));
@@ -85,6 +98,8 @@ public class CommandFactory {
     public Command BlueShoot1(){
         SequentialCommandGroup auto = new SequentialCommandGroup();
 
+        auto.addCommands(new WaitCommand(UserPolicy.wait));
+
         auto.addCommands(new GyroReset(driveSubsystem));
         auto.addCommands(new PathPlannerAuto("BlueShoot1"));
         
@@ -93,6 +108,8 @@ public class CommandFactory {
 
     public Command BlueShoot2(){
         SequentialCommandGroup auto = new SequentialCommandGroup();
+
+        auto.addCommands(new WaitCommand(UserPolicy.wait));
 
         auto.addCommands(new GyroReset(driveSubsystem));
         auto.addCommands(new PathPlannerAuto("BlueShoot2"));
@@ -103,6 +120,8 @@ public class CommandFactory {
     public Command BlueShoot3(){
         SequentialCommandGroup auto = new SequentialCommandGroup();
 
+        auto.addCommands(new WaitCommand(UserPolicy.wait));
+
         auto.addCommands(new GyroReset(driveSubsystem));
         auto.addCommands(new PathPlannerAuto("BlueShoot3"));
         
@@ -111,6 +130,8 @@ public class CommandFactory {
 
     public Command Backup(){
         SequentialCommandGroup auto = new SequentialCommandGroup();
+
+        auto.addCommands(new WaitCommand(UserPolicy.wait));
 
         auto.addCommands(new GyroReset(driveSubsystem));
         auto.addCommands(new PathPlannerAuto("Backup"));
@@ -121,41 +142,11 @@ public class CommandFactory {
     public Command CryingInACorner(){
         SequentialCommandGroup auto = new SequentialCommandGroup();
 
+        auto.addCommands(new WaitCommand(UserPolicy.wait));
+
         auto.addCommands(new GyroReset(driveSubsystem));
         auto.addCommands(new PathPlannerAuto("CryingInACorner"));
         
-        return auto;
-    }
-
-    public Command ZeroSeconds(){
-        SequentialCommandGroup auto = new SequentialCommandGroup(null);
-
-        auto.addCommands(new GyroReset(driveSubsystem));
-
-        return auto;
-    }
-
-    public Command OneSecond(){
-        SequentialCommandGroup auto = new SequentialCommandGroup(null);
-
-        auto.addCommands(new GyroReset(driveSubsystem));
-
-        return auto;
-    }
-
-    public Command TwoSeconds(){
-        SequentialCommandGroup auto = new SequentialCommandGroup(null);
-
-        auto.addCommands(new GyroReset(driveSubsystem));
-
-        return auto;
-    }
-
-    public Command ThreeSeconds(){
-        SequentialCommandGroup auto = new SequentialCommandGroup(null);
-
-        auto.addCommands(new GyroReset(driveSubsystem));
-
         return auto;
     }
 }
