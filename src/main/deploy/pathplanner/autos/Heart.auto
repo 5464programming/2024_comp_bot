@@ -16,6 +16,12 @@
           "data": {
             "pathName": "Heart"
           }
+        },
+        {
+          "type": "deadline",
+          "data": {
+            "commands": []
+          }
         }
       ]
     }
