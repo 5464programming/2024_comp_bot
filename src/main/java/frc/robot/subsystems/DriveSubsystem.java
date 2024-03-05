@@ -41,7 +41,7 @@ import frc.robot.swerve.SwerveUtils;
  */
 public class DriveSubsystem extends EntechSubsystem {
 
-    private static final double PATH_TURN_NOTE_HOMING_FORCE = 0.1;
+    private static final double PATH_TURN_NOTE_HOMING_FORCE = 1;
 
     private static final boolean ENABLED = true;
 
@@ -115,6 +115,8 @@ public class DriveSubsystem extends EntechSubsystem {
 
             SmartDashboard.putData("NAVX", gyro);
             SmartDashboard.putNumber("Navx angle", gyro.getAngle());
+            SmartDashboard.putBoolean("homingpathtonote",  UserPolicy.homingPathToNote);
+            SmartDashboard.putBoolean("noteIsDetected", RobotStatus.noteIsDetected);
 
             // Update the odometry in the periodic block
             odometry.update(
@@ -346,8 +348,9 @@ public class DriveSubsystem extends EntechSubsystem {
             // Having the target to the RIGHT means we need to turn RIGHT, or clockwise
             // In WPIlib, positive rotations are clockwise.
             // Therefore, a positive x value means we need a positive rotation.
-            // Rotation2d rot = new Rotation2d(RobotStatus.noteVisionX * PATH_TURN_NOTE_HOMING_FORCE);
-            Rotation2d rot = new Rotation2d(Math.PI/2);
+            // Rotation2d rot = new Rotation2d(-RobotStatus.noteVisionX * PATH_TURN_NOTE_HOMING_FORCE*10);
+            Rotation2d rot = new Rotation2d(RobotStatus.noteVisionX * PATH_TURN_NOTE_HOMING_FORCE*10,RobotStatus.noteVisionX * PATH_TURN_NOTE_HOMING_FORCE*10);
+            // Rotation2d rot = new Rotation2d(Math.PI/2);
             return Optional.of(rot);
         }
         else{
@@ -405,7 +408,7 @@ public class DriveSubsystem extends EntechSubsystem {
             zeroHeading();
             gyro.setAngleAdjustment(0);
             
-            PPHolonomicDriveController.setRotationTargetOverride(this::getRotationTargetOverride);
+          
 
             AutoBuilder.configureHolonomic(
                 odometry::getEstimatedPosition, // Robot pose supplier
@@ -431,7 +434,9 @@ public class DriveSubsystem extends EntechSubsystem {
                     return false;
                 },
                 this // Reference to this subsystem to set requirements
+                
         );
+        PPHolonomicDriveController.setRotationTargetOverride(this::getRotationTargetOverride);
         }
     }
 }
