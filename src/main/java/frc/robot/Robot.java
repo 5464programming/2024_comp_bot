@@ -47,18 +47,18 @@ public class Robot extends TimedRobot {
     // Building the autonomous chooser
     private String auto_selected;
     private final SendableChooser<String> auto_chooser = new SendableChooser<>();
-    private static final String kBluePos1 = "BluePos1";
-    private static final String kBluePos2 = "BluePos2";
-    private static final String kBluePos2non = "BluePos2non";
+    private static final String kPos1 = "Pos1";
+    private static final String kPos2 = "Pos2";
+    private static final String kPos2non = "Pos2non";
     private static final String kCenter4Piece_nonPar = "Center4Piece_nonPar";
-    private static final String kBluePos3 = "BluePos3";
-    // private static final String kBluePos4 = "BluePos4";
-    private static final String kBlueShoot1 = "BlueShoot1";
-    private static final String kBlueShoot2 = "BlueShoot2";
-    private static final String kBlueShoot3 = "BlueShoot3";
+    private static final String kPos3 = "Pos3";
+    // private static final String kPos4 = "Pos4";
+    private static final String kShoot1 = "Shoot1";
+    private static final String kShoot2 = "Shoot2";
+    private static final String kShoot3 = "Shoot3";
     private static final String kBackup = "Backup";
     private static final String kCryingInACorner = "CryingInACorner";
-    private static final String kBluePos2_1 = "BluePos2_1";
+    private static final String kPos2_1 = "Pos2_1";
     private static final String kTestAuto = "TestAuto";
 
     private String wait_selected;
@@ -86,23 +86,23 @@ public class Robot extends TimedRobot {
         commandFactory = new CommandFactory(subsystemManager);
         OperatorInterface.create(commandFactory, subsystemManager);
 
-        auto_chooser.addOption("BluePos1", kBluePos1);
-        auto_chooser.addOption("BluePos2", kBluePos2);
-        auto_chooser.addOption("BluePos2non", kBluePos2non);
+        auto_chooser.addOption("Pos1", kPos1);
+        auto_chooser.addOption("Pos2", kPos2);
+        auto_chooser.addOption("Pos2non", kPos2non);
         auto_chooser.addOption("Center4Piece_nonPar", kCenter4Piece_nonPar);
-        auto_chooser.addOption("BluePos3", kBluePos3);
-        // auto_chooser.addOption("BluePos4", kBluePos4);
+        auto_chooser.addOption("Pos3", kPos3);
+        // auto_chooser.addOption("Pos4", kPos4);
 
-        auto_chooser.addOption("BlueShoot1", kBlueShoot1);
-        auto_chooser.addOption("BlueShoot2", kBlueShoot2);
-        auto_chooser.addOption("BlueShoot3", kBlueShoot3);
+        auto_chooser.addOption("Shoot1", kShoot1);
+        auto_chooser.addOption("Shoot2", kShoot2);
+        auto_chooser.addOption("Shoot3", kShoot3);
 
         auto_chooser.addOption("Backup", kBackup);
-        auto_chooser.setDefaultOption("BlueShoot2", kBlueShoot2);
+        auto_chooser.setDefaultOption("Shoot2", kShoot2);
 
         auto_chooser.addOption("CryingInACorner", kCryingInACorner);
 
-        auto_chooser.addOption("BluePos2_1", kBluePos2_1);
+        auto_chooser.addOption("Pos2_1", kPos2_1);
 
         auto_chooser.addOption("TestAuto", kTestAuto);
 
@@ -163,43 +163,43 @@ public class Robot extends TimedRobot {
         //TODO: add autonomous options
 
           switch(auto_selected){
-            case kBluePos1:
-            autonomousCommand = commandFactory.BluePos1();
+            case kPos1:
+            autonomousCommand = commandFactory.Pos1();
             break;
 
-            case kBluePos2:
-            autonomousCommand = commandFactory.BluePos2();
+            case kPos2:
+            autonomousCommand = commandFactory.Pos2();
             break;
 
-            case kBluePos2_1:
-            autonomousCommand = commandFactory.BluePos2_1();
+            case kPos2_1:
+            autonomousCommand = commandFactory.Pos2_1();
             break;
 
-            case kBluePos2non:
-            autonomousCommand = commandFactory.BluePos2non();
+            case kPos2non:
+            autonomousCommand = commandFactory.Pos2non();
             break;
 
             case kCenter4Piece_nonPar:
             autonomousCommand = commandFactory.Center4Piece_nonPar();
             
-            case kBluePos3:
-            autonomousCommand = commandFactory.BluePos3();
+            case kPos3:
+            autonomousCommand = commandFactory.Pos3();
             break;
             
-            // case kBluePos4:
-            // autonomousCommand = commandFactory.BluePos4();
+            // case kPos4:
+            // autonomousCommand = commandFactory.Pos4();
             // break;
 
-            case kBlueShoot1:
-            autonomousCommand = commandFactory.BlueShoot1();
+            case kShoot1:
+            autonomousCommand = commandFactory.Shoot1();
             break;
 
-            case kBlueShoot2:
-            autonomousCommand = commandFactory.BlueShoot2();
+            case kShoot2:
+            autonomousCommand = commandFactory.Shoot2();
             break;
 
-            case kBlueShoot3:
-            autonomousCommand = commandFactory.BlueShoot3();
+            case kShoot3:
+            autonomousCommand = commandFactory.Shoot3();
             break;
             
             case kBackup:

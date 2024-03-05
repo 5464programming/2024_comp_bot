@@ -20,35 +20,35 @@ public class CommandFactory {
         this.driveSubsystem = subsystemManager.getDriveSubsystem();
     }
 
-    public Command BluePos1(){
+    public Command Pos1(){
         SequentialCommandGroup auto = new SequentialCommandGroup();
 
         auto.addCommands(new WaitCommand(UserPolicy.wait));
 
         auto.addCommands(new GyroReset(driveSubsystem));
-        auto.addCommands(new PathPlannerAuto("BluePos1"));
+        auto.addCommands(new PathPlannerAuto("Pos1"));
         
         return auto;
     }
     
-    public Command BluePos2(){
+    public Command Pos2(){
         SequentialCommandGroup auto = new SequentialCommandGroup();
 
         auto.addCommands(new WaitCommand(UserPolicy.wait));
 
         auto.addCommands(new GyroReset(driveSubsystem));
-        auto.addCommands(new PathPlannerAuto("BluePos2"));
+        auto.addCommands(new PathPlannerAuto("Pos2"));
      
         return auto;
     }
 
-    public Command BluePos2_1(){
+    public Command Pos2_1(){
         SequentialCommandGroup auto = new SequentialCommandGroup();
 
         auto.addCommands(new WaitCommand(UserPolicy.wait));
 
         auto.addCommands(new GyroReset(driveSubsystem));
-        auto.addCommands(new PathPlannerAuto("BluePos2_1"));
+        auto.addCommands(new PathPlannerAuto("Pos2_1"));
      
         return auto;
     }
@@ -64,66 +64,66 @@ public class CommandFactory {
         return auto;        
     }
 
-    public Command BluePos2non(){
+    public Command Pos2non(){
         SequentialCommandGroup auto = new SequentialCommandGroup();
 
         auto.addCommands(new WaitCommand(UserPolicy.wait));
 
         auto.addCommands(new GyroReset(driveSubsystem));
-        auto.addCommands(new PathPlannerAuto("BluePos2non"));
+        auto.addCommands(new PathPlannerAuto("Pos2non"));
      
         return auto;
     }
 
-    public Command BluePos3(){
+    public Command Pos3(){
         SequentialCommandGroup auto = new SequentialCommandGroup();
 
         auto.addCommands(new WaitCommand(UserPolicy.wait));
 
         auto.addCommands(new GyroReset(driveSubsystem));
-        auto.addCommands(new PathPlannerAuto("BluePos3"));
+        auto.addCommands(new PathPlannerAuto("Pos3"));
         
         return auto;
     }
 
-    // public Command BluePos4(){
+    // public Command Pos4(){
     //     SequentialCommandGroup auto = new SequentialCommandGroup();
 
     //     auto.addCommands(new GyroReset(driveSubsystem));
-    //     auto.addCommands(new PathPlannerAuto("BluePos4"));
+    //     auto.addCommands(new PathPlannerAuto("Pos4"));
         
     //     return auto;
     // }
 
-    public Command BlueShoot1(){
+    public Command Shoot1(){
         SequentialCommandGroup auto = new SequentialCommandGroup();
 
         auto.addCommands(new WaitCommand(UserPolicy.wait));
 
         auto.addCommands(new GyroReset(driveSubsystem));
-        auto.addCommands(new PathPlannerAuto("BlueShoot1"));
+        auto.addCommands(new PathPlannerAuto("Shoot1"));
         
         return auto;
     }
 
-    public Command BlueShoot2(){
+    public Command Shoot2(){
         SequentialCommandGroup auto = new SequentialCommandGroup();
 
         auto.addCommands(new WaitCommand(UserPolicy.wait));
 
         auto.addCommands(new GyroReset(driveSubsystem));
-        auto.addCommands(new PathPlannerAuto("BlueShoot2"));
+        auto.addCommands(new PathPlannerAuto("Shoot2"));
         
         return auto;
     }
 
-    public Command BlueShoot3(){
+    public Command Shoot3(){
         SequentialCommandGroup auto = new SequentialCommandGroup();
 
         auto.addCommands(new WaitCommand(UserPolicy.wait));
 
         auto.addCommands(new GyroReset(driveSubsystem));
-        auto.addCommands(new PathPlannerAuto("BlueShoot3"));
+        auto.addCommands(new PathPlannerAuto("Shoot3"));
         
         return auto;
     }
