@@ -20,12 +20,6 @@
                 "data": {
                   "pathName": "BluePos2non_Step1"
                 }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "IntakeCommand"
-                }
               }
             ]
           }
@@ -38,12 +32,6 @@
                 "type": "path",
                 "data": {
                   "pathName": "BPos2non_Step2"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "SpeakerShootCommand"
                 }
               }
             ]
@@ -58,12 +46,6 @@
                 "data": {
                   "pathName": "Bpos2non_Step3"
                 }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "IntakeCommand"
-                }
               }
             ]
           }
@@ -76,12 +58,6 @@
                 "type": "path",
                 "data": {
                   "pathName": "Bpos2non_Step4"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "SpeakerShootCommand"
                 }
               }
             ]
