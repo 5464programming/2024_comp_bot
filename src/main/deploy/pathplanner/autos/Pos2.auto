@@ -26,12 +26,6 @@
                 "data": {
                   "pathName": "SubToLine1_1"
                 }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "IntakeCommand"
-                }
               }
             ]
           }
@@ -44,12 +38,6 @@
                 "type": "path",
                 "data": {
                   "pathName": "Line1_1ToScore"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "SpeakerShootCommand"
                 }
               }
             ]
@@ -64,12 +52,6 @@
                 "data": {
                   "pathName": "SubToLine1_2"
                 }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "IntakeCommand"
-                }
               }
             ]
           }
@@ -82,12 +64,6 @@
                 "type": "path",
                 "data": {
                   "pathName": "Line1_2ToScore"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "SpeakerShootCommand"
                 }
               }
             ]
@@ -102,12 +78,6 @@
                 "data": {
                   "pathName": "SubToLine1_3"
                 }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "IntakeCommand"
-                }
               }
             ]
           }
@@ -120,12 +90,6 @@
                 "type": "path",
                 "data": {
                   "pathName": "Line1_3ToScore"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "SpeakerShootCommand"
                 }
               }
             ]

@@ -22,12 +22,9 @@ public class CommandFactory {
 
     public Command Pos1(){
         SequentialCommandGroup auto = new SequentialCommandGroup();
-<<<<<<< Updated upstream
 
         auto.addCommands(new WaitCommand(UserPolicy.wait));
 
-=======
->>>>>>> Stashed changes
         auto.addCommands(new GyroReset(driveSubsystem));
         auto.addCommands(new PathPlannerAuto("Pos1"));
         

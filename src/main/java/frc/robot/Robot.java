@@ -218,32 +218,6 @@ public class Robot extends TimedRobot {
             break;
             }
 
-<<<<<<< Updated upstream
-=======
-        wait_selected = wait_chooser.getSelected();
-
-            switch(wait_selected){
-                case k0Seconds:
-                // autonomousCommand = commandFactory.ZeroSeconds();
-                break;
-
-                case k1Second:
-                // autonomousCommand = commandFactory.OneSecond();
-                break;
-
-                case k2Seconds:
-                // autonomousCommand = commandFactory.TwoSeconds();
-                break;
-
-                case k3Seconds:
-                // autonomousCommand = commandFactory.ThreeSeconds();
-                break;
-
-                default:
-                break;
-            }
-            
->>>>>>> Stashed changes
         if (autonomousCommand != null) {
             autonomousCommand.schedule();
         }
