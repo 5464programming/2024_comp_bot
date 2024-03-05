@@ -4,8 +4,6 @@
 
 package frc.robot;
 
-import org.w3c.dom.UserDataHandler;
-
 import com.pathplanner.lib.auto.NamedCommands;
 
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -61,6 +59,7 @@ public class Robot extends TimedRobot {
     private static final String kBackup = "Backup";
     private static final String kCryingInACorner = "CryingInACorner";
     private static final String kBluePos2_1 = "BluePos2_1";
+    private static final String kTestAuto = "TestAuto";
 
     private String wait_selected;
     private final SendableChooser<String> wait_chooser = new SendableChooser<>();
@@ -104,6 +103,8 @@ public class Robot extends TimedRobot {
         auto_chooser.addOption("CryingInACorner", kCryingInACorner);
 
         auto_chooser.addOption("BluePos2_1", kBluePos2_1);
+
+        auto_chooser.addOption("TestAuto", kTestAuto);
 
         SmartDashboard.putData("Auto choices", auto_chooser);
 
@@ -208,6 +209,9 @@ public class Robot extends TimedRobot {
             case kCryingInACorner:
             autonomousCommand = commandFactory.CryingInACorner();
             break;
+
+            case kTestAuto:
+            autonomousCommand = commandFactory.TestAuto();
 
             default: 
             // autonomousCommand = commandFactory.Backup();

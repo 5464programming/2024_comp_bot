@@ -149,4 +149,19 @@ public class CommandFactory {
         
         return auto;
     }
+
+
+    // The String argument within this one is meant to be changed to test weird auto routines
+    // Things that could be tested:
+    // DriveByIntakeTest
+    // SlowNote8Test
+    public Command TestAuto(){
+        SequentialCommandGroup auto = new SequentialCommandGroup();
+        auto.addCommands(new WaitCommand(UserPolicy.wait));
+        auto.addCommands(new GyroReset(driveSubsystem));
+
+        auto.addCommands(new PathPlannerAuto("DriveByIntakeTest"));
+
+        return auto;
+    }
 }
