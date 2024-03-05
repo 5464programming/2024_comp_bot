@@ -34,6 +34,10 @@ public final class UserPolicy {
     public static boolean noteHoming = false;
 
     public static boolean aprilTagsAreDetected = false;
+    
+
+
+    public static boolean homingPathToNote = false;
 
     public static double wait;
 

@@ -7,6 +7,7 @@ import org.photonvision.targeting.PhotonTrackedTarget;
 import edu.wpi.first.net.PortForwarder;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import entech.subsystems.EntechSubsystem;
+import frc.robot.OI.RobotStatus;
 import frc.robot.OI.UserPolicy;
 
 public class VisionSubsystem extends EntechSubsystem{
@@ -58,9 +59,15 @@ public class VisionSubsystem extends EntechSubsystem{
         notesPresent = noteResult.hasTargets();
 
         if(notesPresent){
-        PhotonTrackedTarget bestTarget = noteResult.getBestTarget();
-        noteX = bestTarget.getYaw();
-        noteY = bestTarget.getPitch();
+            PhotonTrackedTarget bestTarget = noteResult.getBestTarget();
+            noteX = bestTarget.getYaw();
+            noteY = bestTarget.getPitch();
+            RobotStatus.noteIsDetected = true;
+            RobotStatus.noteVisionX = noteX;
+            RobotStatus.noteVisionY = noteY;
+        }
+        else{
+            RobotStatus.noteIsDetected = false;
         }
     }
 

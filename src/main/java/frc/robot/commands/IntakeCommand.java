@@ -1,5 +1,6 @@
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.RobotState;
 import entech.commands.EntechCommand;
 import frc.robot.OI.UserPolicy;
 import frc.robot.subsystems.IntakeSubsystem;
@@ -14,20 +15,25 @@ public class IntakeCommand extends EntechCommand{
      @Override
     public void initialize() {
         UserPolicy.intaking = true;
+        if(RobotState.isAutonomous()){
+            UserPolicy.homingPathToNote = true;
+        }    
     }
 
     @Override
     public void execute(){
-        // if (UserPolicy.intaking && UserPolicy.) {
-            if(UserPolicy.intaking){
+        if(UserPolicy.intaking){
             intake.Intake();
-            return;
+        return;
         }
     }
 
     @Override
     public void end(boolean interrupted) {
         UserPolicy.intaking = false;
+        if(RobotState.isAutonomous()){
+            UserPolicy.homingPathToNote = false;
+        }    
         intake.DisableIntake();
     }   
 
@@ -37,7 +43,6 @@ public class IntakeCommand extends EntechCommand{
     public boolean isFinished(){
         if (intake.notenotdected == false) {
             UserPolicy.LEDselected = "PinkIntake";
-            
             return true;
         }
 

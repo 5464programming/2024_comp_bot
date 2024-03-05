@@ -8,6 +8,7 @@ import java.util.Optional;
 
 import com.kauailabs.navx.frc.AHRS;
 import com.pathplanner.lib.auto.AutoBuilder;
+import com.pathplanner.lib.controllers.PPHolonomicDriveController;
 import com.pathplanner.lib.util.HolonomicPathFollowerConfig;
 import com.pathplanner.lib.util.PIDConstants;
 import com.pathplanner.lib.util.ReplanningConfig;
@@ -29,6 +30,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import entech.subsystems.EntechSubsystem;
 import frc.robot.RobotConstants;
 import frc.robot.RobotConstants.DrivetrainConstants;
+import frc.robot.OI.RobotStatus;
+import frc.robot.OI.UserPolicy;
 import frc.robot.swerve.SwerveModule;
 import frc.robot.swerve.SwerveUtils;
 
@@ -37,6 +40,9 @@ import frc.robot.swerve.SwerveUtils;
  * function of the drivetrain.
  */
 public class DriveSubsystem extends EntechSubsystem {
+
+    private static final double PATH_TURN_NOTE_HOMING_FORCE = 0.1;
+
     private static final boolean ENABLED = true;
 
     public static final double FRONT_LEFT_VIRTUAL_OFFSET_RADIANS = -0.946466146125441;
@@ -333,6 +339,23 @@ public class DriveSubsystem extends EntechSubsystem {
         return ENABLED;
     }
 
+
+    public Optional<Rotation2d> getRotationTargetOverride(){
+        if(RobotStatus.noteIsDetected && UserPolicy.homingPathToNote){
+            // Here, we determine how much we should rotate based on the note camera
+            // Having the target to the RIGHT means we need to turn RIGHT, or clockwise
+            // In WPIlib, positive rotations are clockwise.
+            // Therefore, a positive x value means we need a positive rotation.
+            Rotation2d rot = new Rotation2d(RobotStatus.noteVisionX * PATH_TURN_NOTE_HOMING_FORCE);
+            
+
+            return Optional.of(rot);
+        }
+        else{
+            return Optional.empty();
+        }
+    }
+
     @Override
     public void initialize() {
         if (ENABLED) {
@@ -382,6 +405,8 @@ public class DriveSubsystem extends EntechSubsystem {
             resetEncoders();
             zeroHeading();
             gyro.setAngleAdjustment(0);
+            
+            PPHolonomicDriveController.setRotationTargetOverride(this::getRotationTargetOverride);
 
             AutoBuilder.configureHolonomic(
                 odometry::getEstimatedPosition, // Robot pose supplier
