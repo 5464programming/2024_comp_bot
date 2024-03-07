@@ -71,7 +71,7 @@ public class Robot extends TimedRobot {
     @Override
     public void robotInit() {
         subsystemManager = new SubsystemManager();
-        intakeCommand = new IntakeCommand(subsystemManager.getIntakeSubsystem());
+        intakeCommand = new IntakeCommand(subsystemManager.getIntakeSubsystem(),subsystemManager.getLedSubsystem());
         ampShootCommand = new AmpShootCommand(subsystemManager.getShooterSubsystem());
         speakerShootCommand = new SpeakerShootCommand(subsystemManager.getShooterSubsystem(), subsystemManager.getIntakeSubsystem());
         feedCommand = new FeedCommand(subsystemManager.getIntakeSubsystem());

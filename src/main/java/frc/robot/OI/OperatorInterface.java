@@ -59,7 +59,7 @@ public final class OperatorInterface {
         driveController.button(8).whileTrue(new ShootReverseCommand(subsystemManager.getShooterSubsystem()));
 
         // driveController.button(6).whileTrue(new IntakeCommand(subsystemManager.getIntakeSubsystem()));
-        driveController.axisGreaterThan(2, 0.1).whileTrue(new IntakeCommand(subsystemManager.getIntakeSubsystem()));
+        driveController.axisGreaterThan(2, 0.1).whileTrue(new IntakeCommand(subsystemManager.getIntakeSubsystem(),subsystemManager.getLedSubsystem()));
 
         driveController.button(5).whileTrue(new FeedCommand(subsystemManager.getIntakeSubsystem()));
         driveController.button(7).whileTrue(new IntakeReverseCommand(subsystemManager.getIntakeSubsystem()));

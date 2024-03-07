@@ -4,12 +4,15 @@ import edu.wpi.first.wpilibj.RobotState;
 import entech.commands.EntechCommand;
 import frc.robot.OI.UserPolicy;
 import frc.robot.subsystems.IntakeSubsystem;
+import frc.robot.subsystems.LEDSubsystem;
 
 public class IntakeCommand extends EntechCommand{
         private final IntakeSubsystem intake;
+        private final LEDSubsystem leds;
 
-    public IntakeCommand(IntakeSubsystem intake) {
+    public IntakeCommand(IntakeSubsystem intake, LEDSubsystem leds) {
         this.intake = intake;
+        this.leds = leds;
     }
 
      @Override
@@ -43,6 +46,7 @@ public class IntakeCommand extends EntechCommand{
     public boolean isFinished(){
         if (intake.notenotdected == false) {
             UserPolicy.LEDselected = "PinkIntake";
+            leds.startBlinking();
             return true;
         }
 
