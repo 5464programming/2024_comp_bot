@@ -348,9 +348,10 @@ public class DriveSubsystem extends EntechSubsystem {
             // Having the target to the RIGHT means we need to turn RIGHT, or clockwise
             // In WPIlib, positive rotations are clockwise.
             // Therefore, a positive x value means we need a positive rotation.
-            // Rotation2d rot = new Rotation2d(-RobotStatus.noteVisionX * PATH_TURN_NOTE_HOMING_FORCE*10);
-            Rotation2d rot = new Rotation2d(RobotStatus.noteVisionX * PATH_TURN_NOTE_HOMING_FORCE*10,RobotStatus.noteVisionX * PATH_TURN_NOTE_HOMING_FORCE*10);
-            // Rotation2d rot = new Rotation2d(Math.PI/2);
+            double currentRobotDegrees = GYRO_ORIENTATION * getGyroAngle();
+            Rotation2d rot = Rotation2d.fromDegrees(currentRobotDegrees); // This "Should" just keep us straight
+            // Add in this one if the above works!
+            // Rotation2d rot = Rotation2d.fromDegrees(currentRobotDegrees + RobotStatus.noteVisionX * PATH_TURN_NOTE_HOMING_FORCE); 
             return Optional.of(rot);
         }
         else{
@@ -408,8 +409,6 @@ public class DriveSubsystem extends EntechSubsystem {
             zeroHeading();
             gyro.setAngleAdjustment(0);
             
-          
-
             AutoBuilder.configureHolonomic(
                 odometry::getEstimatedPosition, // Robot pose supplier
                 this::resetOdometry, // Method to reset odometry (will be called if your auto has a starting pose)
