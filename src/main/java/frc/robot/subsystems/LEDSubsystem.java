@@ -11,7 +11,7 @@ import frc.robot.OI.UserPolicy;
 
 public class LEDSubsystem extends EntechSubsystem{
 
-    int totalLED = 60;
+    int totalLED = 91;
 
     AddressableLED ledstrip = new AddressableLED(0);
     AddressableLEDBuffer ledbuffer = new AddressableLEDBuffer(totalLED);
@@ -28,13 +28,13 @@ public class LEDSubsystem extends EntechSubsystem{
     private Timer blinkyTimer = new Timer();  // timer for blinks
     private boolean blinkingActive = false;   // flag for blinking state
     private boolean blinkRunState = false;    // keeps track of the LEDs being on/off
-    private double blinkTime = 250;              // seconds that we blink
+    private double blinkTime = 0.2;              // seconds that we blink
     private int blinkReps = 5;                // number of blinks that we want
     private double blinkRunReps = 0;
 
     // STUFF THAT WE WANT TO ADD TO THE REAL CODE
     private Timer led_timer = new Timer();
-    private double led_tick_speed = 0.2;
+    private double led_tick_speed = 0.05;
 
     enum AnimationColorMode{
         Static,
@@ -61,23 +61,28 @@ public class LEDSubsystem extends EntechSubsystem{
         blinkyTimer.reset();
         led_timer.reset();
         led_timer.start();
+        color_choice = kWhite;
+        startBlinking();
     }
 
     public void periodic(){
         SmartDashboard.putBoolean("blinking", blinkingActive);
         // ANIMATION TICK
+        if (RobotState.isDisabled()) {
         if(led_timer.get() > led_tick_speed){
             AnimationUpdateColor();
             AnimationRun();
             led_timer.restart();
         }
+        }
+        else{
         if(blinkingActive){
             handleBlinking();
         }
         else{
             color_choice = UserPolicy.LEDselected;
         }
-        
+        // if(!RobotState.isDisabled()){
         switch (color_choice) {
             case kYellowCoop:
                 YellowCoop();
@@ -97,11 +102,17 @@ public class LEDSubsystem extends EntechSubsystem{
         
             case kClear:
                 Clear();
-
+                break;
             default:
-                White();
+                // White();
                 break;
         }
+        // }
+
+        }
+
+        
+      
     }
 
     @Override
@@ -118,7 +129,7 @@ public class LEDSubsystem extends EntechSubsystem{
 
     public void BlueAmplified(){
             for(int i = 1; i < totalLED; i++){
-            ledbuffer.setRGB(i, 0, 0, 60);
+                ledbuffer.setRGB(i, 0, 0, 60);
         }
         ledstrip.setData(ledbuffer);
     }
@@ -132,7 +143,7 @@ public class LEDSubsystem extends EntechSubsystem{
 
     public void White(){
             for(int i = 1; i < totalLED; i++){
-            ledbuffer.setRGB(i, 100, 100, 100);
+                ledbuffer.setRGB(i, 100, 100, 100);
         }
         ledstrip.setData(ledbuffer);
     }
@@ -153,8 +164,10 @@ public class LEDSubsystem extends EntechSubsystem{
     }
 
     private void handleBlinking(){
+        
         // check the timer, flip if it's time
         if(blinkyTimer.get() >= blinkTime){
+            System.out.println("blink");
             // show a color if the state is true
             if(blinkRunState){
                 color_choice = UserPolicy.LEDselected;
@@ -169,7 +182,9 @@ public class LEDSubsystem extends EntechSubsystem{
 
             // increment our reps, then flip state for next time
             blinkRunReps += 0.5;
-            blinkRunState = !blinkRunState;    
+            
+            blinkRunState = !blinkRunState;
+            System.out.println(color_choice);    
         }
 
         // check the blink reps. Quit blinking if reps are done.
@@ -197,7 +212,7 @@ public class LEDSubsystem extends EntechSubsystem{
                             ani_g = 0;
                             ani_b = 255;
                         }
-                        else{   // set to red when on red team
+                        if(color == DriverStation.Alliance.Red){
                             ani_r = 255;
                             ani_g = 0;
                             ani_b = 0;
@@ -207,7 +222,7 @@ public class LEDSubsystem extends EntechSubsystem{
                         ani_r = 255;
                         ani_g = 0;
                         ani_b = 255;
-                    };
+                    }
                     break;
                 case Rainbow:
                     if(ani_rainbow_index < 255){ 
@@ -235,7 +250,7 @@ public class LEDSubsystem extends EntechSubsystem{
         private void AnimationChaseFade(){   // moving pixel with a fading trail behind
             for(int i=0;i<ani_trl_len;i++){ // act on a member of the fading tail
                 int x = ani_index - i; // move to a new pixel past the first one                
-                int trl_r = ani_g - (i*(ani_g/ani_trl_len)); // find brightness vals
+                int trl_r = ani_r - (i*(ani_r/ani_trl_len)); // find brightness vals
                 int trl_g = ani_g - (i*(ani_g/ani_trl_len)); 
                 int trl_b = ani_b - (i*(ani_b/ani_trl_len));                              
                 if(x <0){x = totalLED + x;} // wrap around if needed   

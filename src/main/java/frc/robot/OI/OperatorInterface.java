@@ -55,7 +55,7 @@ public final class OperatorInterface {
         driveController.axisGreaterThan(3, 0.1).whileTrue(new SpeakerShootCommand(subsystemManager.getShooterSubsystem(), subsystemManager.getIntakeSubsystem()));
        
         
-        driveController.button(2).whileTrue(new AmpShootCommand(subsystemManager.getShooterSubsystem()));
+        driveController.button(2).whileTrue(new AmpShootCommand(subsystemManager.getShooterSubsystem(), subsystemManager.getIntakeSubsystem()));
         driveController.button(8).whileTrue(new ShootReverseCommand(subsystemManager.getShooterSubsystem()));
 
         // driveController.button(6).whileTrue(new IntakeCommand(subsystemManager.getIntakeSubsystem()));
@@ -71,10 +71,10 @@ public final class OperatorInterface {
         secondaryController.button(4).whileTrue(new ClimbRightUpCommand(subsystemManager.getClimbSubsystem()));
         secondaryController.button(1).whileTrue(new ClimbRightDownCommand(subsystemManager.getClimbSubsystem()));
 
-        secondaryController.button(5).onTrue(new ClimbAutoUpCommand(subsystemManager.getClimbSubsystem()));
-        secondaryController.button(6).onTrue(new ClimbAutoDownCommand(subsystemManager.getClimbSubsystem()));
+        // secondaryController.button(5).onTrue(new ClimbAutoUpCommand(subsystemManager.getClimbSubsystem()));
+        // secondaryController.button(6).onTrue(new ClimbAutoDownCommand(subsystemManager.getClimbSubsystem()));
 
-        secondaryController.button(3).whileTrue(new ClimbOverrideCommand(subsystemManager.getClimbSubsystem()));
+        secondaryController.axisGreaterThan(3, 0.1).whileTrue(new ClimbOverrideCommand(subsystemManager.getClimbSubsystem()));
 
         secondaryController.button(7).whileTrue(new YellowCoopCommand());
         secondaryController.button(8).whileTrue(new BlueAmplifiedCommand());

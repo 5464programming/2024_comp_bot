@@ -1,6 +1,8 @@
 package frc.robot.commands;
 
 import edu.wpi.first.math.MathUtil;
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.DriverStation.Alliance;
 // import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
 import entech.commands.EntechCommand;
@@ -11,7 +13,7 @@ import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.VisionSubsystem;
 
 public class DriveCommand extends EntechCommand {
-    private static final double MAX_SPEED_PERCENT = 0.9;
+    private static final double MAX_SPEED_PERCENT = 1.0;
 
     private final DriveSubsystem drive;
     // private final EntechJoystick joystick;
@@ -70,8 +72,11 @@ public class DriveCommand extends EntechCommand {
             double noteYaw = vision.noteX;
             drive.drive(-ySquared, -xSquared, -noteYaw/50, true, true);
         }
-        else if(UserPolicy.ampShoot){
+        else if(UserPolicy.ampShoot && DriverStation.getAlliance().get() == DriverStation.Alliance.Blue){
             drive.drive(xSquared, ySquared, (drive.getGyroAngle() - 90)/100, true, true);
+        }
+        else if(UserPolicy.ampShoot && DriverStation.getAlliance().get() == DriverStation.Alliance.Red){
+            drive.drive(xSquared, ySquared, (drive.getGyroAngle() - 270)/100, true, true);
         }
         // TODO: Uncomment this code and sure this works!
         // This "should" allow auto-homing of the drivetrain to any notes ahead of it.

@@ -349,7 +349,10 @@ public class DriveSubsystem extends EntechSubsystem {
             // In WPIlib, positive rotations are clockwise.
             // Therefore, a positive x value means we need a positive rotation.
             double currentRobotDegrees = GYRO_ORIENTATION * getGyroAngle();
-            Rotation2d rot = Rotation2d.fromDegrees(currentRobotDegrees); // This "Should" just keep us straight
+
+            double fieldrot = (-45/16) * RobotStatus.noteVisionX;
+
+            Rotation2d rot = Rotation2d.fromDegrees(currentRobotDegrees+fieldrot); // This "Should" just keep us straight
             // Add in this one if the above works!
             // Rotation2d rot = Rotation2d.fromDegrees(currentRobotDegrees + RobotStatus.noteVisionX * PATH_TURN_NOTE_HOMING_FORCE); 
             return Optional.of(rot);

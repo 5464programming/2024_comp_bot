@@ -1,5 +1,6 @@
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import entech.commands.EntechCommand;
 import frc.robot.OI.UserPolicy;
 import frc.robot.subsystems.IntakeSubsystem;
@@ -9,6 +10,8 @@ public class SpeakerShootCommand extends EntechCommand {
 
     private final ShooterSubsystem shoot;
     private final IntakeSubsystem intake;
+
+    public Timer shootTimer = new Timer();
 
     public SpeakerShootCommand(ShooterSubsystem shoot, IntakeSubsystem intake) {
 
@@ -22,6 +25,9 @@ public class SpeakerShootCommand extends EntechCommand {
         UserPolicy.shootUptoSpeed = false;
         UserPolicy.snapAprilSpeaker = true;
         UserPolicy.closetospeaker = false;
+
+        shootTimer.reset();
+        shootTimer.start();
     }
 
     @Override
@@ -31,8 +37,10 @@ public class SpeakerShootCommand extends EntechCommand {
             // If we have April tag detection working properly,
             // We only auto-shoot when we are in range.
             // if(UserPolicy.aprilTagsAreDetected){ 
-            if (UserPolicy.shootUptoSpeed && UserPolicy.closetospeaker) {
+            if (UserPolicy.shootUptoSpeed) {
+                if(UserPolicy.closetospeaker || shootTimer.get() > 2){
                 UserPolicy.feeding = true;
+                }
             }
             if(UserPolicy.feeding == true){
                 intake.IntakeFeed();
@@ -40,6 +48,7 @@ public class SpeakerShootCommand extends EntechCommand {
             shoot.SpeakerCommand();
             return;
             // }
+            
             // else{
             //     // Otherwise, if no apriltags are detected, just shoot when up to speed.
             //     if (UserPolicy.shootUptoSpeed) {
@@ -61,6 +70,8 @@ public class SpeakerShootCommand extends EntechCommand {
         intake.DisableIntake();
         // TODO: Sam asked to have the drivetrain always homing even when not shooting. How do we do this?
         UserPolicy.snapAprilSpeaker = false;
+
+        shootTimer.stop();
     }  
 
     @Override

@@ -72,7 +72,7 @@ public class Robot extends TimedRobot {
     public void robotInit() {
         subsystemManager = new SubsystemManager();
         intakeCommand = new IntakeCommand(subsystemManager.getIntakeSubsystem(),subsystemManager.getLedSubsystem());
-        ampShootCommand = new AmpShootCommand(subsystemManager.getShooterSubsystem());
+        ampShootCommand = new AmpShootCommand(subsystemManager.getShooterSubsystem(), subsystemManager.getIntakeSubsystem());
         speakerShootCommand = new SpeakerShootCommand(subsystemManager.getShooterSubsystem(), subsystemManager.getIntakeSubsystem());
         feedCommand = new FeedCommand(subsystemManager.getIntakeSubsystem());
         gyroReset = new GyroReset(subsystemManager.getDriveSubsystem());
