@@ -45,10 +45,10 @@ public class DriveSubsystem extends EntechSubsystem {
 
     private static final boolean ENABLED = true;
 
-    public static final double FRONT_LEFT_VIRTUAL_OFFSET_RADIANS = 2.182854661161267;
-    public static final double FRONT_RIGHT_VIRTUAL_OFFSET_RADIANS = -3.038815940801455;
-    public static final double REAR_LEFT_VIRTUAL_OFFSET_RADIANS = -2.006446870554419;
-    public static final double REAR_RIGHT_VIRTUAL_OFFSET_RADIANS = -2.451301299041255;
+    public static final double FRONT_LEFT_VIRTUAL_OFFSET_RADIANS = -0.935728280610241;
+    public static final double FRONT_RIGHT_VIRTUAL_OFFSET_RADIANS = 0.151864098000678;
+    public static final double REAR_LEFT_VIRTUAL_OFFSET_RADIANS = 1.14741762933846;
+    public static final double REAR_RIGHT_VIRTUAL_OFFSET_RADIANS = 0.688757373760653;
 
     public static final int GYRO_ORIENTATION = -1; // might be able to merge with kGyroReversed
 
@@ -350,7 +350,7 @@ public class DriveSubsystem extends EntechSubsystem {
             // Therefore, a positive x value means we need a positive rotation.
             double currentRobotDegrees = GYRO_ORIENTATION * getGyroAngle();
 
-            double fieldrot = (-45/16) * RobotStatus.noteVisionX;
+            double fieldrot = (45/16) * RobotStatus.noteVisionX;
 
             Rotation2d rot = Rotation2d.fromDegrees(currentRobotDegrees+fieldrot); // This "Should" just keep us straight
             // Add in this one if the above works!

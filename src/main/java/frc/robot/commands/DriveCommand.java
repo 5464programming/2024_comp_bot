@@ -70,14 +70,14 @@ public class DriveCommand extends EntechCommand {
         }
         else if(UserPolicy.intaking && vision.notesPresent){
             double noteYaw = vision.noteX;
-            drive.drive(-ySquared, -xSquared, -noteYaw/50, true, true);
+            drive.drive(-ySquared, -xSquared, -noteYaw/25, true, true);
         }
-        else if(UserPolicy.ampShoot && DriverStation.getAlliance().get() == DriverStation.Alliance.Blue){
-            drive.drive(xSquared, ySquared, (drive.getGyroAngle() - 90)/100, true, true);
-        }
-        else if(UserPolicy.ampShoot && DriverStation.getAlliance().get() == DriverStation.Alliance.Red){
-            drive.drive(xSquared, ySquared, (drive.getGyroAngle() - 270)/100, true, true);
-        }
+        // else if(UserPolicy.ampShoot && DriverStation.getAlliance().get() == DriverStation.Alliance.Blue){
+        //     drive.drive(xSquared, ySquared, (drive.getGyroAngle() - 90)/100, true, true);
+        // }
+        // else if(UserPolicy.ampShoot && DriverStation.getAlliance().get() == DriverStation.Alliance.Red){
+        //     drive.drive(xSquared, ySquared, (drive.getGyroAngle() - 270)/100, true, true);
+        // }
         // TODO: Uncomment this code and sure this works!
         // This "should" allow auto-homing of the drivetrain to any notes ahead of it.
         // else if (UserPolicy.intaking && vision.notesPresent){

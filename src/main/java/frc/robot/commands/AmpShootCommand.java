@@ -33,15 +33,15 @@ public class AmpShootCommand extends EntechCommand {
     @Override
     public void execute(){
         if (UserPolicy.ampShoot) {
-            if(UserPolicy.shootUptoSpeed){
-                UserPolicy.feeding = true;
-            }
-            // if(UserPolicy.closetoamp || ampTimer.get() > 2){
+            // if(UserPolicy.shootUptoSpeed){
             //     UserPolicy.feeding = true;
             // }
-            if(UserPolicy.feeding == true){
-                intake.IntakeFeed();
-                }
+            // // if(UserPolicy.closetoamp || ampTimer.get() > 2){
+            // //     UserPolicy.feeding = true;
+            // // }
+            // if(UserPolicy.feeding == true){
+            //     intake.IntakeFeed();
+            //     }
             shoot.AmpCommand();
             return;
         }
