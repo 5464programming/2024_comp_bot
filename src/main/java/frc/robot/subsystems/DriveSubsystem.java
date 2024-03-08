@@ -350,7 +350,7 @@ public class DriveSubsystem extends EntechSubsystem {
             // Therefore, a positive x value means we need a positive rotation.
             double currentRobotDegrees = GYRO_ORIENTATION * getGyroAngle();
 
-            double fieldrot = (45/16) * RobotStatus.noteVisionX;
+            double fieldrot = (-45/16) * RobotStatus.noteVisionX;
 
             Rotation2d rot = Rotation2d.fromDegrees(currentRobotDegrees+fieldrot); // This "Should" just keep us straight
             // Add in this one if the above works!

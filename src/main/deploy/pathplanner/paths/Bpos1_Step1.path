@@ -16,24 +16,30 @@
     },
     {
       "anchor": {
-        "x": 2.76230979812387,
-        "y": 7.1217400554459225
+        "x": 3.1808827513141975,
+        "y": 7.068574707220673
       },
       "prevControl": {
-        "x": 1.9725793825610847,
-        "y": 7.033992231494217
+        "x": 2.3131542700140053,
+        "y": 6.766332202498133
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": "Bpos1_Step1"
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.5,
+      "rotationDegrees": 18.14,
+      "rotateFast": false
+    }
+  ],
   "constraintZones": [],
   "eventMarkers": [
     {
       "name": "New Event Marker",
-      "waypointRelativePos": 0.5,
+      "waypointRelativePos": 0.3,
       "command": {
         "type": "parallel",
         "data": {
@@ -57,7 +63,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0,
+    "rotation": 18.138082155597342,
     "rotateFast": false
   },
   "reversed": false,
