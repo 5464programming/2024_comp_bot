@@ -13,7 +13,7 @@ public class LEDSubsystem extends EntechSubsystem{
 
     int totalLED = 60;
 
-    AddressableLED ledstrip = new AddressableLED(0);
+    AddressableLED ledstrip = new AddressableLED(1);
     AddressableLEDBuffer ledbuffer = new AddressableLEDBuffer(totalLED);
     private static final boolean ENABLED = true;
 
