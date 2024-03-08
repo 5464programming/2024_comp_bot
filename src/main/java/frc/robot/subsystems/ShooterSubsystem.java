@@ -47,8 +47,8 @@ public class ShooterSubsystem extends EntechSubsystem {
 
     @Override
     public void initialize(){
-        SPtopAmp = 300;
-        SPbottomAmp = 2400;
+        SPtopAmp = 200;
+        SPbottomAmp = 2250;
 
         SPtopSpeaker = 2900;
         SPbottomSpeaker = 3000;
