@@ -58,7 +58,7 @@ public class ShooterSubsystem extends EntechSubsystem {
         SmartDashboard.putNumber("top amp", SPtopAmp);
         SmartDashboard.putNumber("bottom amp", SPbottomAmp);
 
-        kP_bottom = 0.00006;
+        kP_bottom = 0.00012;
         kI_bottom = 0.00000001;
         kD_bottom = 0.0;
         kIz_bottom = 0;
@@ -67,7 +67,7 @@ public class ShooterSubsystem extends EntechSubsystem {
         kMinOutput_bottom = -1;
         maxRPM_bottom = 5700;
 
-        kP_top = 0.00006;
+        kP_top = 0.00012;
         kI_top = 0.00000001;
         kD_top = 0.0;
         kIz_top = 0;

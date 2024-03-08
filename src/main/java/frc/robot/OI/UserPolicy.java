@@ -35,7 +35,7 @@ public final class UserPolicy {
 
     public static boolean aprilTagsAreDetected = false;
     
-
+    public static boolean dummyIntake = false;
 
     public static boolean homingPathToNote = false;
 
