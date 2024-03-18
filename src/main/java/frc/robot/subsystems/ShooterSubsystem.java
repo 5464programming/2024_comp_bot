@@ -38,6 +38,18 @@ public class ShooterSubsystem extends EntechSubsystem {
     public double FullSpeedSpeakerTop;
     public double FullSpeedSpeakerBottom;
 
+    public double TopPostRPM = 0;
+    public double TopSpeakerRPM = 0;
+
+    public double BottomPostRPM = 0;
+    public double BottomSpeakerRPM = 0;
+
+    public double PostPitch = 0;
+    public double SpeakerPitch = 0;
+
+    public double TopSlope;
+    public double BottomSlope;
+
     private static final boolean ENABLED = true;
 
     @Override
@@ -47,6 +59,10 @@ public class ShooterSubsystem extends EntechSubsystem {
 
     @Override
     public void initialize(){
+
+        TopSlope = (TopPostRPM-TopSpeakerRPM)/(PostPitch-SpeakerPitch);
+        BottomSlope = (BottomPostRPM-BottomSpeakerRPM)/(PostPitch-SpeakerPitch);
+                
         SPtopAmp = 200;
         SPbottomAmp = 2250;
 
