@@ -78,13 +78,6 @@ public class DriveCommand extends EntechCommand {
         // else if(UserPolicy.ampShoot && DriverStation.getAlliance().get() == DriverStation.Alliance.Red){
         //     drive.drive(xSquared, ySquared, (drive.getGyroAngle() - 270)/100, true, true);
         // }
-        // TODO: Uncomment this code and sure this works!
-        // This "should" allow auto-homing of the drivetrain to any notes ahead of it.
-        // else if (UserPolicy.intaking && vision.notesPresent){
-        //     double yaw = vision.noteX;
-        //     drive.drive(-ySquared, -xSquared, -yaw/100, true, true);
-        // }
-
         else {
             drive.drive(-ySquared, -xSquared, rotSquared, true, true);
         }

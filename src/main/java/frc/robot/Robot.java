@@ -60,6 +60,7 @@ public class Robot extends TimedRobot {
     private static final String kCryingInACorner = "CryingInACorner";
     private static final String kPos2_1 = "Pos2_1";
     private static final String kTestAuto = "TestAuto";
+    private static final String kPos3_FAR = "Pos3_FAR";
 
     private String wait_selected;
     private final SendableChooser<String> wait_chooser = new SendableChooser<>();
@@ -105,6 +106,8 @@ public class Robot extends TimedRobot {
         auto_chooser.addOption("Pos2_1", kPos2_1);
 
         auto_chooser.addOption("TestAuto", kTestAuto);
+
+        auto_chooser.addOption("Pos3_FAR", kPos3_FAR);
 
         SmartDashboard.putData("Auto choices", auto_chooser);
 
@@ -212,6 +215,11 @@ public class Robot extends TimedRobot {
 
             case kTestAuto:
             autonomousCommand = commandFactory.TestAuto();
+            break;
+
+            case kPos3_FAR:
+            autonomousCommand = commandFactory.Pos3_FAR();
+            break;
 
             default: 
             // autonomousCommand = commandFactory.Backup();

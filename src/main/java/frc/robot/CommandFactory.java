@@ -86,6 +86,17 @@ public class CommandFactory {
         return auto;
     }
 
+    public Command Pos3_FAR(){
+        SequentialCommandGroup auto = new SequentialCommandGroup();
+
+        auto.addCommands(new WaitCommand(UserPolicy.wait));
+
+        auto.addCommands(new GyroReset(driveSubsystem));
+        auto.addCommands(new PathPlannerAuto("Pos3_Far"));
+        
+        return auto;
+    }
+
     // public Command Pos4(){
     //     SequentialCommandGroup auto = new SequentialCommandGroup();
 
