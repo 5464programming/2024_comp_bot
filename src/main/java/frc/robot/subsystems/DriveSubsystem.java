@@ -370,22 +370,31 @@ public class DriveSubsystem extends EntechSubsystem {
             frontLeft = new SwerveModule(
                     RobotConstants.Ports.CAN.FRONT_LEFT_DRIVING,
                     RobotConstants.Ports.CAN.FRONT_LEFT_TURNING,
-                    RobotConstants.Ports.CAN.FRONT_LEFT_CANCODER, false);
+                    RobotConstants.Ports.CAN.FRONT_LEFT_CANCODER, 
+                    true,
+                    true);
+
 
             frontRight = new SwerveModule(
-                    RobotConstants.Ports.CAN.FRONT_RIGHT_DRIVING,
+                    RobotConstants.Ports.CAN.FRONT_RIGHT_DRIVING, 
                     RobotConstants.Ports.CAN.FRONT_RIGHT_TURNING,
-                    RobotConstants.Ports.CAN.FRONT_RIGHT_CANCODER, false);
+                    RobotConstants.Ports.CAN.FRONT_RIGHT_CANCODER, 
+                    false, 
+                    false);
 
             rearLeft = new SwerveModule(
-                    RobotConstants.Ports.CAN.REAR_LEFT_DRIVING,
-                    RobotConstants.Ports.CAN.REAR_LEFT_TURNING,
-                    RobotConstants.Ports.CAN.REAR_LEFT_CANCODER, false);
+                    RobotConstants.Ports.CAN.REAR_LEFT_DRIVING, 
+                    RobotConstants.Ports.CAN.REAR_LEFT_TURNING, 
+                    RobotConstants.Ports.CAN.REAR_LEFT_CANCODER, 
+                    false, 
+                    true);
 
             rearRight = new SwerveModule(
-                    RobotConstants.Ports.CAN.REAR_RIGHT_DRIVING,
-                    RobotConstants.Ports.CAN.REAR_RIGHT_TURNING,
-                    RobotConstants.Ports.CAN.REAR_RIGHT_CANCODER, false);
+                    RobotConstants.Ports.CAN.REAR_RIGHT_DRIVING, 
+                    RobotConstants.Ports.CAN.REAR_RIGHT_TURNING, 
+                    RobotConstants.Ports.CAN.REAR_RIGHT_CANCODER, 
+                    false, 
+                    true);
 
             gyro = new AHRS();
             gyro.reset();
