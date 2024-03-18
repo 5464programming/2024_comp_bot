@@ -124,6 +124,9 @@ public class ShooterSubsystem extends EntechSubsystem {
         double kSPtopAmp = SmartDashboard.getNumber("top amp", SPtopAmp);
         double kSPbottomAmp = SmartDashboard.getNumber("bottom amp", SPbottomAmp);
 
+        // RPM = TopSlope*Pitch + TopSpeakerRPM
+        // RPM = BottomSlope*Pitch + BottomSpeakerRPM
+
         if(SPtopSpeaker != kSPtopSpeaker){
             SPtopSpeaker = kSPtopSpeaker;
         }
