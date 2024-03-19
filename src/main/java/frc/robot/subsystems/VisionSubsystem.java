@@ -21,6 +21,7 @@ public class VisionSubsystem extends EntechSubsystem{
     //robot catches targets
     public double cameraX;
     public double cameraY;
+    public double aprilTagSkew;
 
     //best target
     public double bestX;
@@ -92,6 +93,7 @@ public class VisionSubsystem extends EntechSubsystem{
                 if(id == 8 && UserPolicy.speakerShoot){
                     cameraX = targets.get(i).getYaw();
                     cameraY = targets.get(i).getPitch();
+                    aprilTagSkew = targets.get(i).getSkew();
                     if(cameraY > yValue) {
                         UserPolicy.closetospeaker = true;
                     }
@@ -125,6 +127,7 @@ public class VisionSubsystem extends EntechSubsystem{
         SmartDashboard.putNumber("Camera X", cameraX);
         SmartDashboard.putNumber("Camera Y", cameraY);
         SmartDashboard.putBoolean("speakerclose", UserPolicy.closetospeaker);
+        SmartDashboard.putNumber("AprilTagSkew", aprilTagSkew);
     }
     //TODO: detect april tags with this code and be able to use this code for futher systems in the commands 
 }
