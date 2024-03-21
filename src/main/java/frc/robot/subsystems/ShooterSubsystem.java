@@ -8,6 +8,7 @@ import com.revrobotics.CANSparkLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import entech.subsystems.EntechSubsystem;
+import frc.robot.OI.RobotStatus;
 import frc.robot.OI.UserPolicy;
 
 public class ShooterSubsystem extends EntechSubsystem {
@@ -50,7 +51,8 @@ public class ShooterSubsystem extends EntechSubsystem {
     public double TopSlope;
     public double BottomSlope;
 
-    public double RPMselect = 0;
+    public double TopRPMselect = 0;
+    public double BottomRPMselect = 0;
 
     private static final boolean ENABLED = true;
 
@@ -126,8 +128,8 @@ public class ShooterSubsystem extends EntechSubsystem {
         double kSPtopAmp = SmartDashboard.getNumber("top amp", SPtopAmp);
         double kSPbottomAmp = SmartDashboard.getNumber("bottom amp", SPbottomAmp);
 
-        // RPM = TopSlope*Pitch + TopSpeakerRPM
-        // RPM = BottomSlope*Pitch + BottomSpeakerRPM
+        TopRPMselect = TopSlope*RobotStatus.AprilTagY + TopSpeakerRPM;
+        BottomRPMselect = BottomSlope*RobotStatus.AprilTagY + BottomSpeakerRPM;
 
         if(SPtopSpeaker != kSPtopSpeaker){
             SPtopSpeaker = kSPtopSpeaker;
@@ -174,8 +176,9 @@ public class ShooterSubsystem extends EntechSubsystem {
     public void SpeakerCommand(){
         FullSpeedSpeakerTop = codeTop.getVelocity();
         FullSpeedSpeakerBottom = codeBottom.getVelocity();
+        
         if(UserPolicy.speakerShoot){
-            Homing(SPtopSpeaker, SPbottomSpeaker);
+            Homing(TopRPMselect, BottomRPMselect);
 
         if(FullSpeedSpeakerTop > SPtopSpeaker-200 && FullSpeedSpeakerBottom > SPbottomSpeaker-200){
             UserPolicy.shootUptoSpeed = true;

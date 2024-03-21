@@ -94,6 +94,9 @@ public class VisionSubsystem extends EntechSubsystem{
                     cameraX = targets.get(i).getYaw();
                     cameraY = targets.get(i).getPitch();
                     aprilTagSkew = targets.get(i).getSkew();
+                    RobotStatus.skew = aprilTagSkew;
+                    RobotStatus.AprilTagX = cameraX;
+                    RobotStatus.AprilTagY = cameraY;
                     if(cameraY > yValue) {
                         UserPolicy.closetospeaker = true;
                     }
@@ -102,6 +105,8 @@ public class VisionSubsystem extends EntechSubsystem{
                 if(id == 4 && UserPolicy.speakerShoot){
                     cameraX = targets.get(i).getYaw();
                     cameraY = targets.get(i).getPitch();
+                    RobotStatus.AprilTagX = cameraX;
+                    RobotStatus.AprilTagY = cameraY;
                     if(cameraY > yValue) {
                         UserPolicy.closetospeaker = true;
                     }
