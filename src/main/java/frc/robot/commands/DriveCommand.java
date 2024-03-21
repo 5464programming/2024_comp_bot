@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
 import entech.commands.EntechCommand;
 // import entech.util.EntechJoystick;
 import frc.robot.RobotConstants;
+import frc.robot.OI.RobotStatus;
 import frc.robot.OI.UserPolicy;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.VisionSubsystem;
@@ -72,12 +73,12 @@ public class DriveCommand extends EntechCommand {
             double noteYaw = vision.noteX;
             drive.drive(-ySquared, -xSquared, -noteYaw/25, true, true);
         }
-        // else if(UserPolicy.ampShoot && DriverStation.getAlliance().get() == DriverStation.Alliance.Blue){
-        //     drive.drive(xSquared, ySquared, (drive.getGyroAngle() - 90)/100, true, true);
-        // }
-        // else if(UserPolicy.ampShoot && DriverStation.getAlliance().get() == DriverStation.Alliance.Red){
-        //     drive.drive(xSquared, ySquared, (drive.getGyroAngle() - 270)/100, true, true);
-        // }
+        else if(UserPolicy.isWackL){
+            drive.drive(ySquared, 0.5, rotSquared, true, true);
+        }
+        else if(UserPolicy.isWackR){
+            drive.drive(ySquared, -0.5, rotSquared, true, true);
+        }
         else {
             drive.drive(-ySquared, -xSquared, rotSquared, true, true);
         }

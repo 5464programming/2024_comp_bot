@@ -142,6 +142,11 @@ public class ShooterSubsystem extends EntechSubsystem {
         if(SPbottomAmp != kSPbottomAmp){
             SPbottomAmp = kSPbottomAmp;
         }
+//Gabe was testing things
+        // if(UserPolicy.closetospeaker = true) {
+        //     SPtopSpeaker = 0;
+        //     SPbottomSpeaker =0;   
+        // }
     }
 
     public void DisableShoot(){

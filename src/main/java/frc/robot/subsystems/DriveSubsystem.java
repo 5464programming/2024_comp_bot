@@ -79,6 +79,20 @@ public class DriveSubsystem extends EntechSubsystem {
     @Override
     public void periodic() {
         if (ENABLED) {
+            if (RobotStatus.skew>5) {
+                UserPolicy.isWackL = true;
+            }
+            else {
+                UserPolicy.isWackL = false;
+            }
+
+            if (RobotStatus.skew<-5) {
+                UserPolicy.isWackR = true;
+            }
+            else {
+                UserPolicy.isWackR = false;
+            }
+
             field.setRobotPose(odometry.getEstimatedPosition());
             SmartDashboard.putData("Odometry Pose Field", field);
 
