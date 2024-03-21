@@ -386,14 +386,14 @@ public class DriveSubsystem extends EntechSubsystem {
                     RobotConstants.Ports.CAN.FRONT_LEFT_TURNING,
                     RobotConstants.Ports.CAN.FRONT_LEFT_CANCODER, 
                     true,
-                    true);
+                    false);
 
 
             frontRight = new SwerveModule(
                     RobotConstants.Ports.CAN.FRONT_RIGHT_DRIVING, 
                     RobotConstants.Ports.CAN.FRONT_RIGHT_TURNING,
                     RobotConstants.Ports.CAN.FRONT_RIGHT_CANCODER, 
-                    false, 
+                    true, 
                     false);
 
             rearLeft = new SwerveModule(
