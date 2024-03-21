@@ -27,7 +27,7 @@ public final class UserPolicy {
 
     public static boolean snapAprilSpeaker = false;
     // TODO: Make snapping to the amp a possiblity
-
+    
     public static boolean closetospeaker = false;
     public static boolean closetoamp = false;
 
@@ -38,6 +38,9 @@ public final class UserPolicy {
     public static boolean dummyIntake = false;
 
     public static boolean homingPathToNote = false;
+
+    public static boolean isWackR = false;
+    public static boolean isWackL = false;
 
     public static double wait;
 

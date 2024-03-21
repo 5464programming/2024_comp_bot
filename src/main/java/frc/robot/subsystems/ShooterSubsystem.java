@@ -50,6 +50,8 @@ public class ShooterSubsystem extends EntechSubsystem {
     public double TopSlope;
     public double BottomSlope;
 
+    public double RPMselect = 0;
+
     private static final boolean ENABLED = true;
 
     @Override
