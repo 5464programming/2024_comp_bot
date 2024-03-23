@@ -50,9 +50,10 @@ public class Robot extends TimedRobot {
     public static final String kPos1 = "Pos1";
     public static final String kPos2 = "Pos2";
     public static final String kPos2non = "Pos2non";
+    public static final String kPos2Amp = "Pos2Amp";
     public static final String kCenter4Piece_nonPar = "Center4Piece_nonPar";
     public static final String kPos3 = "Pos3";
-    // private static final String kPos4 = "Pos4";
+
     public static final String kShoot1 = "Shoot1";
     public static final String kShoot2 = "Shoot2";
     public static final String kShoot3 = "Shoot3";
@@ -92,7 +93,7 @@ public class Robot extends TimedRobot {
         auto_chooser.addOption("Pos2non", kPos2non);
         auto_chooser.addOption("Center4Piece_nonPar", kCenter4Piece_nonPar);
         auto_chooser.addOption("Pos3", kPos3);
-        // auto_chooser.addOption("Pos4", kPos4);
+        auto_chooser.addOption("Pos2Amp", kPos2Amp);
 
         auto_chooser.addOption("Shoot1", kShoot1);
         auto_chooser.addOption("Shoot2", kShoot2);

@@ -22,6 +22,24 @@
           "data": {
             "pathName": "Pos2Amp_Step1"
           }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Pos2Amp_Step2"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Pos2Amp_Step3"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Pos2Amp_Step4"
+          }
         }
       ]
     }

@@ -18,7 +18,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "BluePos2non_Step1"
+                  "pathName": "Pos2non_Step1"
                 }
               }
             ]
@@ -31,7 +31,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "BPos2non_Step2"
+                  "pathName": "Pos2non_Step2"
                 }
               }
             ]
@@ -44,7 +44,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Bpos2non_Step3"
+                  "pathName": "Pos2non_Step3"
                 }
               }
             ]
@@ -57,7 +57,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Bpos2non_Step4"
+                  "pathName": "Pos2non_Step4"
                 }
               }
             ]

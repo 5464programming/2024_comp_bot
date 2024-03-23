@@ -24,7 +24,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "SubToLine1_1"
+                  "pathName": "Pos2_Step1"
                 }
               }
             ]
@@ -37,7 +37,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Line1_1ToScore"
+                  "pathName": "Pos2_Step2"
                 }
               }
             ]
@@ -50,7 +50,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "SubToLine1_2"
+                  "pathName": "Pos2_Step3"
                 }
               }
             ]
@@ -63,7 +63,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Line1_2ToScore"
+                  "pathName": "Pos2_Step4"
                 }
               }
             ]
@@ -76,7 +76,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "SubToLine1_3"
+                  "pathName": "Pos2_Step5"
                 }
               }
             ]
@@ -89,7 +89,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Line1_3ToScore"
+                  "pathName": "Pos2_Step6"
                 }
               }
             ]

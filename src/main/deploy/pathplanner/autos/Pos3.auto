@@ -24,7 +24,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Bpos3_Step1"
+                  "pathName": "Pos3_Step1"
                 }
               }
             ]
@@ -37,7 +37,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Bpos3_Step2"
+                  "pathName": "Pos3_Step2"
                 }
               }
             ]
@@ -50,7 +50,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Bpos3_Step3"
+                  "pathName": "Pos3_Step3"
                 }
               }
             ]
@@ -63,7 +63,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Bpos3_Step4"
+                  "pathName": "Pos3_Step4"
                 }
               }
             ]

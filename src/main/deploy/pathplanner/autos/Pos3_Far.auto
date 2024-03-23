@@ -20,25 +20,25 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Bpos3_Step3"
+            "pathName": "Pos3_Step3"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Bpos3_Step4"
+            "pathName": "Pos3_Step4"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Bpos3_far3"
+            "pathName": "Pos3_far_Step3"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Bpos3_far4"
+            "pathName": "Pos3_far_Step4"
           }
         }
       ]
