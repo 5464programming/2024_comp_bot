@@ -47,7 +47,7 @@ public class Robot extends TimedRobot {
     // Building the autonomous chooser
     private String auto_selected;
     private final SendableChooser<String> auto_chooser = new SendableChooser<>();
-    private static final String kPos1 = "Pos1";
+    public static final String kPos1 = "Pos1";
     private static final String kPos2 = "Pos2";
     private static final String kPos2non = "Pos2non";
     private static final String kCenter4Piece_nonPar = "Center4Piece_nonPar";
@@ -137,9 +137,13 @@ public class Robot extends TimedRobot {
 
     @Override
     public void autonomousInit() {
+        auto_selected = auto_chooser.getSelected();
+        
+        commandFactory.AutonomousRun(auto_selected);
+
          wait_selected = wait_chooser.getSelected();
 
-            switch(wait_selected){
+            switch(wait_selected){  
                 case k0Seconds:
                 UserPolicy.wait = 0;
                 break;
@@ -160,72 +164,6 @@ public class Robot extends TimedRobot {
                 UserPolicy.wait = 0;
                 break;
             }
-
-        auto_selected = auto_chooser.getSelected();
-
-        //TODO: add autonomous options
-
-          switch(auto_selected){
-            case kPos1:
-            autonomousCommand = commandFactory.Pos1();
-            break;
-
-            case kPos2:
-            autonomousCommand = commandFactory.Pos2();
-            break;
-
-            case kPos2_1:
-            autonomousCommand = commandFactory.Pos2_1();
-            break;
-
-            case kPos2non:
-            autonomousCommand = commandFactory.Pos2non();
-            break;
-
-            case kCenter4Piece_nonPar:
-            autonomousCommand = commandFactory.Center4Piece_nonPar();
-            
-            case kPos3:
-            autonomousCommand = commandFactory.Pos3();
-            break;
-            
-            // case kPos4:
-            // autonomousCommand = commandFactory.Pos4();
-            // break;
-
-            case kShoot1:
-            autonomousCommand = commandFactory.Shoot1();
-            break;
-
-            case kShoot2:
-            autonomousCommand = commandFactory.Shoot2();
-            break;
-
-            case kShoot3:
-            autonomousCommand = commandFactory.Shoot3();
-            break;
-            
-            case kBackup:
-            autonomousCommand = commandFactory.Backup();
-            break;
-
-            case kCryingInACorner:
-            autonomousCommand = commandFactory.CryingInACorner();
-            break;
-
-            case kTestAuto:
-            autonomousCommand = commandFactory.TestAuto();
-            break;
-
-            case kPos3_FAR:
-            autonomousCommand = commandFactory.Pos3_FAR();
-            break;
-
-            default: 
-            // autonomousCommand = commandFactory.Backup();
-            break;
-            }
-
         if (autonomousCommand != null) {
             autonomousCommand.schedule();
         }
