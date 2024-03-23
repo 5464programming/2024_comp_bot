@@ -23,6 +23,7 @@ import frc.robot.commands.FeedCommand;
 import frc.robot.commands.GyroReset;
 import frc.robot.commands.IntakeCommand;
 import frc.robot.commands.IntakeReverseCommand;
+import frc.robot.commands.ShootDefault;
 import frc.robot.commands.YellowCoopCommand;
 import frc.robot.commands.ShootReverseCommand;
 import frc.robot.commands.SpeakerShootCommand;
@@ -86,6 +87,7 @@ public final class OperatorInterface {
         // driveJoystick.WhenPressed(9, new XCommand());
 
         subsystemManager.getDriveSubsystem().setDefaultCommand(new DriveCommand(subsystemManager.getDriveSubsystem(),subsystemManager.getVisionSubsystem(), driveController));
+        subsystemManager.getShooterSubsystem().setDefaultCommand(new ShootDefault(subsystemManager.getShooterSubsystem()));
         // subsystemManager.getShooterSubsystem().setDefaultCommand();
     }
 
