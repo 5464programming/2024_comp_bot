@@ -48,19 +48,19 @@ public class Robot extends TimedRobot {
     private String auto_selected;
     private final SendableChooser<String> auto_chooser = new SendableChooser<>();
     public static final String kPos1 = "Pos1";
-    private static final String kPos2 = "Pos2";
-    private static final String kPos2non = "Pos2non";
-    private static final String kCenter4Piece_nonPar = "Center4Piece_nonPar";
-    private static final String kPos3 = "Pos3";
+    public static final String kPos2 = "Pos2";
+    public static final String kPos2non = "Pos2non";
+    public static final String kCenter4Piece_nonPar = "Center4Piece_nonPar";
+    public static final String kPos3 = "Pos3";
     // private static final String kPos4 = "Pos4";
-    private static final String kShoot1 = "Shoot1";
-    private static final String kShoot2 = "Shoot2";
-    private static final String kShoot3 = "Shoot3";
-    private static final String kBackup = "Backup";
-    private static final String kCryingInACorner = "CryingInACorner";
-    private static final String kPos2_1 = "Pos2_1";
-    private static final String kTestAuto = "TestAuto";
-    private static final String kPos3_FAR = "Pos3_FAR";
+    public static final String kShoot1 = "Shoot1";
+    public static final String kShoot2 = "Shoot2";
+    public static final String kShoot3 = "Shoot3";
+    public static final String kBackup = "Backup";
+    public static final String kCryingInACorner = "CryingInACorner";
+    public static final String kPos2_1 = "Pos2_1";
+    public static final String kTestAuto = "TestAuto";
+    public static final String kPos3_Far = "Pos3_Far";
 
     private String wait_selected;
     private final SendableChooser<String> wait_chooser = new SendableChooser<>();
@@ -107,7 +107,7 @@ public class Robot extends TimedRobot {
 
         auto_chooser.addOption("TestAuto", kTestAuto);
 
-        auto_chooser.addOption("Pos3_FAR", kPos3_FAR);
+        auto_chooser.addOption("Pos3_Far", kPos3_Far);
 
         SmartDashboard.putData("Auto choices", auto_chooser);
 
