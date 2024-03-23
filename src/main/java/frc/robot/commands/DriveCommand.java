@@ -39,8 +39,8 @@ public class DriveCommand extends EntechCommand {
         // double xRaw = joystick.getX();
         // double yRaw = joystick.getY();
         // double rotRaw = joystick.getZ();
-        double xRaw = driveController.getRawAxis(0);
-        double yRaw = driveController.getRawAxis(1);
+        double xRaw = driveController.getRawAxis(1);
+        double yRaw = driveController.getRawAxis(0);
         double rotRaw = -driveController.getRawAxis(4);
 
         double xConstrained = MathUtil.applyDeadband(MathUtil.clamp(xRaw, -MAX_SPEED_PERCENT, MAX_SPEED_PERCENT),
@@ -63,24 +63,25 @@ public class DriveCommand extends EntechCommand {
         // (current_variable - setpoint) / scale
 
         if (UserPolicy.twistable) {
-            drive.drive(-ySquared, -xSquared, rotSquared, true, true);
+            drive.drive(-xSquared, -ySquared, rotSquared, true, true);
         } 
         else if (UserPolicy.snapAprilSpeaker && vision.targetsPresent){
             double yaw = vision.cameraX;
-            drive.drive(-ySquared, -xSquared, -yaw/100, true, true);
+            drive.drive(-xSquared, -ySquared, -yaw/100, true, true);
         }
         else if(UserPolicy.intaking && vision.notesPresent && (!UserPolicy.dummyIntake)){
             double noteYaw = vision.noteX;
-            drive.drive(-ySquared, -xSquared, -noteYaw/25, true, true);
+            double notePitch = vision.noteY;
+            drive.drive((notePitch+16)/50, -ySquared, -noteYaw/25, true, true);
         }
         else if(UserPolicy.isWackL){
-            drive.drive(ySquared, 0.5, rotSquared, true, true);
+            drive.drive(xSquared, 0.5, rotSquared, true, true);
         }
         else if(UserPolicy.isWackR){
-            drive.drive(ySquared, -0.5, rotSquared, true, true);
+            drive.drive(xSquared, -0.5, rotSquared, true, true);
         }
         else {
-            drive.drive(-ySquared, -xSquared, rotSquared, true, true);
+            drive.drive(-xSquared, -ySquared, rotSquared, true, true);
         }
 
 
