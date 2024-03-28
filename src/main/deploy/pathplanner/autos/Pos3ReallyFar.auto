@@ -2,8 +2,8 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 2,
-      "y": 2
+      "x": 0.7392210795817603,
+      "y": 4.385307915914978
     },
     "rotation": 0
   },
@@ -14,7 +14,7 @@
         {
           "type": "named",
           "data": {
-            "name": "SpeakerShootCommand"
+            "name": "DummySpeakerShootCommand"
           }
         },
         {
@@ -45,6 +45,12 @@
           "type": "path",
           "data": {
             "pathName": "Pos3ReallyFar_Step5"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "DummySpeakerShootCommand"
           }
         }
       ]

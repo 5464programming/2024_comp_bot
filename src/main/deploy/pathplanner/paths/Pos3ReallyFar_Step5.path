@@ -25,15 +25,21 @@
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Pos3reallyfar_Step5"
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.5,
+      "rotationDegrees": 17.635822216144977,
+      "rotateFast": false
+    }
+  ],
   "constraintZones": [],
   "eventMarkers": [
     {
       "name": "DummySpeakerShoot",
-      "waypointRelativePos": 0,
+      "waypointRelativePos": 0.35,
       "command": {
         "type": "parallel",
         "data": {
@@ -64,23 +70,6 @@
           ]
         }
       }
-    },
-    {
-      "name": "DummySpeakerShoot",
-      "waypointRelativePos": 1.0,
-      "command": {
-        "type": "parallel",
-        "data": {
-          "commands": [
-            {
-              "type": "named",
-              "data": {
-                "name": "DummySpeakerShootCommand"
-              }
-            }
-          ]
-        }
-      }
     }
   ],
   "globalConstraints": {
@@ -91,7 +80,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 17.78388844269257,
+    "rotation": 17.3540246362613,
     "rotateFast": false
   },
   "reversed": false,
