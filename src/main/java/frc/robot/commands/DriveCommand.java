@@ -74,17 +74,15 @@ public class DriveCommand extends EntechCommand {
             double notePitch = vision.noteY;
             drive.drive((notePitch+16)/50, -ySquared, -noteYaw/25, true, true);
         }
-        else if(UserPolicy.isWackL){
-            drive.drive(xSquared, 0.5, rotSquared, true, true);
-        }
-        else if(UserPolicy.isWackR){
-            drive.drive(xSquared, -0.5, rotSquared, true, true);
-        }
+        // else if(UserPolicy.isWackL){
+        //     drive.drive(xSquared, 0.5, rotSquared, true, true);
+        // }
+        // else if(UserPolicy.isWackR){
+        //     drive.drive(xSquared, -0.5, rotSquared, true, true);
+        // }
         else {
             drive.drive(-xSquared, -ySquared, rotSquared, true, true);
         }
-
-
     }
 
     @Override
