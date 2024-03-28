@@ -32,6 +32,10 @@ public class CommandFactory {
             auto.addCommands(new PathPlannerAuto("Pos1"));
             break;
 
+            case Robot.kPos1Amp:
+            auto.addCommands(new PathPlannerAuto("Pos1Amp"));
+            break;
+
             case Robot.kPos2:
             auto.addCommands(new PathPlannerAuto("Pos2"));
             break;
@@ -52,8 +56,8 @@ public class CommandFactory {
             auto.addCommands(new PathPlannerAuto("Pos3"));
             break;
 
-            case Robot.kPos3_Far:
-            auto.addCommands(new PathPlannerAuto("Pos3_Far"));
+            case Robot.kPos3Far:
+            auto.addCommands(new PathPlannerAuto("Pos3Far"));
             break;
 
             case Robot.kShoot1:

@@ -1,0 +1,49 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 0.77430354290908,
+      "y": 6.71
+    },
+    "rotation": 59.68770863579336
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "named",
+          "data": {
+            "name": "SpeakerShootCommand"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Pos1_Step1"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Pos2Amp_Step2"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Pos2Amp_Step3"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Pos2Amp_Step4"
+          }
+        }
+      ]
+    }
+  },
+  "folder": null,
+  "choreoAuto": false
+}

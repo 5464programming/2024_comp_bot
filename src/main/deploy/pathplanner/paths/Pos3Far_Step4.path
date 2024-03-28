@@ -1,0 +1,70 @@
+{
+  "version": 1.0,
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 8.552999528801909,
+        "y": 1.0919729202878845
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 3.327129124567039,
+        "y": 0.9164772723844753
+      },
+      "isLocked": false,
+      "linkedName": "Bpos3Far1"
+    },
+    {
+      "anchor": {
+        "x": 1.1139340093407042,
+        "y": 4.913878141295476
+      },
+      "prevControl": {
+        "x": 1.9231639413397603,
+        "y": 2.1351970494914876
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "Bpos3_Step4"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "eventMarkers": [
+    {
+      "name": "SpeakerShoot",
+      "waypointRelativePos": 0.65,
+      "command": {
+        "type": "parallel",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "SpeakerShootCommand"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "globalConstraints": {
+    "maxVelocity": 1.5,
+    "maxAcceleration": 2.0,
+    "maxAngularVelocity": 100.0,
+    "maxAngularAcceleration": 72.0
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -62.062857173461374,
+    "rotateFast": false
+  },
+  "reversed": false,
+  "folder": null,
+  "previewStartingState": {
+    "rotation": 0,
+    "velocity": 0
+  },
+  "useDefaultConstraints": true
+}

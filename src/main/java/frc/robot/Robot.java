@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.OI.OperatorInterface;
 import frc.robot.OI.UserPolicy;
 import frc.robot.commands.AmpShootCommand;
+import frc.robot.commands.DummySpeakerShootCommand;
 import frc.robot.commands.FeedCommand;
 import frc.robot.commands.GyroReset;
 import frc.robot.commands.IntakeCommand;
@@ -41,6 +42,7 @@ public class Robot extends TimedRobot {
     private SpeakerShootCommand speakerShootCommand;
     private FeedCommand feedCommand;
     private GyroReset gyroReset;
+    private DummySpeakerShootCommand dummySpeakerShootCommand;
     // private BackflipCommand backflipCommand;
 
 
@@ -48,6 +50,7 @@ public class Robot extends TimedRobot {
     private String auto_selected;
     private final SendableChooser<String> auto_chooser = new SendableChooser<>();
     public static final String kPos1 = "Pos1";
+    public static final String kPos1Amp = "Pos1Amp";
     public static final String kPos2 = "Pos2";
     public static final String kPos2non = "Pos2non";
     public static final String kPos2Amp = "Pos2Amp";
@@ -61,7 +64,7 @@ public class Robot extends TimedRobot {
     public static final String kCryingInACorner = "CryingInACorner";
     public static final String kPos2_1 = "Pos2_1";
     public static final String kTestAuto = "TestAuto";
-    public static final String kPos3_Far = "Pos3_Far";
+    public static final String kPos3Far = "Pos3Far";
 
     private String wait_selected;
     private final SendableChooser<String> wait_chooser = new SendableChooser<>();
@@ -78,22 +81,27 @@ public class Robot extends TimedRobot {
         speakerShootCommand = new SpeakerShootCommand(subsystemManager.getShooterSubsystem(), subsystemManager.getIntakeSubsystem());
         feedCommand = new FeedCommand(subsystemManager.getIntakeSubsystem());
         gyroReset = new GyroReset(subsystemManager.getDriveSubsystem());
+        dummySpeakerShootCommand = new DummySpeakerShootCommand(subsystemManager.getShooterSubsystem(), subsystemManager.getIntakeSubsystem());
 
         NamedCommands.registerCommand("IntakeCommand", intakeCommand);
         NamedCommands.registerCommand("AmpShootCommand", ampShootCommand);
         NamedCommands.registerCommand("SpeakerShootCommand", speakerShootCommand);
         NamedCommands.registerCommand("FeedCommand", feedCommand);
         NamedCommands.registerCommand("GyroReset", gyroReset);
+        NamedCommands.registerCommand("DummyIntakeCommand", dummySpeakerShootCommand);
 
         commandFactory = new CommandFactory(subsystemManager);
         OperatorInterface.create(commandFactory, subsystemManager);
 
         auto_chooser.addOption("Pos1", kPos1);
+        auto_chooser.addOption("Pos1Amp", kPos1Amp);
         auto_chooser.addOption("Pos2", kPos2);
+        auto_chooser.addOption("Pos2_1", kPos2_1);
+        auto_chooser.addOption("Pos2Amp", kPos2Amp);
         auto_chooser.addOption("Pos2non", kPos2non);
         auto_chooser.addOption("Center4Piece_nonPar", kCenter4Piece_nonPar);
         auto_chooser.addOption("Pos3", kPos3);
-        auto_chooser.addOption("Pos2Amp", kPos2Amp);
+        auto_chooser.addOption("Pos3Far", kPos3Far);
 
         auto_chooser.addOption("Shoot1", kShoot1);
         auto_chooser.addOption("Shoot2", kShoot2);
@@ -103,12 +111,8 @@ public class Robot extends TimedRobot {
         auto_chooser.setDefaultOption("Shoot2", kShoot2);
 
         auto_chooser.addOption("CryingInACorner", kCryingInACorner);
-
-        auto_chooser.addOption("Pos2_1", kPos2_1);
-
+        
         auto_chooser.addOption("TestAuto", kTestAuto);
-
-        auto_chooser.addOption("Pos3_Far", kPos3_Far);
 
         SmartDashboard.putData("Auto choices", auto_chooser);
 
