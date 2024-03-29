@@ -42,17 +42,20 @@ public class ShooterSubsystem extends EntechSubsystem {
     public double FullSpeedSpeakerTop;
     public double FullSpeedSpeakerBottom;
 
-    public double TopPostRPM = 0;
-    public double TopSpeakerRPM = 0;
+    public double TopPostRPM = 4500;
+    public double TopSpeakerRPM = 3100;
 
-    public double BottomPostRPM = 0;
-    public double BottomSpeakerRPM = 0;
+    public double BottomPostRPM = 1500;
+    public double BottomSpeakerRPM = 3100;
 
-    public double PostPitch = 0;
-    public double SpeakerPitch = 0;
+    public double PostPitch = 9;
+    public double SpeakerPitch = 19;
 
     public double TopSlope;
     public double BottomSlope;
+
+    public double TopYintercept;
+    public double BottomYintercept;
 
     public double TopRPMselect = 0;
     public double BottomRPMselect = 0;
@@ -67,9 +70,15 @@ public class ShooterSubsystem extends EntechSubsystem {
     @Override
     public void initialize(){
 
-        TopSlope = (TopPostRPM-TopSpeakerRPM)/(PostPitch-SpeakerPitch);
-        BottomSlope = (BottomPostRPM-BottomSpeakerRPM)/(PostPitch-SpeakerPitch);
-                
+        // Calculate constants for linear interpolation
+        // Slope = (Y2 - Y1) / (X2 - X1)
+        // In our case, Speaker = 2, Post = 1. Since Speaker pitch is higher, so farther right on graphs
+        TopSlope = (TopSpeakerRPM-TopPostRPM)/(SpeakerPitch-PostPitch);
+        BottomSlope = (BottomSpeakerRPM-BottomPostRPM)/(SpeakerPitch-PostPitch);
+        // Y intercept = Y1 - (slope * X1)
+        TopYintercept = TopPostRPM - (TopSlope*PostPitch);
+        BottomYintercept = BottomPostRPM - (BottomSlope*PostPitch);
+
         SPtopAmp = 200;
         SPbottomAmp = 2250;
 
@@ -136,8 +145,8 @@ public class ShooterSubsystem extends EntechSubsystem {
         double kSPtopAmp = SmartDashboard.getNumber("top amp", SPtopAmp);
         double kSPbottomAmp = SmartDashboard.getNumber("bottom amp", SPbottomAmp);
 
-        TopRPMselect = TopSlope*RobotStatus.AprilTagY + TopSpeakerRPM;
-        BottomRPMselect = BottomSlope*RobotStatus.AprilTagY + BottomSpeakerRPM;
+        TopRPMselect = TopSlope*RobotStatus.AprilTagY + TopYintercept;
+        BottomRPMselect = BottomSlope*RobotStatus.AprilTagY + BottomYintercept;
 
         SmartDashboard.putNumber("Top RPM Selected", TopRPMselect);
         SmartDashboard.putNumber("Bottom RPM Selected", BottomRPMselect);
