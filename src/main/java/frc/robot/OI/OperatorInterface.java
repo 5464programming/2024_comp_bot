@@ -25,6 +25,12 @@ import frc.robot.commands.IntakeCommand;
 import frc.robot.commands.IntakeReverseCommand;
 import frc.robot.commands.ShootDefault;
 import frc.robot.commands.YellowCoopCommand;
+import frc.robot.subsystems.ClimbSubsystem;
+import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.subsystems.IntakeSubsystem;
+import frc.robot.subsystems.LEDSubsystem;
+import frc.robot.subsystems.ShooterSubsystem;
+import frc.robot.subsystems.VisionSubsystem;
 import frc.robot.commands.ShootReverseCommand;
 import frc.robot.commands.SpeakerShootCommand;
 //import frc.robot.commands.SpeakerRPMCommand;
@@ -47,48 +53,38 @@ public final class OperatorInterface {
      * @param subsystemManager
      */
     public static void create(CommandFactory commandFactory, SubsystemManager subsystemManager) {
-        // TODO: Make these buttons reflect real buttons we would like to press
+        final DriveSubsystem drive = subsystemManager.getDriveSubsystem();
+        final ShooterSubsystem shoot = subsystemManager.getShooterSubsystem();
+        final IntakeSubsystem intake = subsystemManager.getIntakeSubsystem();
+        final VisionSubsystem vision = subsystemManager.getVisionSubsystem();
+        final LEDSubsystem led = subsystemManager.getLedSubsystem();
+        final ClimbSubsystem climb = subsystemManager.getClimbSubsystem();
 
         //Driver controller
-        driveController.button(4).onTrue(new GyroReset(subsystemManager.getDriveSubsystem()));
+        driveController.button(4).onTrue(new GyroReset(drive));
         driveController.button(3).onTrue(new XCommand());
         
-        // driveController.button(1).whileTrue(new SpeakerShootCommand(subsystemManager.getShooterSubsystem(), subsystemManager.getIntakeSubsystem()));
-        driveController.axisGreaterThan(3, 0.1).whileTrue(new SpeakerShootCommand(subsystemManager.getShooterSubsystem(), subsystemManager.getIntakeSubsystem()));
-       
-        
-        driveController.button(2).whileTrue(new AmpShootCommand(subsystemManager.getShooterSubsystem(), subsystemManager.getIntakeSubsystem()));
-        driveController.button(8).whileTrue(new ShootReverseCommand(subsystemManager.getShooterSubsystem()));
+        driveController.axisGreaterThan(3, 0.1).whileTrue(new SpeakerShootCommand(shoot, intake));
+        driveController.button(2).whileTrue(new AmpShootCommand(shoot, intake));
+        driveController.button(8).whileTrue(new ShootReverseCommand(shoot));
 
-        // driveController.button(6).whileTrue(new IntakeCommand(subsystemManager.getIntakeSubsystem()));
-        driveController.axisGreaterThan(2, 0.1).whileTrue(new IntakeCommand(subsystemManager.getIntakeSubsystem(),subsystemManager.getLedSubsystem()));
-        driveController.button(1).whileTrue(new DummyIntakeCommand(subsystemManager.getIntakeSubsystem(), subsystemManager.getLedSubsystem()));
-
-        driveController.button(5).whileTrue(new FeedCommand(subsystemManager.getIntakeSubsystem()));
-        driveController.button(7).whileTrue(new IntakeReverseCommand(subsystemManager.getIntakeSubsystem()));
+        driveController.axisGreaterThan(2, 0.1).whileTrue(new IntakeCommand(intake,led));
+        driveController.button(1).whileTrue(new DummyIntakeCommand(intake, led));
+        driveController.button(5).whileTrue(new FeedCommand(intake));
+        driveController.button(7).whileTrue(new IntakeReverseCommand(intake));
 
         // //Secondary controller
-        secondaryController.pov(0).whileTrue(new ClimbLeftUpCommand(subsystemManager.getClimbSubsystem()));
-        secondaryController.pov(180).whileTrue(new ClimbLeftDownCommand(subsystemManager.getClimbSubsystem()));
-
-        secondaryController.button(4).whileTrue(new ClimbRightUpCommand(subsystemManager.getClimbSubsystem()));
-        secondaryController.button(1).whileTrue(new ClimbRightDownCommand(subsystemManager.getClimbSubsystem()));
-
-        // secondaryController.button(5).onTrue(new ClimbAutoUpCommand(subsystemManager.getClimbSubsystem()));
-        // secondaryController.button(6).onTrue(new ClimbAutoDownCommand(subsystemManager.getClimbSubsystem()));
-
-        secondaryController.axisGreaterThan(3, 0.1).whileTrue(new ClimbOverrideCommand(subsystemManager.getClimbSubsystem()));
+        secondaryController.pov(0).whileTrue(new ClimbLeftUpCommand(climb));
+        secondaryController.pov(180).whileTrue(new ClimbLeftDownCommand(climb));
+        secondaryController.button(4).whileTrue(new ClimbRightUpCommand(climb));
+        secondaryController.button(1).whileTrue(new ClimbRightDownCommand(climb));
+        secondaryController.axisGreaterThan(3, 0.1).whileTrue(new ClimbOverrideCommand(climb));
 
         secondaryController.button(7).whileTrue(new YellowCoopCommand());
         secondaryController.button(8).whileTrue(new BlueAmplifiedCommand());
 
-        // driveJoystick.WhilePressed(1, new TwistCommand()); // used for actual joystick
-        // driveJoystick.WhenPressed(11, new GyroReset(subsystemManager.getDriveSubsystem()));
-        // driveJoystick.WhenPressed(9, new XCommand());
-
-        subsystemManager.getDriveSubsystem().setDefaultCommand(new DriveCommand(subsystemManager.getDriveSubsystem(),subsystemManager.getVisionSubsystem(), driveController));
-        subsystemManager.getShooterSubsystem().setDefaultCommand(new ShootDefault(subsystemManager.getShooterSubsystem()));
-        // subsystemManager.getShooterSubsystem().setDefaultCommand();
+        subsystemManager.getDriveSubsystem().setDefaultCommand(new DriveCommand(drive,vision, driveController));
+        subsystemManager.getShooterSubsystem().setDefaultCommand(new ShootDefault(shoot));
     }
 
     private OperatorInterface() {
