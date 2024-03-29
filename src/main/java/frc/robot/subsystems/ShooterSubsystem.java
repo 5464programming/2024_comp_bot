@@ -139,6 +139,9 @@ public class ShooterSubsystem extends EntechSubsystem {
         TopRPMselect = TopSlope*RobotStatus.AprilTagY + TopSpeakerRPM;
         BottomRPMselect = BottomSlope*RobotStatus.AprilTagY + BottomSpeakerRPM;
 
+        SmartDashboard.putNumber("Top RPM Selected", TopRPMselect);
+        SmartDashboard.putNumber("Bottom RPM Selected", BottomRPMselect);
+
         if(SPtopSpeaker != kSPtopSpeaker){
             SPtopSpeaker = kSPtopSpeaker;
         }
