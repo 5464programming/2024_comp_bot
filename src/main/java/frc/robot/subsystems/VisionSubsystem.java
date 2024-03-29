@@ -85,12 +85,14 @@ public class VisionSubsystem extends EntechSubsystem{
             //listing the targets
             List<PhotonTrackedTarget> targets = result.getTargets();
 
+
+
             //looking in the grocery store
             for(int i = 0; i < targets.size(); i++){
                 //check grocery aisle i
                 int id = targets.get(i).getFiducialId();
 
-                if(id == 8 && UserPolicy.speakerShoot){
+                if(id == 8){
                     cameraX = targets.get(i).getYaw();
                     cameraY = targets.get(i).getPitch();
                     aprilTagSkew = targets.get(i).getSkew();
@@ -102,7 +104,7 @@ public class VisionSubsystem extends EntechSubsystem{
                     }
                 }
 
-                if(id == 4 && UserPolicy.speakerShoot){
+                if(id == 4){
                     cameraX = targets.get(i).getYaw();
                     cameraY = targets.get(i).getPitch();
                     RobotStatus.AprilTagX = cameraX;
@@ -113,7 +115,7 @@ public class VisionSubsystem extends EntechSubsystem{
                 }
 
                 // TODO: fix this user policy check to be something else....... ????
-                if (id == 6 && UserPolicy.ampShoot) {
+                if (id == 6) {
                     cameraX = targets.get(i).getYaw();
                     cameraY = targets.get(i).getPitch();                
                 }
