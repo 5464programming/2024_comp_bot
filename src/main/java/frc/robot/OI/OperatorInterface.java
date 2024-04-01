@@ -83,18 +83,8 @@ public final class OperatorInterface {
         secondaryController.button(7).whileTrue(new YellowCoopCommand());
         secondaryController.button(8).whileTrue(new BlueAmplifiedCommand());
 
-<<<<<<< Updated upstream
         subsystemManager.getDriveSubsystem().setDefaultCommand(new DriveCommand(drive,vision, driveController));
-        subsystemManager.getShooterSubsystem().setDefaultCommand(new ShootDefault(shoot));
-=======
-        // driveJoystick.WhilePressed(1, new TwistCommand()); // used for actual joystick
-        // driveJoystick.WhenPressed(11, new GyroReset(subsystemManager.getDriveSubsystem()));
-        // driveJoystick.WhenPressed(9, new XCommand());
-
-        subsystemManager.getDriveSubsystem().setDefaultCommand(new DriveCommand(subsystemManager.getDriveSubsystem(),subsystemManager.getVisionSubsystem(), driveController));
-        // subsystemManager.getShooterSubsystem().setDefaultCommand(new ShootDefault(subsystemManager.getShooterSubsystem()));
-        // subsystemManager.getShooterSubsystem().setDefaultCommand();
->>>>>>> Stashed changes
+        // subsystemManager.getShooterSubsystem().setDefaultCommand(new ShootDefault(shoot));
     }
 
     private OperatorInterface() {
