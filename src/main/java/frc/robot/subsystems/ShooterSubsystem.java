@@ -54,6 +54,9 @@ public class ShooterSubsystem extends EntechSubsystem {
     public double TopSlope;
     public double BottomSlope;
 
+    public double TopYintercept;
+    public double BottomYintercept;
+
     public double TopRPMselect = 0;
     public double BottomRPMselect = 0;
 
@@ -70,15 +73,14 @@ public class ShooterSubsystem extends EntechSubsystem {
     @Override
     public void initialize(){
 
-        // TopSlope = (TopPostRPM-TopSpeakerRPM)/(PostPitch-SpeakerPitch);
-        // BottomSlope = (BottomPostRPM-BottomSpeakerRPM)/(PostPitch-SpeakerPitch);
-
-
+        // Calculate constants for linear interpolation
+        // Slope = (Y2 - Y1) / (X2 - X1)
+        // In our case, Speaker = 2, Post = 1. Since Speaker pitch is higher, so farther right on graphs
         TopSlope = (TopSpeakerRPM-TopPostRPM)/(SpeakerPitch-PostPitch);
         BottomSlope = (BottomSpeakerRPM-BottomPostRPM)/(SpeakerPitch-PostPitch);
-        
-        TopConstant = (TopSlope*PostPitch)-TopPostRPM;
-        BottomConstant = BottomSlope*PostPitch+BottomPostRPM;
+        // Y intercept = Y1 - (slope * X1)
+        TopYintercept = TopPostRPM - (TopSlope*PostPitch);
+        BottomYintercept = BottomPostRPM - (BottomSlope*PostPitch);
 
         SPtopAmp = 200;
         SPbottomAmp = 2250;
@@ -146,8 +148,8 @@ public class ShooterSubsystem extends EntechSubsystem {
         double kSPtopAmp = SmartDashboard.getNumber("top amp", SPtopAmp);
         double kSPbottomAmp = SmartDashboard.getNumber("bottom amp", SPbottomAmp);
 
-        TopRPMselect = TopSlope*RobotStatus.AprilTagY + TopConstant;
-        BottomRPMselect = BottomSlope*RobotStatus.AprilTagY + BottomConstant;
+        TopRPMselect = TopSlope*RobotStatus.AprilTagY + TopYintercept;
+        BottomRPMselect = BottomSlope*RobotStatus.AprilTagY + BottomYintercept;
 
         SmartDashboard.putNumber("Top RPM Selected", TopRPMselect);
         SmartDashboard.putNumber("Bottom RPM Selected", BottomRPMselect);
