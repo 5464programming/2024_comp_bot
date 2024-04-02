@@ -60,6 +60,10 @@ public class CommandFactory {
             auto.addCommands(new PathPlannerAuto("Pos3Far"));
             break;
 
+            case Robot.kPos3ReallyFar:
+            auto.addCommands(new PathPlannerAuto("Pos3ReallyFar"));
+            break;
+
             case Robot.kShoot1:
             auto.addCommands(new PathPlannerAuto("Shoot1"));
             break;

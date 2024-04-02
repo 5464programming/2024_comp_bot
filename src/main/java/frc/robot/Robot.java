@@ -65,6 +65,7 @@ public class Robot extends TimedRobot {
     public static final String kPos2_1 = "Pos2_1";
     public static final String kTestAuto = "TestAuto";
     public static final String kPos3Far = "Pos3Far";
+    public static final String kPos3ReallyFar = "Pos3ReallyFar";
 
     private String wait_selected;
     private final SendableChooser<String> wait_chooser = new SendableChooser<>();
@@ -102,6 +103,7 @@ public class Robot extends TimedRobot {
         auto_chooser.addOption("Center4Piece_nonPar", kCenter4Piece_nonPar);
         auto_chooser.addOption("Pos3", kPos3);
         auto_chooser.addOption("Pos3Far", kPos3Far);
+        auto_chooser.addOption("Pos3ReallyFar", kPos3ReallyFar);
 
         auto_chooser.addOption("Shoot1", kShoot1);
         auto_chooser.addOption("Shoot2", kShoot2);
