@@ -42,14 +42,14 @@ public class ShooterSubsystem extends EntechSubsystem {
     public double FullSpeedSpeakerTop;
     public double FullSpeedSpeakerBottom;
 
-    public double TopPostRPM = 4400;
+    public double TopPostRPM = 1800;
     public double TopSpeakerRPM = 3100;
 
-    public double BottomPostRPM = 1500;
+    public double BottomPostRPM = 4400;
     public double BottomSpeakerRPM = 3200;
 
-    public double PostPitch = 8.81;
-    public double SpeakerPitch = 19.81;
+    public double PostPitch = 6.51;
+    public double SpeakerPitch = 17.64;
 
     public double TopSlope;
     public double BottomSlope;
@@ -205,7 +205,7 @@ public class ShooterSubsystem extends EntechSubsystem {
         if(UserPolicy.speakerShoot){
             Homing(TopRPMselect, BottomRPMselect);
 
-        if(FullSpeedSpeakerTop > SPtopSpeaker-200 && FullSpeedSpeakerBottom > SPbottomSpeaker-200){
+        if(FullSpeedSpeakerTop > TopRPMselect && FullSpeedSpeakerBottom > BottomRPMselect){
             UserPolicy.shootUptoSpeed = true;
         }
         

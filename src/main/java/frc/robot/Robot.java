@@ -141,11 +141,7 @@ public class Robot extends TimedRobot {
     }
 
     @Override
-    public void autonomousInit() {
-        auto_selected = auto_chooser.getSelected();
-        
-        commandFactory.AutonomousRun(auto_selected);
-
+    public void autonomousInit() {    
          wait_selected = wait_chooser.getSelected();
 
             switch(wait_selected){  
@@ -169,6 +165,10 @@ public class Robot extends TimedRobot {
                 UserPolicy.wait = 0;
                 break;
             }
+        auto_selected = auto_chooser.getSelected();
+
+        autonomousCommand = commandFactory.AutonomousRun(auto_selected);
+
         if (autonomousCommand != null) {
             autonomousCommand.schedule();
         }

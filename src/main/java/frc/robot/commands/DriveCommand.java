@@ -72,7 +72,7 @@ public class DriveCommand extends EntechCommand {
         else if(UserPolicy.intaking && vision.notesPresent && (!UserPolicy.dummyIntake)){
             double noteYaw = vision.noteX;
             double notePitch = vision.noteY;
-            drive.drive((notePitch+16)/50, -ySquared, -noteYaw/25, true, true);
+            drive.drive((notePitch+20)/25, -ySquared, -noteYaw/25, true, true);
         }
         // else if(UserPolicy.isWackL){
         //     drive.drive(xSquared, 0.5, rotSquared, true, true);

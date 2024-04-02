@@ -37,10 +37,10 @@ public class SpeakerShootCommand extends EntechCommand {
             // If we have April tag detection working properly,
             // We only auto-shoot when we are in range.
             // if(UserPolicy.aprilTagsAreDetected){ 
-            if (UserPolicy.shootUptoSpeed) {
-                if(UserPolicy.closetospeaker || shootTimer.get() > 2){
+            if ((UserPolicy.shootUptoSpeed && UserPolicy.closetospeaker) || shootTimer.get() > 2) {
                 UserPolicy.feeding = true;
-                }
+                shootTimer.stop();
+    
             }
             if(UserPolicy.feeding == true){
                 intake.IntakeFeed();

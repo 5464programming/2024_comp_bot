@@ -40,7 +40,7 @@ public class VisionSubsystem extends EntechSubsystem{
     private PhotonCamera AprilTagCamera = new PhotonCamera("AprilTagCamera");
     private PhotonCamera NoteCamera = new PhotonCamera("NoteCamera");
 
-    public double yValue = 13;
+    public double yValue = 6.67;
 
     @Override
     public void initialize(){
@@ -76,7 +76,7 @@ public class VisionSubsystem extends EntechSubsystem{
         var result = AprilTagCamera.getLatestResult();
         targetsPresent = result.hasTargets();
 
-        if(cameraY < 13) {
+        if(cameraY < yValue) {
             UserPolicy.closetospeaker = false;
         }
 
@@ -135,6 +135,7 @@ public class VisionSubsystem extends EntechSubsystem{
         SmartDashboard.putNumber("Camera Y", cameraY);
         SmartDashboard.putBoolean("speakerclose", UserPolicy.closetospeaker);
         SmartDashboard.putNumber("AprilTagSkew", aprilTagSkew);
+        SmartDashboard.putNumber("Note Y", RobotStatus.noteVisionY);
     }
     //TODO: detect april tags with this code and be able to use this code for futher systems in the commands 
 }
