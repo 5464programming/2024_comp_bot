@@ -3,6 +3,7 @@ package frc.robot.commands;
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 // import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
 import entech.commands.EntechCommand;
@@ -72,10 +73,11 @@ public class DriveCommand extends EntechCommand {
         else if(UserPolicy.intaking && vision.notesPresent && (!UserPolicy.dummyIntake)){
             double noteYaw = vision.noteX;
             double notePitch = vision.noteY;
-            double XComponent = Math.sin(drive.getGyroAngle());
-            double YComponent = Math.cos(drive.getGyroAngle());
-            drive.drive(XComponent, YComponent, -noteYaw/25, true, true);
+            UserPolicy.XComponent = Math.cos(Math.toRadians(drive.getGyroAngle()));
+            UserPolicy.YComponent = -Math.sin(Math.toRadians(drive.getGyroAngle()));
+            drive.drive(UserPolicy.XComponent*0.3, UserPolicy.YComponent*0.3, -noteYaw/25, true, true);
         }
+        
         // else if(UserPolicy.isWackL){
         //     drive.drive(xSquared, 0.5, rotSquared, true, true);
         // }

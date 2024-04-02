@@ -44,6 +44,9 @@ public final class UserPolicy {
 
     public static double wait;
 
+    public static double XComponent;
+    public static double YComponent;
+
     private UserPolicy() {
     }
 }

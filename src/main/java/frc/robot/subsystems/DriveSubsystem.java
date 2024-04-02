@@ -131,6 +131,9 @@ public class DriveSubsystem extends EntechSubsystem {
             SmartDashboard.putNumber("Navx angle", gyro.getAngle());
             SmartDashboard.putBoolean("homingpathtonote",  UserPolicy.homingPathToNote);
             SmartDashboard.putBoolean("noteIsDetected", RobotStatus.noteIsDetected);
+            SmartDashboard.putNumber("XComponent", UserPolicy.XComponent);
+            SmartDashboard.putNumber("YComponent", UserPolicy.YComponent);
+            
 
             // Update the odometry in the periodic block
             odometry.update(
