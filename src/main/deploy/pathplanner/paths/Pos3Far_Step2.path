@@ -16,12 +16,12 @@
     },
     {
       "anchor": {
-        "x": 1.1139340093407042,
-        "y": 4.913878141295476
+        "x": 1.0846847346901356,
+        "y": 4.796881042693202
       },
       "prevControl": {
-        "x": 1.8451658756049114,
-        "y": 0.3509912958068206
+        "x": 1.8159166009543428,
+        "y": 0.23399419720454623
       },
       "nextControl": null,
       "isLocked": false,
@@ -42,25 +42,7 @@
       }
     }
   ],
-  "eventMarkers": [
-    {
-      "name": "New Event Marker",
-      "waypointRelativePos": 0.8,
-      "command": {
-        "type": "parallel",
-        "data": {
-          "commands": [
-            {
-              "type": "named",
-              "data": {
-                "name": "SpeakerShootCommand"
-              }
-            }
-          ]
-        }
-      }
-    }
-  ],
+  "eventMarkers": [],
   "globalConstraints": {
     "maxVelocity": 3.0,
     "maxAcceleration": 3.0,

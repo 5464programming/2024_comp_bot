@@ -18,27 +18,93 @@
           }
         },
         {
-          "type": "path",
+          "type": "parallel",
           "data": {
-            "pathName": "Pos3_Step3"
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Pos3Far_Step1"
+                }
+              }
+            ]
           }
         },
         {
-          "type": "path",
+          "type": "parallel",
           "data": {
-            "pathName": "Pos3_Step4"
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Pos3Far_Step2"
+                }
+              },
+              {
+                "type": "sequential",
+                "data": {
+                  "commands": [
+                    {
+                      "type": "wait",
+                      "data": {
+                        "waitTime": 0.5
+                      }
+                    },
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "SpeakerShootCommand"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
           }
         },
         {
-          "type": "path",
+          "type": "parallel",
           "data": {
-            "pathName": "Pos3Far_Step3"
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Pos3Far_Step3"
+                }
+              }
+            ]
           }
         },
         {
-          "type": "path",
+          "type": "parallel",
           "data": {
-            "pathName": "Pos3Far_Step4"
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Pos3Far_Step4"
+                }
+              },
+              {
+                "type": "sequential",
+                "data": {
+                  "commands": [
+                    {
+                      "type": "wait",
+                      "data": {
+                        "waitTime": 0.5
+                      }
+                    },
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "SpeakerShootCommand"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
           }
         }
       ]

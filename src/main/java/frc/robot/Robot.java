@@ -51,10 +51,10 @@ public class Robot extends TimedRobot {
     private final SendableChooser<String> auto_chooser = new SendableChooser<>();
     public static final String kPos1 = "Pos1";
     public static final String kPos1Amp = "Pos1Amp";
-    public static final String kPos2 = "Pos2";
+    public static final String kPos2_4pc = "Pos2_4pc";
     public static final String kPos2non = "Pos2non";
     public static final String kPos2Amp = "Pos2Amp";
-    public static final String kCenter4Piece_nonPar = "Center4Piece_nonPar";
+    public static final String kPos2_4pc_NoVision = "Pos2_4pc_NoVision";
     public static final String kPos3 = "Pos3";
 
     public static final String kShoot1 = "Shoot1";
@@ -62,7 +62,7 @@ public class Robot extends TimedRobot {
     public static final String kShoot3 = "Shoot3";
     public static final String kBackup = "Backup";
     public static final String kCryingInACorner = "CryingInACorner";
-    public static final String kPos2_1 = "Pos2_1";
+    public static final String kPos2_4pc_Offbrand = "Pos2_4pc_Offbrand";
     public static final String kTestAuto = "TestAuto";
     public static final String kPos3Far = "Pos3Far";
     public static final String kPos3ReallyFar = "Pos3ReallyFar";
@@ -96,11 +96,11 @@ public class Robot extends TimedRobot {
 
         auto_chooser.addOption("Pos1", kPos1);
         auto_chooser.addOption("Pos1Amp", kPos1Amp);
-        auto_chooser.addOption("Pos2", kPos2);
-        auto_chooser.addOption("Pos2_1", kPos2_1);
+        auto_chooser.addOption("Pos2_4pc", kPos2_4pc);
+        auto_chooser.addOption("Pos2_4pc_Offbrand", kPos2_4pc_Offbrand);
         auto_chooser.addOption("Pos2Amp", kPos2Amp);
         auto_chooser.addOption("Pos2non", kPos2non);
-        auto_chooser.addOption("Center4Piece_nonPar", kCenter4Piece_nonPar);
+        auto_chooser.addOption("Pos2_4pc_NoVision", kPos2_4pc_NoVision);
         auto_chooser.addOption("Pos3", kPos3);
         auto_chooser.addOption("Pos3Far", kPos3Far);
         auto_chooser.addOption("Pos3ReallyFar", kPos3ReallyFar);

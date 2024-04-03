@@ -18,27 +18,93 @@
           }
         },
         {
-          "type": "path",
+          "type": "parallel",
           "data": {
-            "pathName": "Pos1_Step1"
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Pos1Amp_Step1"
+                }
+              }
+            ]
           }
         },
         {
-          "type": "path",
+          "type": "parallel",
           "data": {
-            "pathName": "Pos2Amp_Step2"
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Pos2Amp_Step2"
+                }
+              },
+              {
+                "type": "sequential",
+                "data": {
+                  "commands": [
+                    {
+                      "type": "wait",
+                      "data": {
+                        "waitTime": 0.5
+                      }
+                    },
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "AmpShootCommand"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
           }
         },
         {
-          "type": "path",
+          "type": "parallel",
           "data": {
-            "pathName": "Pos2Amp_Step3"
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Pos2Amp_Step3"
+                }
+              }
+            ]
           }
         },
         {
-          "type": "path",
+          "type": "parallel",
           "data": {
-            "pathName": "Pos2Amp_Step4"
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Pos2Amp_Step4"
+                }
+              },
+              {
+                "type": "sequential",
+                "data": {
+                  "commands": [
+                    {
+                      "type": "wait",
+                      "data": {
+                        "waitTime": 0.5
+                      }
+                    },
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "AmpShootCommand"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
           }
         }
       ]

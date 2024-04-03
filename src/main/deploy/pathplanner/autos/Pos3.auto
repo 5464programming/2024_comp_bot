@@ -39,6 +39,25 @@
                 "data": {
                   "pathName": "Pos3_Step2"
                 }
+              },
+              {
+                "type": "sequential",
+                "data": {
+                  "commands": [
+                    {
+                      "type": "wait",
+                      "data": {
+                        "waitTime": 0.5
+                      }
+                    },
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "SpeakerShootCommand"
+                      }
+                    }
+                  ]
+                }
               }
             ]
           }
@@ -64,6 +83,25 @@
                 "type": "path",
                 "data": {
                   "pathName": "Pos3_Step4"
+                }
+              },
+              {
+                "type": "sequential",
+                "data": {
+                  "commands": [
+                    {
+                      "type": "wait",
+                      "data": {
+                        "waitTime": 0.5
+                      }
+                    },
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "SpeakerShootCommand"
+                      }
+                    }
+                  ]
                 }
               }
             ]
