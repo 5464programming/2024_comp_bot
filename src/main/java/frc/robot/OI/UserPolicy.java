@@ -47,6 +47,8 @@ public final class UserPolicy {
     public static double XComponent;
     public static double YComponent;
 
+    public static boolean translateToNote = true;
+
     private UserPolicy() {
     }
 }

@@ -75,7 +75,12 @@ public class DriveCommand extends EntechCommand {
             double notePitch = vision.noteY;
             UserPolicy.XComponent = Math.cos(Math.toRadians(drive.getGyroAngle()));
             UserPolicy.YComponent = -Math.sin(Math.toRadians(drive.getGyroAngle()));
-            drive.drive(UserPolicy.XComponent*0.3, UserPolicy.YComponent*0.3, -noteYaw/25, true, true);
+            if(UserPolicy.translateToNote){
+                drive.drive(UserPolicy.XComponent*0.3, UserPolicy.YComponent*0.3, -noteYaw/25, true, true);
+            }
+            else{
+                drive.drive(-xSquared, -ySquared, -noteYaw/25, true, true);
+            }
         }
         
         // else if(UserPolicy.isWackL){
