@@ -74,10 +74,10 @@ public final class OperatorInterface {
         driveController.button(7).whileTrue(new IntakeReverseCommand(intake));
 
         // //Secondary controller
-        secondaryController.pov(0).whileTrue(new ClimbLeftUpCommand(climb));
-        secondaryController.pov(180).whileTrue(new ClimbLeftDownCommand(climb));
-        secondaryController.button(4).whileTrue(new ClimbRightUpCommand(climb));
-        secondaryController.button(1).whileTrue(new ClimbRightDownCommand(climb));
+        secondaryController.pov(0).whileTrue(new ClimbRightUpCommand(climb));
+        secondaryController.pov(180).whileTrue(new ClimbRightDownCommand(climb));
+        secondaryController.button(4).whileTrue(new ClimbLeftUpCommand(climb));
+        secondaryController.button(1).whileTrue(new ClimbLeftDownCommand(climb));
         secondaryController.axisGreaterThan(3, 0.1).whileTrue(new ClimbOverrideCommand(climb));
 
         secondaryController.button(7).whileTrue(new YellowCoopCommand());

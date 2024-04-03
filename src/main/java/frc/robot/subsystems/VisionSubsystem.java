@@ -40,7 +40,8 @@ public class VisionSubsystem extends EntechSubsystem{
     private PhotonCamera AprilTagCamera = new PhotonCamera("AprilTagCamera");
     private PhotonCamera NoteCamera = new PhotonCamera("NoteCamera");
 
-    public double yValue = 6.67;
+    public double yValueSpeaker = 6.67;
+    public double yValueAmp = 1.00;
 
     @Override
     public void initialize(){
@@ -76,8 +77,12 @@ public class VisionSubsystem extends EntechSubsystem{
         var result = AprilTagCamera.getLatestResult();
         targetsPresent = result.hasTargets();
 
-        if(cameraY < yValue) {
+        if(cameraY < yValueSpeaker) {
             UserPolicy.closetospeaker = false;
+        }
+
+        if(cameraY < yValueAmp) {
+            UserPolicy.closetoamp = false;
         }
 
         if(targetsPresent){
@@ -99,7 +104,7 @@ public class VisionSubsystem extends EntechSubsystem{
                     RobotStatus.skew = aprilTagSkew;
                     RobotStatus.AprilTagX = cameraX;
                     RobotStatus.AprilTagY = cameraY;
-                    if(cameraY > yValue) {
+                    if(cameraY > yValueSpeaker) {
                         UserPolicy.closetospeaker = true;
                     }
                 }
@@ -109,7 +114,7 @@ public class VisionSubsystem extends EntechSubsystem{
                     cameraY = targets.get(i).getPitch();
                     RobotStatus.AprilTagX = cameraX;
                     RobotStatus.AprilTagY = cameraY;
-                    if(cameraY > yValue) {
+                    if(cameraY > yValueSpeaker) {
                         UserPolicy.closetospeaker = true;
                     }
                 }
@@ -117,7 +122,22 @@ public class VisionSubsystem extends EntechSubsystem{
                 // TODO: fix this user policy check to be something else....... ????
                 if (id == 6) {
                     cameraX = targets.get(i).getYaw();
-                    cameraY = targets.get(i).getPitch();                
+                    cameraY = targets.get(i).getPitch();          
+                    RobotStatus.AprilTagX = cameraX;
+                    RobotStatus.AprilTagY = cameraY;
+                    if(cameraY > yValueAmp) {
+                        UserPolicy.closetoamp = true;
+                    }      
+                }
+
+                if (id == 5) {
+                    cameraX = targets.get(i).getYaw();
+                    cameraY = targets.get(i).getPitch();          
+                    RobotStatus.AprilTagX = cameraX;
+                    RobotStatus.AprilTagY = cameraY;
+                    if(cameraY > yValueAmp) {
+                        UserPolicy.closetoamp = true;
+                    }      
                 }
             }
             

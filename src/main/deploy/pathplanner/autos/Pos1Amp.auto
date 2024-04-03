@@ -53,7 +53,7 @@
                     {
                       "type": "named",
                       "data": {
-                        "name": "AmpShootCommand"
+                        "name": "AutoAmpShootCommand"
                       }
                     }
                   ]
@@ -98,7 +98,7 @@
                     {
                       "type": "named",
                       "data": {
-                        "name": "AmpShootCommand"
+                        "name": "AutoAmpShootCommand"
                       }
                     }
                   ]

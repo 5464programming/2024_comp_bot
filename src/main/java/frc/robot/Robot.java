@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.OI.OperatorInterface;
 import frc.robot.OI.UserPolicy;
 import frc.robot.commands.AmpShootCommand;
+import frc.robot.commands.AutoAmpShootCommand;
 import frc.robot.commands.DummySpeakerShootCommand;
 import frc.robot.commands.FeedCommand;
 import frc.robot.commands.GyroReset;
@@ -43,6 +44,7 @@ public class Robot extends TimedRobot {
     private FeedCommand feedCommand;
     private GyroReset gyroReset;
     private DummySpeakerShootCommand dummySpeakerShootCommand;
+    private AutoAmpShootCommand autoAmpShootCommand;
     // private BackflipCommand backflipCommand;
 
 
@@ -83,6 +85,7 @@ public class Robot extends TimedRobot {
         feedCommand = new FeedCommand(subsystemManager.getIntakeSubsystem());
         gyroReset = new GyroReset(subsystemManager.getDriveSubsystem());
         dummySpeakerShootCommand = new DummySpeakerShootCommand(subsystemManager.getShooterSubsystem(), subsystemManager.getIntakeSubsystem());
+        autoAmpShootCommand = new AutoAmpShootCommand(subsystemManager.getShooterSubsystem(), subsystemManager.getIntakeSubsystem());
 
         NamedCommands.registerCommand("IntakeCommand", intakeCommand);
         NamedCommands.registerCommand("AmpShootCommand", ampShootCommand);
@@ -90,6 +93,7 @@ public class Robot extends TimedRobot {
         NamedCommands.registerCommand("FeedCommand", feedCommand);
         NamedCommands.registerCommand("GyroReset", gyroReset);
         NamedCommands.registerCommand("DummyIntakeCommand", dummySpeakerShootCommand);
+        NamedCommands.registerCommand("AutoAmpShootCommand", autoAmpShootCommand);
 
         commandFactory = new CommandFactory(subsystemManager);
         OperatorInterface.create(commandFactory, subsystemManager);
