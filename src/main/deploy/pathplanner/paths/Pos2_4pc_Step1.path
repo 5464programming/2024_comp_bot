@@ -16,12 +16,12 @@
     },
     {
       "anchor": {
-        "x": 2.956638312326507,
-        "y": 6.776081960714992
+        "x": 2.8909454969907094,
+        "y": 7.016492665463964
       },
       "prevControl": {
-        "x": 2.47251142924507,
-        "y": 6.360147830973672
+        "x": 2.5868974814872705,
+        "y": 6.501949869996606
       },
       "nextControl": null,
       "isLocked": false,
@@ -38,8 +38,8 @@
   "constraintZones": [],
   "eventMarkers": [
     {
-      "name": "New Event Marker",
-      "waypointRelativePos": 0.5,
+      "name": "Intake",
+      "waypointRelativePos": 0.25,
       "command": {
         "type": "sequential",
         "data": {

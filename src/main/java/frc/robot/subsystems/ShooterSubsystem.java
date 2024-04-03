@@ -57,8 +57,8 @@ public class ShooterSubsystem extends EntechSubsystem {
     public double TopYintercept;
     public double BottomYintercept;
 
-    public double TopRPMselect = 0;
-    public double BottomRPMselect = 0;
+    public double TopRPMselect = 3100;
+    public double BottomRPMselect = 3200;
 
     public double TopConstant;
     public double BottomConstant;
@@ -148,8 +148,14 @@ public class ShooterSubsystem extends EntechSubsystem {
         double kSPtopAmp = SmartDashboard.getNumber("top amp", SPtopAmp);
         double kSPbottomAmp = SmartDashboard.getNumber("bottom amp", SPbottomAmp);
 
+        if(UserPolicy.aprilTagsAreDetected){
         TopRPMselect = TopSlope*RobotStatus.AprilTagY + TopYintercept;
         BottomRPMselect = BottomSlope*RobotStatus.AprilTagY + BottomYintercept;
+        }
+        else{
+            TopRPMselect = 3100;
+            BottomRPMselect = 3200;
+        }
 
         SmartDashboard.putNumber("Top RPM Selected", TopRPMselect);
         SmartDashboard.putNumber("Bottom RPM Selected", BottomRPMselect);
@@ -205,7 +211,7 @@ public class ShooterSubsystem extends EntechSubsystem {
         if(UserPolicy.speakerShoot){
             Homing(TopRPMselect, BottomRPMselect);
 
-        if(FullSpeedSpeakerTop > TopRPMselect && FullSpeedSpeakerBottom > BottomRPMselect){
+        if((FullSpeedSpeakerTop > (TopRPMselect-200)) && (FullSpeedSpeakerBottom > (BottomRPMselect-200))){
             UserPolicy.shootUptoSpeed = true;
         }
         
