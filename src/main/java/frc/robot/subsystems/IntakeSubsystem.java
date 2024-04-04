@@ -12,9 +12,12 @@ public class IntakeSubsystem extends EntechSubsystem{
     //TODO: create a command to automatic run the intake once the shooter is up to speed
 
     CANSparkMax intake = new CANSparkMax(9, MotorType.kBrushless);
-    DigitalInput searchnote = new DigitalInput(0);
+    DigitalInput searchnoteBottom = new DigitalInput(0);
+    DigitalInput searchnoteTop = new DigitalInput(1);
+
     private static final boolean ENABLED = true;
-    public boolean notenotdected = false;
+    public boolean notecheckpt1 = false;
+    public boolean notecheckpt2 = false;
 
     @Override
     public void initialize(){}
@@ -28,13 +31,15 @@ public class IntakeSubsystem extends EntechSubsystem{
     // This will make your autonomous AND teleop code much cleaner.
     public void periodic(){
         // grab the past state of the break beam
-        boolean oldnotenotdetected = notenotdected;
+        boolean notehasleftcheckpt1 = notecheckpt1;
+        boolean notehasleftcheckpt2 = notecheckpt2;
         // grab the newest state of the break beam
-        notenotdected = !searchnote.get();
+        notecheckpt1 = !searchnoteTop.get();
+        notecheckpt2 = !searchnoteBottom.get();
 
         // IF something happened (either a note was detected or a note left,)
-        if(notenotdected!=oldnotenotdetected){
-            if(notenotdected){
+        if(notecheckpt1!=notehasleftcheckpt1){
+            if(notecheckpt1){
                 UserPolicy.LEDselected = "White";
             }
             else{
@@ -42,7 +47,8 @@ public class IntakeSubsystem extends EntechSubsystem{
             }
         }
         
-        SmartDashboard.putBoolean("break beam", notenotdected);
+        SmartDashboard.putBoolean("check point 1", notecheckpt1);
+        SmartDashboard.putBoolean("check point 2", notecheckpt2);
         SmartDashboard.putBoolean("feeding", UserPolicy.feeding);
         SmartDashboard.putBoolean("intaking", UserPolicy.intaking);
         SmartDashboard.putBoolean("speakerscoring", UserPolicy.speakerShoot);
@@ -75,13 +81,27 @@ public class IntakeSubsystem extends EntechSubsystem{
         
     public void Intake(){
         if(UserPolicy.intaking){
-           if(notenotdected == true){
+           if(notecheckpt1 == true){
             intake.set(-1);
            }
            else{
             intake.set(0);
             UserPolicy.LEDselected = "PinkIntake";
            }
+        }
+        else{
+            DisableIntake();
+        }
+    }
+    
+    public void IntakeCheck(){
+        if(UserPolicy.intaking){
+            if(notecheckpt2 == true){
+                intake.set(1);
+            }
+            else{
+                intake.set(0);
+            }
         }
         else{
             DisableIntake();

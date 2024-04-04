@@ -28,6 +28,7 @@ public class DummyIntakeCommand extends EntechCommand{
     public void execute(){
         if(UserPolicy.intaking){
             intake.Intake();
+            intake.IntakeCheck();
         return;
         }
     }
@@ -46,7 +47,7 @@ public class DummyIntakeCommand extends EntechCommand{
 
     @Override
     public boolean isFinished(){
-        if (intake.notenotdected == false) {
+        if (intake.notecheckpt1 == false) {
             UserPolicy.LEDselected = "PinkIntake";
             leds.startBlinking();
             return true;

@@ -67,7 +67,7 @@ public class DummySpeakerShootCommand extends EntechCommand {
 
     @Override
     public boolean isFinished(){
-        if (intake.notenotdected == true) {
+        if (intake.notecheckpt1 == true) {
             return true;
         }
 
