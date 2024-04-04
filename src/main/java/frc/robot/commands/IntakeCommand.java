@@ -27,7 +27,6 @@ public class IntakeCommand extends EntechCommand{
     public void execute(){
         if(UserPolicy.intaking){
             intake.Intake();
-            intake.IntakeCheck();
         return;
         }
     }
