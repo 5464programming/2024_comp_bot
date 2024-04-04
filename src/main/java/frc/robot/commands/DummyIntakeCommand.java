@@ -46,7 +46,7 @@ public class DummyIntakeCommand extends EntechCommand{
 
     @Override
     public boolean isFinished(){
-        if (intake.notecheckpt1 == false) {
+        if (intake.notenotdected == false) {
             UserPolicy.LEDselected = "PinkIntake";
             leds.startBlinking();
             return true;

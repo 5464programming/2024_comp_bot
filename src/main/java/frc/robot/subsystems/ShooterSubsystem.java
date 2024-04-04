@@ -48,7 +48,7 @@ public class ShooterSubsystem extends EntechSubsystem {
     public double BottomPostRPM = 4400;
     public double BottomSpeakerRPM = 3200;
 
-    public double PostPitch = 6.51;
+    public double PostPitch = 4.79;
     public double SpeakerPitch = 17.64;
 
     public double TopSlope;

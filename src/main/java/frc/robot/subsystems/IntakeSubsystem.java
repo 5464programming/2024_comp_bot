@@ -12,12 +12,9 @@ public class IntakeSubsystem extends EntechSubsystem{
     //TODO: create a command to automatic run the intake once the shooter is up to speed
 
     CANSparkMax intake = new CANSparkMax(9, MotorType.kBrushless);
-    DigitalInput searchnoteBottom = new DigitalInput(0);
-    DigitalInput searchnoteTop = new DigitalInput(1);
-
+    DigitalInput searchnote = new DigitalInput(0);
     private static final boolean ENABLED = true;
-    public boolean notecheckpt1 = false;
-    public boolean notecheckpt2 = false;
+    public boolean notenotdected = false;
 
     @Override
     public void initialize(){}
@@ -31,15 +28,13 @@ public class IntakeSubsystem extends EntechSubsystem{
     // This will make your autonomous AND teleop code much cleaner.
     public void periodic(){
         // grab the past state of the break beam
-        boolean notehasleftcheckpt1 = notecheckpt1;
-        boolean notehasleftcheckpt2 = notecheckpt2;
+        boolean oldnotenotdetected = notenotdected;
         // grab the newest state of the break beam
-        notecheckpt1 = !searchnoteTop.get();
-        notecheckpt2 = !searchnoteBottom.get();
+        notenotdected = !searchnote.get();
 
         // IF something happened (either a note was detected or a note left,)
-        if(notecheckpt1!=notehasleftcheckpt1){
-            if(notecheckpt1){
+        if(notenotdected!=oldnotenotdetected){
+            if(notenotdected){
                 UserPolicy.LEDselected = "White";
             }
             else{
@@ -47,8 +42,7 @@ public class IntakeSubsystem extends EntechSubsystem{
             }
         }
         
-        SmartDashboard.putBoolean("check point 1", notecheckpt1);
-        SmartDashboard.putBoolean("check point 2", notecheckpt2);
+        SmartDashboard.putBoolean("break beam", notenotdected);
         SmartDashboard.putBoolean("feeding", UserPolicy.feeding);
         SmartDashboard.putBoolean("intaking", UserPolicy.intaking);
         SmartDashboard.putBoolean("speakerscoring", UserPolicy.speakerShoot);
@@ -81,7 +75,11 @@ public class IntakeSubsystem extends EntechSubsystem{
         
     public void Intake(){
         if(UserPolicy.intaking){
+<<<<<<< HEAD
            if(notecheckpt2 == true){
+=======
+           if(notenotdected == true){
+>>>>>>> parent of bec2ec6 (WIP 2nd intake break beam)
             intake.set(-1);
            }
            
@@ -94,4 +92,8 @@ public class IntakeSubsystem extends EntechSubsystem{
             DisableIntake();
         }
     }
+<<<<<<< HEAD
     }
+=======
+}
+>>>>>>> parent of bec2ec6 (WIP 2nd intake break beam)
