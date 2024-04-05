@@ -49,7 +49,7 @@ public class ShooterSubsystem extends EntechSubsystem {
     public double BottomSpeakerRPM = 3200;
 
     public double PostPitch = 4.79;
-    public double SpeakerPitch = 17.64;
+    public double SpeakerPitch = 16.53;
 
     public double TopSlope;
     public double BottomSlope;
@@ -88,8 +88,8 @@ public class ShooterSubsystem extends EntechSubsystem {
         SPtopSpeaker = 3100;
         SPbottomSpeaker = 3200;
 
-        SptopDefault = 1000;
-        SpbottomDefault = 1000;
+        SptopDefault = 500;
+        SpbottomDefault = 500;
 
         SmartDashboard.putNumber("top speaker", SPtopSpeaker);
         SmartDashboard.putNumber("bottom speaker", SPbottomSpeaker);
@@ -185,8 +185,13 @@ public class ShooterSubsystem extends EntechSubsystem {
     }
 
     public void Default(){
-        PIDTop.setReference(SptopDefault, CANSparkMax.ControlType.kVelocity);
-        PIDBottom.setReference(SpbottomDefault, CANSparkMax.ControlType.kVelocity);
+        if(!(UserPolicy.ampShoot | UserPolicy.speakerShoot)){
+            // PIDTop.setReference(SptopDefault, CANSparkMax.ControlType.kVelocity);
+            // PIDBottom.setReference(SpbottomDefault, CANSparkMax.ControlType.kVelocity);
+            shootTop.set(0.2);
+            shootBottom.set(0.2);
+        
+        }
     }
 
     public void AmpCommand() {

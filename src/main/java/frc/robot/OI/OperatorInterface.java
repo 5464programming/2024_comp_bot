@@ -84,7 +84,7 @@ public final class OperatorInterface {
         secondaryController.button(8).whileTrue(new BlueAmplifiedCommand());
 
         subsystemManager.getDriveSubsystem().setDefaultCommand(new DriveCommand(drive,vision, driveController));
-        // subsystemManager.getShooterSubsystem().setDefaultCommand(new ShootDefault(shoot));
+        subsystemManager.getShooterSubsystem().setDefaultCommand(new ShootDefault(shoot));
     }
 
     private OperatorInterface() {

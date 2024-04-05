@@ -32,6 +32,7 @@ public final class UserPolicy {
     public static boolean closetoamp = false;
 
     public static boolean noteHoming = false;
+    public static boolean noteDetected = false;
 
     public static boolean aprilTagsAreDetected = false;
     

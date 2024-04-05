@@ -31,6 +31,7 @@ public class IntakeSubsystem extends EntechSubsystem{
         boolean oldnotenotdetected = notenotdected;
         // grab the newest state of the break beam
         notenotdected = !searchnote.get();
+        UserPolicy.noteDetected = searchnote.get();
 
         // IF something happened (either a note was detected or a note left,)
         if(notenotdected!=oldnotenotdetected){
@@ -75,11 +76,7 @@ public class IntakeSubsystem extends EntechSubsystem{
         
     public void Intake(){
         if(UserPolicy.intaking){
-<<<<<<< HEAD
-           if(notecheckpt2 == true){
-=======
            if(notenotdected == true){
->>>>>>> parent of bec2ec6 (WIP 2nd intake break beam)
             intake.set(-1);
            }
            
@@ -92,8 +89,4 @@ public class IntakeSubsystem extends EntechSubsystem{
             DisableIntake();
         }
     }
-<<<<<<< HEAD
-    }
-=======
 }
->>>>>>> parent of bec2ec6 (WIP 2nd intake break beam)

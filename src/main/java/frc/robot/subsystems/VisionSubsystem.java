@@ -7,6 +7,7 @@ import org.photonvision.targeting.PhotonTrackedTarget;
 import edu.wpi.first.net.PortForwarder;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import entech.subsystems.EntechSubsystem;
+import frc.robot.Robot;
 import frc.robot.OI.RobotStatus;
 import frc.robot.OI.UserPolicy;
 
@@ -117,6 +118,22 @@ public class VisionSubsystem extends EntechSubsystem{
                     if(cameraY > yValueSpeaker) {
                         UserPolicy.closetospeaker = true;
                     }
+                }
+
+                if(UserPolicy.closetospeaker){
+                    if(UserPolicy.LEDselected != "CloseToggle"){
+                        UserPolicy.LEDselected = "CloseToggle";
+                    }
+                }
+                else{
+                    if(UserPolicy.LEDselected == "CloseToggle"){
+                        if(UserPolicy.noteDetected){
+                            UserPolicy.LEDselected = "PinkIntake";
+                        }
+                        else{
+                            UserPolicy.LEDselected = "White";
+                    }                 
+                }
                 }
 
                 // TODO: fix this user policy check to be something else....... ????

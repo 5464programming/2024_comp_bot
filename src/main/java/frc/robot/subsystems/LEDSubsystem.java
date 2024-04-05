@@ -24,6 +24,7 @@ public class LEDSubsystem extends EntechSubsystem{
     private static final String kPinkIntake = "PinkIntake";
     private static final String kWhite = "White";
     private static final String kClear = "Clear";
+    private static final String kCloseToggle = "CloseToggle";
 
     private Timer blinkyTimer = new Timer();  // timer for blinks
     private boolean blinkingActive = false;   // flag for blinking state
@@ -103,16 +104,17 @@ public class LEDSubsystem extends EntechSubsystem{
             case kClear:
                 Clear();
                 break;
+
+            case kCloseToggle:
+                CloseToggle();               
+                break;
+
             default:
                 // White();
                 break;
         }
         // }
-
         }
-
-        
-      
     }
 
     @Override
@@ -144,6 +146,13 @@ public class LEDSubsystem extends EntechSubsystem{
     public void White(){
             for(int i = 1; i < totalLED; i++){
                 ledbuffer.setRGB(i, 100, 100, 100);
+        }
+        ledstrip.setData(ledbuffer);
+    }
+
+    public void CloseToggle(){
+        for(int i = 1; i < totalLED; i ++){
+            ledbuffer.setRGB(i, 0, 200, 0);
         }
         ledstrip.setData(ledbuffer);
     }

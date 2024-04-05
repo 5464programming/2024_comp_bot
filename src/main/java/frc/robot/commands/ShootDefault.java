@@ -7,6 +7,7 @@ public class ShootDefault extends EntechCommand{
         private final ShooterSubsystem shoot;
         
         public ShootDefault(ShooterSubsystem shoot) {
+            super(shoot);
             this.shoot = shoot;
         }
     
