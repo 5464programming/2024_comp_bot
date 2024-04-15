@@ -2,14 +2,11 @@ package frc.robot.commands;
 
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj.DriverStation.Alliance;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 // import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
 import entech.commands.EntechCommand;
 // import entech.util.EntechJoystick;
 import frc.robot.RobotConstants;
-import frc.robot.OI.RobotStatus;
 import frc.robot.OI.UserPolicy;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.VisionSubsystem;
@@ -70,6 +67,14 @@ public class DriveCommand extends EntechCommand {
             double yaw = vision.cameraX;
             drive.drive(-xSquared, -ySquared, -yaw/100, true, true);
         }
+        // else if(UserPolicy.ampShoot){
+        //     if(DriverStation.getAlliance().get() == DriverStation.Alliance.Blue){
+        //         drive.drive(xSquared, ySquared, (drive.getGyroAngle()-90)/100, true, true);
+        //     }
+        //     if(DriverStation.getAlliance().get() == DriverStation.Alliance.Red){
+        //         drive.drive(xSquared, ySquared, (drive.getGyroAngle()+90)/100, true, true);
+        //     }
+        // }
         else if(UserPolicy.intaking && vision.notesPresent && (!UserPolicy.dummyIntake)){
             double noteYaw = vision.noteX;
             double notePitch = vision.noteY;

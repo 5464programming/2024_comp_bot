@@ -34,13 +34,13 @@
                     {
                       "type": "wait",
                       "data": {
-                        "waitTime": 0
+                        "waitTime": 2.0
                       }
                     },
                     {
                       "type": "named",
                       "data": {
-                        "name": null
+                        "name": "IntakeCommand"
                       }
                     }
                   ]

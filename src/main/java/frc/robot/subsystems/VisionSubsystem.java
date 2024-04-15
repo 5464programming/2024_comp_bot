@@ -98,7 +98,7 @@ public class VisionSubsystem extends EntechSubsystem{
                 //check grocery aisle i
                 int id = targets.get(i).getFiducialId();
 
-                if(id == 8){
+                if(id == 7){
                     cameraX = targets.get(i).getYaw();
                     cameraY = targets.get(i).getPitch();
                     aprilTagSkew = targets.get(i).getSkew();
