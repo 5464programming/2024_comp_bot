@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.9961928869726684,
-        "y": 5.449475970177011
+        "x": 3.241770130263907,
+        "y": 5.567111941824834
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.510121607665648,
-        "y": 5.4813085140987114
+        "x": 2.7556988509568865,
+        "y": 5.598944485746534
       },
       "isLocked": false,
       "linkedName": "Line 1_2"
@@ -30,29 +30,11 @@
   ],
   "rotationTargets": [],
   "constraintZones": [],
-  "eventMarkers": [
-    {
-      "name": "SpeakerShoot",
-      "waypointRelativePos": 0.5,
-      "command": {
-        "type": "parallel",
-        "data": {
-          "commands": [
-            {
-              "type": "named",
-              "data": {
-                "name": "SpeakerShootCommand"
-              }
-            }
-          ]
-        }
-      }
-    }
-  ],
+  "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 1.5,
-    "maxAcceleration": 2.0,
-    "maxAngularVelocity": 100.0,
+    "maxVelocity": 1.75,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 200.0,
     "maxAngularAcceleration": 72.0
   },
   "goalEndState": {

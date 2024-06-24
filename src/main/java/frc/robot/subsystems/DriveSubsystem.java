@@ -8,7 +8,6 @@ import java.util.Optional;
 
 import com.kauailabs.navx.frc.AHRS;
 import com.pathplanner.lib.auto.AutoBuilder;
-import com.pathplanner.lib.controllers.PPHolonomicDriveController;
 import com.pathplanner.lib.util.HolonomicPathFollowerConfig;
 import com.pathplanner.lib.util.PIDConstants;
 import com.pathplanner.lib.util.ReplanningConfig;
@@ -466,7 +465,7 @@ public class DriveSubsystem extends EntechSubsystem {
                 this // Reference to this subsystem to set requirements
                 
         );
-        PPHolonomicDriveController.setRotationTargetOverride(this::getRotationTargetOverride);
+        // PPHolonomicDriveController.setRotationTargetOverride(this::getRotationTargetOverride);
         }
     }
 }

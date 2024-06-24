@@ -3,25 +3,41 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.0,
-        "y": 7.0
+        "x": 3.1716052036092677,
+        "y": 4.05
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.0,
-        "y": 7.0
+        "x": 2.1716052036092677,
+        "y": 4.05
+      },
+      "isLocked": false,
+      "linkedName": "Pos2_4pcSquared_Step5"
+    },
+    {
+      "anchor": {
+        "x": 1.8939146666891922,
+        "y": 4.05
+      },
+      "prevControl": {
+        "x": 2.0163091779923996,
+        "y": 4.06435784029983
+      },
+      "nextControl": {
+        "x": 1.8610921478850109,
+        "y": 4.046149659995282
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 4.0,
-        "y": 6.0
+        "x": 1.41,
+        "y": 5.601499977928731
       },
       "prevControl": {
-        "x": 3.0,
-        "y": 6.0
+        "x": 1.5331736126655164,
+        "y": 5.138122580283166
       },
       "nextControl": null,
       "isLocked": false,
@@ -32,9 +48,9 @@
   "constraintZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 1.5,
-    "maxAcceleration": 2.0,
-    "maxAngularVelocity": 100.0,
+    "maxVelocity": 1.75,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 200.0,
     "maxAngularAcceleration": 72.0
   },
   "goalEndState": {

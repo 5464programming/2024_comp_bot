@@ -15,11 +15,11 @@ public class ClimbSubsystem extends EntechSubsystem{
     public RelativeEncoder leftEncoder;
     public RelativeEncoder rightEncoder;
 
-    public double rightUp = -110;
-    public double rightDown = -1;
+    public double rightUp = -48;
+    public double rightDown = 0;
 
-    public double leftUp = -17;
-    public double leftDown = -0.4;
+    public double leftUp = -8;
+    public double leftDown = 0;
 
     private static final boolean ENABLED = true;
 

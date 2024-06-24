@@ -3,59 +3,53 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.8981397630253705,
-        "y": 7.0198259161363925
+        "x": 1.4759528094554764,
+        "y": 5.5430292057165325
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.9078895212422267,
-        "y": 6.9515776086184005
-      },
-      "isLocked": false,
-      "linkedName": "Pos2amp_step1"
-    },
-    {
-      "anchor": {
-        "x": 2.8981397630253705,
-        "y": 6.50308873064302
-      },
-      "prevControl": {
-        "x": 2.8981397630253705,
-        "y": 6.756582444281279
-      },
-      "nextControl": {
-        "x": 2.8981397630253705,
-        "y": 6.245687727643522
+        "x": 1.6696702277015019,
+        "y": 6.015600819800215
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 2.8981397630253705,
-        "y": 7.312318662642077
+        "x": 1.87441515025548,
+        "y": 6.946327738809324
       },
       "prevControl": {
-        "x": 2.8981397630253705,
-        "y": 6.083849127318207
+        "x": 1.7476682934363506,
+        "y": 6.5128384888598765
+      },
+      "nextControl": {
+        "x": 1.8776969696922037,
+        "y": 6.957551949663918
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 3.078051968069748,
+        "y": 6.946327738809324
+      },
+      "prevControl": {
+        "x": 2.6685895373150084,
+        "y": 6.946327738809324
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Pos2amp_step2"
+      "linkedName": "Pos2_4pcSquared_step1"
     }
   ],
-  "rotationTargets": [
-    {
-      "waypointRelativePos": 0.5,
-      "rotationDegrees": -90.0,
-      "rotateFast": false
-    }
-  ],
+  "rotationTargets": [],
   "constraintZones": [],
   "eventMarkers": [
     {
-      "name": "AmpShoot",
-      "waypointRelativePos": 1.5,
+      "name": "New Event Marker",
+      "waypointRelativePos": 1.05,
       "command": {
         "type": "parallel",
         "data": {
@@ -63,7 +57,7 @@
             {
               "type": "named",
               "data": {
-                "name": "AmpShootCommand"
+                "name": "IntakeCommand"
               }
             }
           ]
@@ -79,11 +73,14 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -90.0,
+    "rotation": 0,
     "rotateFast": false
   },
   "reversed": false,
   "folder": null,
-  "previewStartingState": null,
+  "previewStartingState": {
+    "rotation": 0,
+    "velocity": 0
+  },
   "useDefaultConstraints": true
 }

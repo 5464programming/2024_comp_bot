@@ -82,8 +82,8 @@ public class ShooterSubsystem extends EntechSubsystem {
         TopYintercept = TopPostRPM - (TopSlope*PostPitch);
         BottomYintercept = BottomPostRPM - (BottomSlope*PostPitch);
 
-        SPtopAmp = 200;
-        SPbottomAmp = 2250;
+        SPtopAmp = 2200;
+        SPbottomAmp = 150;
 
         SPtopSpeaker = 3100;
         SPbottomSpeaker = 3200;

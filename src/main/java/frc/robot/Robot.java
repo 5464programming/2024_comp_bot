@@ -58,6 +58,7 @@ public class Robot extends TimedRobot {
     public static final String kPos2Amp = "Pos2Amp";
     public static final String kPos2_4pc_NoVision = "Pos2_4pc_NoVision";
     public static final String kPos3 = "Pos3";
+    public static final String kPos2_4pcSquared = "Pos2_4pcSquared";
 
     public static final String kShoot1 = "Shoot1";
     public static final String kShoot2 = "Shoot2";
@@ -68,6 +69,7 @@ public class Robot extends TimedRobot {
     public static final String kTestAuto = "TestAuto";
     public static final String kPos3Far = "Pos3Far";
     public static final String kPos3ReallyFar = "Pos3ReallyFar";
+    public static final String kPos1_Back_Up = "Pos1_Back_Up";
 
     private String wait_selected;
     private final SendableChooser<String> wait_chooser = new SendableChooser<>();
@@ -75,6 +77,9 @@ public class Robot extends TimedRobot {
     private static final String k1Second = "1Second";
     private static final String k2Seconds = "2Seconds";
     private static final String k3Seconds = "3Seconds";
+    private static final String k4Seconds = "4Seconds";
+    private static final String k5Seconds = "5Seconds";
+    private static final String k8Seconds = "8Seconds";
 
     @Override
     public void robotInit() {
@@ -108,6 +113,8 @@ public class Robot extends TimedRobot {
         auto_chooser.addOption("Pos3", kPos3);
         auto_chooser.addOption("Pos3Far", kPos3Far);
         auto_chooser.addOption("Pos3ReallyFar", kPos3ReallyFar);
+        auto_chooser.addOption("Pos1_Back_Up", kPos1_Back_Up);
+        auto_chooser.addOption("Pos2_4pcSquared", kPos2_4pcSquared);
 
         auto_chooser.addOption("Shoot1", kShoot1);
         auto_chooser.addOption("Shoot2", kShoot2);
@@ -127,6 +134,9 @@ public class Robot extends TimedRobot {
         wait_chooser.addOption("1Second", k1Second);
         wait_chooser.addOption("2Seconds", k2Seconds);
         wait_chooser.addOption("3Seconds", k3Seconds);
+        wait_chooser.addOption("4Seconds", k4Seconds);
+        wait_chooser.addOption("5Seconds", k5Seconds);
+        wait_chooser.addOption("8Seconds", k8Seconds);
 
         SmartDashboard.putData("Wait choices", wait_chooser);
     }
@@ -165,6 +175,18 @@ public class Robot extends TimedRobot {
 
                 case k3Seconds:
                 UserPolicy.wait = 3;
+                break;
+
+                case k4Seconds:
+                UserPolicy.wait = 4;
+                break;
+
+                case k5Seconds:
+                UserPolicy.wait = 5;
+                break;
+
+                case k8Seconds:
+                UserPolicy.wait = 8;
                 break;
 
                 default:

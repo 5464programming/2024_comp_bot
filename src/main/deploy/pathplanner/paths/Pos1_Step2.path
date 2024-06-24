@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.1832993580517077,
-        "y": 7.051575128791284
+        "x": 6.43427429305001,
+        "y": 7.367317298737161
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.19379611885465,
-        "y": 6.993687675446759
+        "x": 5.444771053852953,
+        "y": 7.3094298453926365
       },
       "isLocked": false,
       "linkedName": "Bpos1_Step1"
@@ -32,9 +32,9 @@
   "constraintZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 1.5,
-    "maxAcceleration": 2.0,
-    "maxAngularVelocity": 100.0,
+    "maxVelocity": 1.75,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 200.0,
     "maxAngularAcceleration": 72.0
   },
   "goalEndState": {
