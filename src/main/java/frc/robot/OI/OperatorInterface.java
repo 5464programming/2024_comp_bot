@@ -70,7 +70,7 @@ public final class OperatorInterface {
 
         driveController.axisGreaterThan(2, 0.1).whileTrue(new IntakeCommand(intake,led));
         driveController.button(1).whileTrue(new DummyIntakeCommand(intake, led));
-        driveController.button(5).whileTrue(new FeedCommand(intake));
+        driveController.button(6).whileTrue(new FeedCommand(intake));
         driveController.button(7).whileTrue(new IntakeReverseCommand(intake));
 
         // //Secondary controller

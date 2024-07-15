@@ -44,10 +44,10 @@ public class DriveSubsystem extends EntechSubsystem {
 
     private static final boolean ENABLED = true;
 
-    public static final double FRONT_LEFT_VIRTUAL_OFFSET_RADIANS = -0.93266031903447;
-    public static final double FRONT_RIGHT_VIRTUAL_OFFSET_RADIANS = 0.090504866485253;
-    public static final double REAR_LEFT_VIRTUAL_OFFSET_RADIANS = 1.158155494853659;
-    public static final double REAR_RIGHT_VIRTUAL_OFFSET_RADIANS = 0.671883585093911;
+    public static final double FRONT_LEFT_VIRTUAL_OFFSET_RADIANS = -0.938;
+    public static final double FRONT_RIGHT_VIRTUAL_OFFSET_RADIANS = 0.101;
+    public static final double REAR_LEFT_VIRTUAL_OFFSET_RADIANS = 1.11;
+    public static final double REAR_RIGHT_VIRTUAL_OFFSET_RADIANS = 0.672;
 
     public static final int GYRO_ORIENTATION = -1; // might be able to merge with kGyroReversed
 
