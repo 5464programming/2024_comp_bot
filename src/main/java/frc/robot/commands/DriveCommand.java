@@ -12,7 +12,7 @@ import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.VisionSubsystem;
 
 public class DriveCommand extends EntechCommand {
-    private static final double MAX_SPEED_PERCENT = 1.0;
+    private static final double MAX_SPEED_PERCENT = 0.4;
 
     private final DriveSubsystem drive;
     // private final EntechJoystick joystick;
