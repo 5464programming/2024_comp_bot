@@ -87,8 +87,8 @@ public class ShooterSubsystem extends EntechSubsystem {
         // SPbottomAmp = 150;
 
         // THIS IS FOR THE RING TOSS GAME!
-        SPtopAmp = 1900;
-        SPbottomAmp = 2200;
+        SPtopAmp = 1500;
+        SPbottomAmp = 1500;
 
         SPtopSpeaker = 3100;
         SPbottomSpeaker = 3200;
@@ -191,8 +191,8 @@ public class ShooterSubsystem extends EntechSubsystem {
 
     public void Default(){
         if(!(UserPolicy.ampShoot | UserPolicy.speakerShoot)){
-            PIDTop.setReference(SptopDefault, CANSparkMax.ControlType.kVelocity);
-            PIDBottom.setReference(SpbottomDefault, CANSparkMax.ControlType.kVelocity);
+            // PIDTop.setReference(SptopDefault, CANSparkMax.ControlType.kVelocity);
+            // PIDBottom.setReference(SpbottomDefault, CANSparkMax.ControlType.kVelocity);
             // shootTop.set(0.2); // TAKEN OUT FOR RING TOSS
             // shootBottom.set(0.2);
         

@@ -25,7 +25,7 @@ public class AmpShootCommand extends EntechCommand {
         UserPolicy.ampShoot = true;
         UserPolicy.shootUptoSpeed = false;
         UserPolicy.closetoamp = false;
-
+        UserPolicy.feeding = false;
         ampTimer.reset();
         ampTimer.start();
     }
@@ -33,15 +33,15 @@ public class AmpShootCommand extends EntechCommand {
     @Override
     public void execute(){
         if (UserPolicy.ampShoot) {
-            if(UserPolicy.shootUptoSpeed){
+            // if(UserPolicy.shootUptoSpeed){
+            //     UserPolicy.feeding = true;
+            // }
+            if(ampTimer.get() > 1){
                 UserPolicy.feeding = true;
             }
-            // // if(UserPolicy.closetoamp || ampTimer.get() > 2){
-            // //     UserPolicy.feeding = true;
-            // // }
-            // if(UserPolicy.feeding == true){
-            //     intake.IntakeFeed();
-            //     }
+            if(UserPolicy.feeding == true){
+                intake.IntakeFeed();
+                }
             shoot.AmpCommand();
             return;
         }
